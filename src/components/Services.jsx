@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import useReveal from '../hooks/useReveal'
 import { useLanguage } from '../context/useLanguage'
+import Modal from './Modal'
 import './Services.css'
 
 const VARIANTS = ['green', 'teal', 'green', 'teal', 'green']
@@ -92,45 +93,21 @@ export default function Services() {
 }
 
 function ServiceModal({ item, onClose }) {
-  useEffect(() => {
-    if (!item) return
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [item, onClose])
-
-  useEffect(() => {
-    if (item) document.body.style.overflow = 'hidden'
-    return () => { document.body.style.overflow = '' }
-  }, [item])
-
-  if (!item) return null
-
   return (
-    <div className="service-modal-overlay" onClick={onClose}>
-      <div className="service-modal" onClick={(event) => event.stopPropagation()}>
-        <div className="service-modal__close-bar">
-          <button className="service-modal__close" onClick={onClose} aria-label="Close details">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M1 1l12 12M13 1L1 13" stroke="currentColor"
-                    strokeWidth="1.75" strokeLinecap="round"/>
-            </svg>
-          </button>
-        </div>
-        <div className="service-modal__body">
+    <Modal open={Boolean(item)} onClose={onClose} labelledBy="service-modal-title">
+      {item && (
+        <>
           <div className="service-modal__header">
             <span className="service-modal__eyebrow">{item.title}</span>
-            <h2 className="service-modal__title">{item.modalTitle}</h2>
+            <h2 id="service-modal-title" className="service-modal__title">{item.modalTitle}</h2>
           </div>
           <div className="service-modal__content">
             {item.details?.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
           </div>
-        </div>
-      </div>
-    </div>
+        </>
+      )}
+    </Modal>
   )
 }

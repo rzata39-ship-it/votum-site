@@ -1,17 +1,16 @@
-import { useEffect } from 'react'
 import { useLanguage } from '../context/useLanguage'
+import { company } from '../config/company'
+import useSeo from '../hooks/useSeo'
 import './About.css'
 
-export default function About({ onContact }) {
+export default function About() {
   const { locale } = useLanguage()
   const t = locale.about
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [])
+  const { openRoles } = company.careers
+  useSeo('about')
 
   return (
-    <main className="about-page">
+    <main id="main" tabIndex={-1} className="about-page">
       {/* ── Hero ── */}
       <section className="about-hero">
         <div className="about-hero__inner">
@@ -27,7 +26,10 @@ export default function About({ onContact }) {
           <div className="about-hero__right">
             <p className="about-hero__lead">{t.hero.lead}</p>
             <div className="about-hero__founded">
-              <div className="about-hero__founded-year">{t.hero.foundedYear}</div>
+              {/* Rendered only once the founding year is confirmed in config/company.js */}
+              {company.foundingYear && (
+                <div className="about-hero__founded-year">{company.foundingYear}</div>
+              )}
               <div className="about-hero__founded-text">{t.hero.foundedText}</div>
             </div>
           </div>
@@ -115,7 +117,7 @@ export default function About({ onContact }) {
       </section>
 
       {/* ── Team ── */}
-      <section className="about-team">
+      <section id="team" className="about-team">
         <div className="about-team__inner">
           <div className="about-team__header">
             <span className="eyebrow">{t.team.eyebrow}</span>
@@ -124,13 +126,15 @@ export default function About({ onContact }) {
           </div>
           <div className="team-grid">
             {t.team.members.map((m) => (
-              <div key={m.name + m.role} className="team-card">
-                <div className="team-card__avatar">{m.initials}</div>
+              <div key={m.name + m.role} className={`team-card team-card--${m.kind}`}>
+                {m.kind === 'person'
+                  ? <div className="team-card__avatar" aria-hidden="true">{m.initials}</div>
+                  : <div className="team-card__avatar team-card__avatar--role" aria-hidden="true"><RoleIcon /></div>}
                 <div>
                   <div className="team-card__name">{m.name}</div>
                   <div className="team-card__role">{m.role}</div>
                 </div>
-                <p className="team-card__bio">{m.bio}</p>
+                {m.bio && <p className="team-card__bio">{m.bio}</p>}
                 <div className="team-card__tags">
                   {m.tags.map((tag) => (
                     <span key={tag} className="team-tag">{tag}</span>
@@ -143,16 +147,43 @@ export default function About({ onContact }) {
             <p className="about-team__cta-text">
               <strong>{t.team.cta.textBefore}</strong>{t.team.cta.textAfter}
             </p>
-            <button
-              type="button"
-              className="btn btn-secondary-teal"
-              onClick={onContact}
-            >
-              {t.team.cta.button}
-            </button>
+            {/* No published roles → no "open roles" CTA; offer a real contact channel instead */}
+            {openRoles.length === 0 && (
+              <a
+                className="btn btn-secondary-teal"
+                href={`mailto:${company.email}?subject=${encodeURIComponent(t.team.cta.emailSubject)}`}
+              >
+                {t.team.cta.emailButton}
+              </a>
+            )}
           </div>
+          {openRoles.length > 0 && (
+            <div id="open-roles" className="about-roles">
+              <h3 className="about-roles__title">{t.team.cta.openRolesTitle}</h3>
+              <ul className="about-roles__list">
+                {openRoles.map((role) => (
+                  <li key={role.title}>
+                    <a href={role.url} target="_blank" rel="noopener noreferrer">
+                      {role.title}{role.location ? ` — ${role.location}` : ''}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
     </main>
+  )
+}
+
+function RoleIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
   )
 }

@@ -1,13 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
+import useOverlay from '../hooks/useOverlay'
+import { scrollBehavior, scrollToId } from '../utils/scroll'
 import LangSwitcher from './LangSwitcher'
 import './Nav.css'
 
 const SECTION_IDS = ['services', 'how', 'work', 'contact']
+const MOBILE_MENU_ID = 'mobile-menu'
+const DESKTOP_QUERY = '(min-width: 769px)'
 
 export default function Nav({ onContact }) {
-  const { lang, setLang, locale } = useLanguage()
+  const { locale } = useLanguage()
   const t = locale.nav
   const location = useLocation()
   const navigate = useNavigate()
@@ -15,26 +19,36 @@ export default function Nav({ onContact }) {
   const [scrolled,      setScrolled]      = useState(false)
   const [menuOpen,      setMenuOpen]      = useState(false)
   const [activeSection, setActiveSection] = useState('')
+  const navRef       = useRef(null)
+  const menuRef      = useRef(null)
+  const hamburgerRef = useRef(null)
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40)
-      if (menuOpen) setMenuOpen(false)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [menuOpen])
-
-  useEffect(() => {
-    const handle = (e) => { if (e.key === 'Escape') setMenuOpen(false) }
-    window.addEventListener('keydown', handle)
-    return () => window.removeEventListener('keydown', handle)
   }, [])
 
+  // The drawer only exists on small screens — close it when the layout switches
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [menuOpen])
+    const mq = window.matchMedia(DESKTOP_QUERY)
+    const onChange = (e) => { if (e.matches) setMenuOpen(false) }
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
+  // Close after any navigation
+  useEffect(() => { setMenuOpen(false) }, [location.pathname, location.hash])
+
+  // Scroll lock, inert page content, Escape, focus trap and focus restore
+  useOverlay(menuOpen, {
+    onClose:         () => setMenuOpen(false),
+    getContainers:   () => [navRef.current, menuRef.current],
+    getInert:        () => [document.getElementById('page'), document.querySelector('.skip-link')],
+    getInitialFocus: () => menuRef.current?.querySelector('a, button'),
+    getReturnFocus:  () => hamburgerRef.current,
+  })
 
   useEffect(() => {
     if (!isHome) { setActiveSection(''); return }
@@ -73,12 +87,10 @@ export default function Nav({ onContact }) {
     setMenuOpen(false)
     if (isHome) {
       window.history.replaceState(null, '', `/#${hash}`)
-      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
+      scrollToId(hash)
     } else {
+      // ScrollToHash (App.jsx) scrolls once the home page has rendered
       navigate(`/#${hash}`)
-      setTimeout(() => {
-        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
-      }, 60)
     }
   }
 
@@ -87,7 +99,7 @@ export default function Nav({ onContact }) {
     setActiveSection('')
     if (isHome) {
       window.history.replaceState(null, '', '/')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.scrollTo({ top: 0, behavior: scrollBehavior() })
     } else {
       navigate('/')
     }
@@ -95,14 +107,14 @@ export default function Nav({ onContact }) {
 
   return (
     <>
-      <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
+      <nav ref={navRef} className={`nav ${scrolled ? 'nav--scrolled' : ''}`} aria-label={t.menu}>
         <button
           className="nav__logo"
           onClick={handleLogoClick}
-          aria-label="Back to top"
+          aria-label={t.home}
           type="button"
         >
-          <img src="/logo_word.svg" alt="VOTUM" height="36" />
+          <img src="/logo_word.svg" alt="" height="36" />
         </button>
 
         <ul className="nav__links">
@@ -136,7 +148,7 @@ export default function Nav({ onContact }) {
           </li>
         </ul>
 
-        <LangSwitcher lang={lang} setLang={setLang} />
+        <LangSwitcher />
 
         <button
           type="button"
@@ -147,10 +159,12 @@ export default function Nav({ onContact }) {
         </button>
 
         <button
+          ref={hamburgerRef}
           className={`nav__hamburger${menuOpen ? ' nav__hamburger--open' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={menuOpen ? t.closeMenu : t.openMenu}
           aria-expanded={menuOpen}
+          aria-controls={MOBILE_MENU_ID}
           type="button"
         >
           <span />
@@ -159,30 +173,33 @@ export default function Nav({ onContact }) {
         </button>
       </nav>
 
-      {menuOpen && (
-        <div className="nav__mobile-menu">
-          {SECTION_LINKS.map(({ label, hash, id }) => (
-            <a
-              key={hash}
-              href={`/#${hash}`}
-              onClick={(e) => { e.preventDefault(); goToSection(hash) }}
-              className={isHome && activeSection === id ? 'nav__link--active' : ''}
-            >
-              {label}
-            </a>
-          ))}
-          <Link to="/about" onClick={() => setMenuOpen(false)}>{t.about}</Link>
-          <Link to="/blog"  onClick={() => setMenuOpen(false)}>{t.blog}</Link>
-          <button
-            type="button"
-            className="btn btn-primary nav__mobile-cta"
-            onClick={() => { setMenuOpen(false); onContact() }}
+      <div
+        id={MOBILE_MENU_ID}
+        ref={menuRef}
+        className="nav__mobile-menu"
+        hidden={!menuOpen}
+      >
+        {SECTION_LINKS.map(({ label, hash, id }) => (
+          <a
+            key={hash}
+            href={`/#${hash}`}
+            onClick={(e) => { e.preventDefault(); goToSection(hash) }}
+            className={isHome && activeSection === id ? 'nav__link--active' : ''}
+            aria-current={isHome && activeSection === id ? 'true' : undefined}
           >
-            {t.cta} →
-          </button>
-          <LangSwitcher lang={lang} setLang={setLang} />
-        </div>
-      )}
+            {label}
+          </a>
+        ))}
+        <Link to="/about" onClick={() => setMenuOpen(false)}>{t.about}</Link>
+        <Link to="/blog"  onClick={() => setMenuOpen(false)}>{t.blog}</Link>
+        <button
+          type="button"
+          className="btn btn-primary nav__mobile-cta"
+          onClick={() => { setMenuOpen(false); onContact() }}
+        >
+          {t.cta} →
+        </button>
+      </div>
     </>
   )
 }

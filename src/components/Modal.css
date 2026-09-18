@@ -1,0 +1,87 @@
+/* ── Modal ────────────────────────────────────────────────────
+   Single overlay / panel / close-button implementation shared by
+   ContactModal, the service modal and the case-study modal.
+   Content-specific styles stay in the respective component CSS.
+   ─────────────────────────────────────────────────────────── */
+
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  animation: modalOverlayIn 0.25s var(--ease);
+}
+
+.modal {
+  width: 100%;
+  max-height: 90vh;
+  max-height: 90dvh;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0) 120px),
+    var(--navy-800);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-3xl);
+  box-shadow:
+    0 32px 96px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  animation: modalSlideIn 0.32s var(--ease);
+}
+.modal--md { max-width: 560px; }
+.modal--lg { max-width: 740px; }
+
+/* The dialog container receives focus on open — the ring would only be noise */
+.modal:focus,
+.modal:focus-visible { outline: none; }
+
+.modal__close-bar {
+  flex-shrink: 0;
+  display: flex; justify-content: flex-end;
+  padding: 12px 12px 0;
+}
+
+.modal__close {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--navy-200);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+.modal__close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+}
+
+.modal__body {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 12px 44px 44px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.18) transparent;
+}
+
+@media (max-width: 640px) {
+  .modal-overlay { padding: 12px; }
+  .modal { border-radius: var(--radius-2xl); max-height: 92vh; max-height: 92dvh; }
+  .modal__body { padding: 8px 20px 28px; }
+
+  /* Bottom-sheet presentation */
+  .modal-overlay--sheet { align-items: flex-end; padding-bottom: 0; }
+  .modal-overlay--sheet .modal { border-radius: var(--radius-3xl) var(--radius-3xl) 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay,
+  .modal { animation: none; }
+}

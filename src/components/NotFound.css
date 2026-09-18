@@ -1,0 +1,30 @@
+.not-found {
+  padding-top: var(--nav-height);
+  min-height: 72vh;
+  display: flex; align-items: center;
+}
+.not-found__inner {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 80px var(--container-pad);
+}
+.not-found .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--green-400);
+  display: block; margin-bottom: 14px;
+}
+.not-found__title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 64px); font-weight: 800;
+  line-height: 1.05; letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.not-found__body {
+  font-size: 17px; line-height: 1.65;
+  color: var(--navy-200);
+  max-width: 520px; margin-bottom: 32px;
+}
+.not-found__actions { display: flex; flex-wrap: wrap; gap: 12px; }

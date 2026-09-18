@@ -3,8 +3,8 @@
    ============================================================ */
 @import './tokens.css';
 
-/* Using Neue Haas Grotesk Text Pro system font - no @font-face needed */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+/* Inter + JetBrains Mono are self-hosted via @fontsource (imported in main.jsx) —
+   no requests to third-party font servers. */
 
 @font-face {
   font-family: 'AlteHaasGrotesk';
@@ -60,6 +60,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* Accessibility: skip animations if user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .reveal,
   .reveal:not(.visible) {
     opacity: 1;
@@ -72,6 +73,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
 
 /* ── Shared layout utilities ────────────────────────────────── */
 .container {
@@ -176,8 +178,25 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 :focus-visible {
   outline: 2px solid var(--green-400);
   outline-offset: 3px;
-  border-radius: var(--radius-sm);
 }
+/* Green-on-green would disappear on primary buttons */
+.btn-primary:focus-visible {
+  outline-color: var(--white);
+}
+/* Programmatic focus targets (skip link, route headings) need no ring */
+[tabindex="-1"]:focus { outline: none; }
+
+/* ── Skip link ──────────────────────────────────────────────── */
+.skip-link {
+  position: fixed; top: 12px; left: 12px; z-index: 300;
+  padding: 12px 18px; border-radius: var(--radius-md);
+  background: var(--green-400); color: var(--navy-900);
+  font-size: 14px; font-weight: 700;
+  transform: translateY(-200%);
+  transition: transform var(--transition-fast);
+}
+.skip-link:focus { transform: translateY(0); outline: 2px solid var(--white); outline-offset: 2px; }
+
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,0,0); border: 0;

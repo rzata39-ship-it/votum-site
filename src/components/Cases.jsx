@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useLanguage } from '../context/useLanguage'
+import Modal from './Modal'
 import './Cases.css'
 
 const CASE_VISUALS = {
@@ -91,7 +92,10 @@ function CaseCard({ item, variant = 'supporting', layout = 'visual', visualType,
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') onClick?.()
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onClick?.()
+        }
       }}
     >
       {layout === 'visual' && (
@@ -121,36 +125,13 @@ function CaseCard({ item, variant = 'supporting', layout = 'visual', visualType,
 }
 
 function CaseModal({ item, labels, onClose }) {
-  useEffect(() => {
-    if (!item) return
-    const handle = (e) => { if (e.key === 'Escape') onClose() }
-    window.addEventListener('keydown', handle)
-    return () => window.removeEventListener('keydown', handle)
-  }, [item, onClose])
-
-  useEffect(() => {
-    if (item) document.body.style.overflow = 'hidden'
-    return () => { document.body.style.overflow = '' }
-  }, [item])
-
-  if (!item) return null
-
   return (
-    <div className="case-modal-overlay" onClick={onClose}>
-      <div className="case-modal" onClick={(e) => e.stopPropagation()}>
-        <div className="case-modal__close-bar">
-          <button className="case-modal__close" onClick={onClose} aria-label="Close">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M1 1l12 12M13 1L1 13" stroke="currentColor"
-                    strokeWidth="1.75" strokeLinecap="round"/>
-            </svg>
-          </button>
-        </div>
-
-        <div className="case-modal__body">
+    <Modal open={Boolean(item)} onClose={onClose} labelledBy="case-modal-title">
+      {item && (
+        <>
           <div className="case-modal__header">
             <span className="case-modal__eyebrow">{item.category}</span>
-            <h2 className="case-modal__title">{item.title}</h2>
+            <h2 id="case-modal-title" className="case-modal__title">{item.title}</h2>
             <p className="case-modal__summary">{item.summary}</p>
           </div>
 
@@ -178,9 +159,9 @@ function CaseModal({ item, labels, onClose }) {
               </div>
             )}
           </div>
-        </div>
-      </div>
-    </div>
+        </>
+      )}
+    </Modal>
   )
 }
 

@@ -200,3 +200,21 @@
     margin-bottom: 24px;
   }
 }
+
+/* ── "Illustrative metrics" caption under each phase dashboard ── */
+.feature-strip__visual {
+  position: relative;
+  margin-bottom: 30px;
+}
+.feature-strip__visual > .feature-strip__visual-note {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--navy-300);
+  text-align: center;
+}

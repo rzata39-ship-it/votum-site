@@ -11,7 +11,8 @@
   --navy-800: #17172a;   /* card surfaces */
   --navy-700: #20203b;   /* borders, dividers */
   --navy-600: #2d2d52;   /* subtle elements */
-  --navy-400: #6a6aad;   /* muted text */
+  --navy-400: #6a6aad;   /* decorative / large muted text only (3.6–3.9:1) */
+  --navy-300: #8585c0;   /* muted body text — ≥ 5.1:1 on navy-800/900/950 (WCAG AA) */
   --navy-200: #acacd1;   /* secondary text */
 
   /* ── Colors: Primary Green ─────────────────────────────── */
@@ -47,8 +48,8 @@
    */
   /* --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; */
   --font-display: 'AlteHaasGrotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --font-body: 'Inter Variable', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
 
   /* ── Type scale ────────────────────────────────────────── */
   --text-display: clamp(52px, 8vw, 88px);
