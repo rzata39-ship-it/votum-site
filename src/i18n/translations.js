@@ -17,6 +17,7 @@ export const translations = {
       closeMenu: 'Close menu',
       close:     'Close',
       language:  'Language',
+      backToTop: 'Back to top',
     },
 
     hero: {
@@ -514,6 +515,7 @@ export const translations = {
       closeMenu: 'Menü schließen',
       close:     'Schließen',
       language:  'Sprache',
+      backToTop: 'Nach oben',
     },
 
     hero: {
@@ -810,6 +812,7 @@ export const translations = {
       closeMenu: 'Затвори менюто',
       close:     'Затвори',
       language:  'Език',
+      backToTop: 'Към началото',
     },
 
     hero: {

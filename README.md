@@ -46,7 +46,7 @@ src/
 └── components/
     ├── Modal.jsx            the one accessible dialog (contact, service, case study)
     ├── Nav, Hero, Stats, Services, HowWeWork, Cases, CtaBanner, Footer
-    ├── About, Blog, Article, Newsletter, NotFound, ContactModal
+    ├── About, Blog, Article, Newsletter, NotFound, ContactModal, BackToTop
     └── legal/               LegalPage shell + Privacy, Terms, Cookies
 ```
 
