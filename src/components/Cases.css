@@ -849,62 +849,6 @@
 
 /* ── Modal ─────────────────────────────────────────────── */
 
-.case-modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(4px);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 200;
-  padding: 24px;
-  animation: modalOverlayIn 0.25s var(--ease);
-}
-
-.case-modal {
-  background: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0) 120px),
-              var(--navy-800);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-3xl);
-  width: min(100%, 740px);
-  max-height: 90vh;
-  box-shadow: 0 32px 96px rgba(0, 0, 0, 0.5);
-  animation: modalSlideIn 0.32s var(--ease);
-  display: flex; flex-direction: column; overflow: hidden;
-}
-
-.case-modal__close-bar {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: flex-end;
-  padding: 16px 16px 0;
-}
-
-.case-modal__body {
-  overflow-y: auto; overflow-x: hidden;
-  padding: 16px 44px 44px;
-  flex: 1; scrollbar-width: none;
-}
-
-.case-modal__body::-webkit-scrollbar {
-  display: none;
-}
-
-.case-modal__close {
-  width: 36px; height: 36px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  font-size: 24px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; color: var(--navy-200);
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-  flex-shrink: 0;
-}
-.case-modal__close:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--white);
-}
-
 .case-modal__header {
   margin-bottom: 40px;
 }
@@ -1023,7 +967,6 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-
 .case-modal__tags .tag {
   display: inline-block;
   padding: 6px 14px;
@@ -1045,17 +988,6 @@
 }
 
 @media (max-width: 640px) {
-  .case-modal-overlay {
-    padding: 12px;
-  }
-
-  .case-modal {
-    border-radius: 20px;
-  }
-
-  .case-modal__body {
-    padding: 8px 20px 24px;
-  }
 
   .case-modal__title {
     font-size: clamp(22px, 7vw, 36px);

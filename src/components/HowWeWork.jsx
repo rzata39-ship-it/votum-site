@@ -28,7 +28,11 @@ export default function HowWeWork() {
             key={i}
             className={`feature-strip reveal${PHASE_REVERSES[i] ? ' feature-strip--reverse' : ''}`}
           >
-            <div className="feature-strip__visual"><Visual /></div>
+            <div className="feature-strip__visual">
+              <Visual />
+              {/* The dashboards are mock-ups, not client data */}
+              <p className="feature-strip__visual-note">{t.visualNote}</p>
+            </div>
             <div className="feature-strip__content">
               <span className="feature-strip__eyebrow">{phase.eyebrow}</span>
               <h3 className="feature-strip__title">{phase.title}</h3>

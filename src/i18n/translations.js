@@ -10,6 +10,13 @@ export const translations = {
       about:     'About',
       blog:      'Blog',
       cta:       'Get in touch',
+      skip:      'Skip to main content',
+      home:      'VOTUM — home',
+      menu:      'Main menu',
+      openMenu:  'Open menu',
+      closeMenu: 'Close menu',
+      close:     'Close',
+      language:  'Language',
     },
 
     hero: {
@@ -120,6 +127,7 @@ export const translations = {
 
     howWeWork: {
       eyebrow: 'How we work',
+      visualNote: 'Example delivery dashboard · illustrative metrics',
       title:   'A process designed around no surprises.',
       lead:    "We don't take shortcuts. Every engagement follows a proven process designed to eliminate risk, align technology with business goals, and deliver solutions your team can stand behind.",
       phases: [
@@ -141,7 +149,7 @@ export const translations = {
           body:    'Every solution is built, tested, and deployed using modern engineering, DevOps, and quality practices—ensuring your team inherits systems that are reliable, scalable, and maintainable.',
           checks:  [
             '2-week sprint cycles with live demos',
-            '95%+ automated test coverage',
+            'High automated test coverage as a standard',
             'Built-in quality engineering & test automation',
             'CI/CD and infrastructure automation by default',
             'Cloud-native and DevOps best practices',
@@ -175,9 +183,9 @@ export const translations = {
         summary:  'Ensuring reliable operations and continuous improvement under defined SLAs.',
         challenge:'A Tier 1 automotive OEM with 150,000+ employees struggled with fragmented tools, limited visibility, and inconsistent processes across global teams. Following a large-scale transformation, they required a trusted long-term partner to operate, maintain, and continuously improve their centralized software delivery and testing platform at enterprise scale.',
         solution: 'We defined and executed a transformation strategy to unify software delivery and testing, designing a centralized platform based on OpenText ALM & UFT and migrating legacy systems into a single ecosystem. Building on this foundation, we provide end-to-end managed services for a platform supporting over 1,000 users worldwide. Our scope includes system maintenance, L1–L2 user support, incident management, and continuous platform enhancements—all under clearly defined SLAs.',
-        outcome:  'A standardized and scalable environment with full lifecycle visibility, combined with stable operations exceeding 98% availability. The client benefits from significantly reduced internal workload, continuous improvement, and a high-performing platform that ensures long-term scalability and consistent global operations.',
+        outcome:  'A standardized and scalable environment with full lifecycle visibility, combined with stable operations within the agreed SLA targets. The client benefits from significantly reduced internal workload, continuous improvement, and a high-performing platform that ensures long-term scalability and consistent global operations.',
         tags:     ['OpenText ALM/UFT', 'Managed Services', 'SLA Management', 'L1–L2 Support'],
-        stats:    [{ value: '1,000+', label: 'users' }, { value: '98%+', label: 'availability' }, { value: '24/7', label: 'continuity' }],
+        stats:    [{ value: '1,000+', label: 'users' }, { value: 'SLA', label: 'based operations' }, { value: '24/7', label: 'continuity' }],
       },
       hero: {
         category: 'Data Migration & Cloud Architecture',
@@ -186,9 +194,9 @@ export const translations = {
         summary:  'Migrated and archived enterprise ALM and PPM data from legacy OpenText SaaS to a cost-efficient, audit-ready AWS platform.',
         challenge:'A major European insurance group was decommissioning their OpenText ALM and PPM platforms but faced a critical requirement: large volumes of historical Oracle database records, extensive attachments, and strict audit and compliance obligations meant the data had to remain fully accessible, secure, and audit-ready — without staying tied to legacy vendor infrastructure.',
         solution: 'We designed and implemented a scalable, cloud-native archival solution on AWS. The Oracle database was migrated to PostgreSQL on AWS RDS, ensuring full data integrity and schema optimization. All attachments and documents were extracted and structured to preserve their relationships with the underlying data. We also built a custom lightweight access tool — purpose-built for audit and compliance use cases — allowing easy querying of archived records and seamless retrieval of related files.',
-        outcome:  '100% data preservation from OpenText ALM and PPM, a successful Oracle-to-PostgreSQL migration, and full audit readiness with fast access to historical records. The client eliminated their dependency on legacy SaaS platforms, reduced operational costs, and gained a modern, future-proof archive aligned with their long-term IT strategy.',
+        outcome:  'Historical data from OpenText ALM and PPM preserved, a successful Oracle-to-PostgreSQL migration, and full audit readiness with fast access to historical records. The client eliminated their dependency on legacy SaaS platforms, reduced operational costs, and gained a modern, future-proof archive aligned with their long-term IT strategy.',
         tags:     ['AWS', 'PostgreSQL', 'Oracle Migration', 'OpenText ALM/PPM', 'Data Archival'],
-        stats:    [{ value: '100%', label: 'data preserved' }, { value: 'Zero', label: 'vendor lock-in' }, { value: '100%', label: 'audit-ready' }],
+        stats:    [{ value: 'ALM/PPM', label: 'data archived' }, { value: 'AWS', label: 'cloud-native archive' }, { value: 'Audit', label: 'ready access' }],
       },
       supporting: [
         {
@@ -198,9 +206,9 @@ export const translations = {
           summary:  'Modernized manual workflows into an integrated digital platform.',
           challenge:"A leading asset management firm was held back by a legacy platform that couldn't scale. Outdated workflows, poor UX, and siloed collaboration were slowing down their specialist investment consultants and limiting operational efficiency.",
           solution: 'We designed and built a modern, enterprise-grade web platform from scratch — covering planning, design, development, testing, and full rollout. The solution features a scalable microservices backend, a React frontend, secure authentication, and containerized deployment.',
-          outcome:  'End-to-end processes fully digitized — including planning, service mediation, activity tracking, and automated invoicing. Manual workflows replaced entirely, enabling efficient and scalable collaboration across the organization.',
+          outcome:  'End-to-end processes digitized — including planning, service mediation, activity tracking, and automated invoicing. Manual workflows replaced by digital ones, enabling efficient and scalable collaboration across the organization.',
           tags:     ['React', 'Java / Spring Boot', 'Keycloak', 'Docker', 'Kubernetes'],
-          stats:    [{ value: '100%', label: 'workflows digitized' }, { value: '0', label: 'manual processes' }, { value: 'Full', label: 'stack delivery' }],
+          stats:    [{ value: 'Digital', label: 'end-to-end workflows' }, { value: 'Automated', label: 'invoicing' }, { value: 'Full', label: 'stack delivery' }],
         },
         {
           category: 'DevOps Platform',
@@ -209,9 +217,9 @@ export const translations = {
           summary:  'Enabled secure, controlled application delivery with on-premise infrastructure.',
           challenge:'To meet growing application delivery demands, a client needed a robust, fully on-premise DevOps platform — one that could support modern deployment practices while meeting strict enterprise security and infrastructure requirements.',
           solution: 'We designed and implemented a complete on-premise Kubernetes platform from scratch — with dedicated clusters for development and production, integrated core services (ingress, storage, backups, monitoring), and CI/CD pipelines via Jenkins with built-in security scanning.',
-          outcome:  'A production-ready infrastructure enabling secure, scalable, and consistent application delivery — with full control over deployment processes and a measurable improvement in release reliability.',
+          outcome:  'A production-ready infrastructure enabling secure, scalable, and consistent application delivery — with full control over deployment processes and more reliable releases.',
           tags:     ['Kubernetes', 'Jenkins', 'CI/CD', 'On-Premise Infrastructure', 'DevSecOps'],
-          stats:    [{ value: '100%', label: 'automated deploys' }, { value: '2', label: 'cluster environments' }, { value: 'Zero', label: 'manual infra steps' }],
+          stats:    [{ value: 'CI/CD', label: 'automated deploys' }, { value: '2', label: 'cluster environments' }, { value: 'On-prem', label: 'Kubernetes platform' }],
         },
       ],
       final: {
@@ -223,23 +231,25 @@ export const translations = {
         solution: 'We designed and implemented a comprehensive test automation framework from scratch using world-class, industry-standard test automation platform, defined standardized testing processes, and integrated automated testing directly into the development and release lifecycle.',
         outcome:  'Significantly reduced manual testing effort, faster and more reliable release cycles, and improved test coverage across teams — enabling scalable, high-quality software delivery at enterprise pace.',
         tags:     ['Test Automation', 'QA Strategy', 'Release Management', 'Process Standardization'],
-        stats:    [{ value: '80%+', label: 'test coverage' }, { value: '3×', label: 'faster releases' }, { value: 'Zero', label: 'prod regressions' }],
+        stats:    [{ value: 'Broader', label: 'test coverage' }, { value: 'Faster', label: 'release cycles' }, { value: 'Less', label: 'manual testing' }],
       },
     },
 
     cta: {
       eyebrow: 'Ready to transform your engineering?',
       title:   "Let's build your competitive advantage.",
-      sub:     "Tell us about your vision — we'll come back within 24 hours with a clear strategy, not a sales pitch.",
+      sub:     "Tell us about your vision — we'll come back within {hours} hours with a clear strategy, not a sales pitch.",
       button:  'Get in touch →',
-      small:   'No commitment. Response within 24 h.',
+      small:   'No commitment. Response within {hours} h.',
     },
 
     contact: {
       eyebrow:  "You're one message away",
       title:    'What are you working on?',
-      sub:      'Share a rough outline — a paragraph is enough. One of our senior engineers will read it personally and come back with a clear next step within 24 hours.',
+      sub:      'Share a rough outline — a paragraph is enough. One of our senior engineers will read it personally and come back with a clear next step within {hours} hours.',
       note:     'No commitment required.',
+      sending:  'Sending…',
+      privacy:  { before: 'We use the details you send only to respond to your enquiry. See our ', link: 'Privacy Policy', after: '.' },
       send:     'Send message →',
       fields: {
         name:    'Name',
@@ -256,12 +266,13 @@ export const translations = {
       errors: {
         name:   'Please enter your name',
         email:  'Please enter a valid email address',
-        submit: 'Something went wrong sending your message. Please try again or email info@votum.com directly.',
+        brief:  'Please describe briefly what you are working on (at least 10 characters)',
+        submit: 'Something went wrong sending your message. Please try again or email {email} directly.',
       },
       success: {
         title:  "We'll be in touch.",
-        body:   "Thanks for reaching out. We'll respond within 24 hours with a clear strategy — not a sales pitch.",
-        detail: 'Response within 24 h · No commitment',
+        body:   "Thanks for reaching out. We'll respond within {hours} hours with a clear strategy — not a sales pitch.",
+        detail: 'Response within {hours} h · No commitment',
       },
     },
 
@@ -272,8 +283,9 @@ export const translations = {
         titleTail: 'that',
         titleAccent: 'lasts.',
         lead: 'Votum is a senior engineering consultancy. We embed with your team, take ownership of outcomes, and build the technical foundations that let your product scale — without the overhead of a traditional agency.',
-        foundedYear: '2006',
-        foundedText: "Founded with the belief that great engineering is about ownership, not output. Eighteen years and 45+ engagements later, that hasn't changed.",
+        // The year itself comes from company.foundingYear (src/config/company.js)
+        // and is only rendered once it is confirmed.
+        foundedText: "Built on the belief that great engineering is about ownership, not output. That hasn't changed.",
       },
       stats: [
         { num: '45+', label: 'Projects delivered',   color: 'green' },
@@ -318,17 +330,28 @@ export const translations = {
       team: {
         eyebrow: 'The team',
         title: "People who've done this before.",
-        note: "Every person at Votum has spent years in production engineering — not in consulting about it. We don't hire people to grow them. We hire people who are already excellent.",
+        note: 'Every person at Votum has spent years in production engineering — not in consulting about it. We hire experienced specialists and give them the ownership and environment to keep growing.',
+        // kind: 'person' → a named individual (only with real, confirmed data).
+        // kind: 'role'   → a role / capability description, rendered without
+        //                  initials so it is never mistaken for a personal profile.
+        // Real team members (confirmed by the client, 2026-09). `bio` is optional —
+        // none were provided, so cards show name, role and role-area tags only.
         members: [
-          { initials: 'IM', name: 'Ivan Mitev',      role: 'Founder & CTO',         bio: '18+ years in enterprise engineering. Led platform teams at scale across automotive, financial services, and insurance sectors.', tags: ['Architecture', 'Strategy', 'Cloud'] },
-          { initials: 'SN', name: 'Senior Engineer', role: 'DevOps & Platform Lead', bio: 'Kubernetes, CI/CD, and cloud-native infrastructure. Designed and operated platforms supporting 1,000+ concurrent users.',     tags: ['K8s', 'DevOps', 'AWS'] },
-          { initials: 'TP', name: 'Senior Engineer', role: 'Quality Engineering Lead', bio: 'Test automation strategy and implementation across full engineering lifecycles. 95%+ coverage across every project delivered.', tags: ['Test Automation', 'QA Strategy', 'Java'] },
-          { initials: '+',  name: '20+ engineers',   role: 'On demand',              bio: 'A network of senior engineers available for specific engagements. Every one vetted personally — no recruitment pool, no juniors.', tags: ['Full Stack', 'Mobile', 'Data'] },
+          { kind: 'person', initials: 'HK', name: 'Hristo Kacarov',    role: 'Managing Director / CTO',        tags: ['Strategy', 'Architecture', 'Leadership'] },
+          { kind: 'person', initials: 'VK', name: 'Velislav Kunev',    role: 'Systems Architect',              tags: ['Architecture', 'Integration', 'Cloud'] },
+          { kind: 'person', initials: 'NP', name: 'Nikolay Peshev',    role: 'Senior DevOps / Cloud Engineer', tags: ['Kubernetes', 'CI/CD', 'Cloud'] },
+          { kind: 'person', initials: 'BK', name: 'Blagovest Kasabov', role: 'Senior Full-Stack Engineer',     tags: ['Full Stack', 'Backend', 'Frontend'] },
+          { kind: 'person', initials: 'IP', name: 'Ivan Petrov',       role: 'Senior Test Manager',            tags: ['Test Automation', 'QA Strategy', 'Release Management'] },
+          { kind: 'role',   name: 'Extended team',     role: 'On demand', bio: 'A network of senior engineers available for specific engagements. Every one vetted personally — no recruitment pool, no juniors.', tags: ['Full Stack', 'Mobile', 'Data'] },
         ],
         cta: {
           textBefore: "We're growing carefully.",
           textAfter: " If you're a senior engineer who wants to do high-quality work with clients who care about it, we'd like to hear from you.",
-          button: 'View open roles →',
+          // Rendered only while company.careers.openRoles is non-empty
+          openRolesTitle: 'Open roles',
+          // Fallback while there are no published roles
+          emailButton: 'Write to us →',
+          emailSubject: 'Careers at VOTUM',
         },
       },
     },
@@ -340,53 +363,67 @@ export const translations = {
         subStrong: 'Technical writing from the Votum team.',
         sub: ' Architecture decisions, delivery patterns, and hard-won lessons from production engineering across 45+ engagements.',
       },
-      filters: ['All', 'Architecture', 'DevOps', 'Quality Engineering', 'Delivery', 'Case Studies'],
+      filtersLabel: 'Filter articles by category',
+      // key = stable id used in the ?category= URL parameter
+      filters: [
+        { key: 'all',                 label: 'All' },
+        { key: 'architecture',        label: 'Architecture' },
+        { key: 'devops',              label: 'DevOps' },
+        { key: 'quality-engineering', label: 'Quality Engineering' },
+        { key: 'delivery',            label: 'Delivery' },
+        { key: 'case-studies',        label: 'Case Studies' },
+      ],
       featured: {
+        slug: null, // set once the article exists in src/content/articles.js
+        categories: ['case-studies', 'architecture'],
         tags: [
           { label: 'Case Study',   variant: 'green' },
           { label: 'Architecture', variant: 'teal'  },
         ],
         date: 'April 2026',
         title: 'Migrating 400GB of Insurance Data from OpenText SaaS — Without Losing a Single Record',
-        excerpt: "A leading European insurance group needed to exit an expensive SaaS vendor contract without disrupting 12 years of archived policyholder data. Here's how we designed a migration that preserved 100% integrity, maintained audit compliance, and eliminated vendor lock-in permanently.",
-        author: { initials: 'IM', name: 'Ivan Mitev', role: 'Founder & CTO' },
+        excerpt: "A leading European insurance group needed to exit an expensive SaaS vendor contract without disrupting 12 years of archived policyholder data. Here's how we designed a migration that preserved data integrity, maintained audit compliance, and removed the dependency on the legacy vendor.",
+        author: null, // set { initials, name, role } once the article and its real author exist
         cta: 'Read article →',
       },
       grid: {
-        heading: 'Recent articles',
+        heading: 'Insights',
+        readCta: 'Read →',
+        inPreparation: 'Full article in preparation',
+        empty: 'No articles in this category yet.',
         articles: [
           {
-            icon: 'K8s', tagLabel: 'DevOps', tagVariant: 'teal',
+            slug: null, category: 'devops', icon: 'K8s', tagLabel: 'DevOps', tagVariant: 'teal',
             date: 'March 2026', readTime: '8 min read',
             title: 'Why we stopped using Helm for everything — and what we use instead',
             excerpt: "Helm is a great tool when you need it. But three engagements in a row taught us that it's also the fastest way to create configuration sprawl that nobody can untangle 18 months later.",
           },
           {
-            icon: 'QE', tagLabel: 'Quality Engineering', tagVariant: 'green',
+            slug: null, category: 'quality-engineering', icon: 'QE', tagLabel: 'Quality Engineering', tagVariant: 'green',
             date: 'February 2026', readTime: '11 min read',
             title: "95% test coverage is a bad goal. Here's what to measure instead.",
             excerpt: "Coverage metrics are comfortable because they're easy to measure. They're also routinely gamed, misunderstood, and used to justify test suites that provide almost no protection against the failures that actually happen in production.",
           },
           {
-            icon: 'ADR', tagLabel: 'Architecture', tagVariant: 'teal',
+            slug: null, category: 'architecture', icon: 'ADR', tagLabel: 'Architecture', tagVariant: 'teal',
             date: 'January 2026', readTime: '6 min read',
             title: 'Architecture Decision Records: the one document every engineering team should write but almost none do',
             excerpt: 'Six months into an engagement, the question that kills velocity is "why did we build it this way?" ADRs are the cheapest insurance policy in software engineering. Here\'s our template and how we introduce them into teams that have never used them.',
           },
           {
-            icon: 'SLA', tagLabel: 'Delivery', tagVariant: 'green',
+            slug: null, category: 'delivery', icon: 'SLA', tagLabel: 'Delivery', tagVariant: 'green',
             date: 'December 2025', readTime: '9 min read',
             title: 'What a 99.98% uptime SLA actually costs — and how to design for it without over-engineering',
             excerpt: "The math around availability SLAs is often treated as a business concern rather than an engineering one. It shouldn't be. The architecture decisions that determine whether you hit 99.9% or 99.99% are made months before the SLA is signed.",
           },
           {
-            icon: 'CI', tagLabel: 'DevOps', tagVariant: 'teal',
+            slug: null, category: 'devops', icon: 'CI', tagLabel: 'DevOps', tagVariant: 'teal',
             date: 'November 2025', readTime: '7 min read',
             title: 'The CI pipeline that builds in 4 minutes: what we changed and why most pipelines take 20',
             excerpt: "Slow pipelines kill developer flow. We've optimized CI for three different technology stacks in the last year. The problems are almost always the same, and the fixes are less dramatic than most people expect.",
           },
           {
-            icon: '∅', tagLabel: 'Delivery', tagVariant: 'green',
+            slug: null, category: 'delivery', icon: '∅', tagLabel: 'Delivery', tagVariant: 'green',
             date: 'October 2025', readTime: '5 min read',
             title: 'The discovery phase clients want to skip — and why skipping it doubles the engagement cost',
             excerpt: "Every client who's ever pushed to skip discovery has regretted it. Not because we insist on process for its own sake, but because the questions that feel academic in week one become architectural constraints in week eight.",
@@ -397,35 +434,62 @@ export const translations = {
         eyebrow: 'Stay sharp',
         title: 'Engineering insights, monthly.',
         sub: 'One email per month. Architecture decisions, delivery patterns, and lessons from production. No marketing, no product announcements.',
+        label: 'Email address',
         placeholder: 'you@company.com',
         button: 'Subscribe →',
-        note: '~800 engineers subscribed. Unsubscribe any time.',
+        sending: 'Subscribing…',
+        note: 'Unsubscribe any time.',
+        privacy: { before: 'See our ', link: 'Privacy Policy', after: '.' },
+        success: 'Thanks — your subscription request was received.',
+        devWarning: 'Development notice: VITE_NEWSLETTER_ENDPOINT is not set. This form is disabled and the whole section is hidden in production builds until an endpoint is configured.',
+        errors: {
+          email:  'Please enter a valid email address',
+          submit: 'We could not subscribe you right now. Please try again later.',
+        },
       },
+    },
+
+    article: {
+      back: '← All insights',
+    },
+
+    notFound: {
+      eyebrow: 'Error 404',
+      title:   'This page does not exist.',
+      body:    'The address may be mistyped, or the page may have moved.',
+      home:    'Back to home →',
+      blog:    'Browse insights',
+    },
+
+    // Page metadata. The build plugin (vite.config.js) writes the English
+    // values into the static HTML of each route; useSeo() updates them at runtime.
+    seo: {
+      home:     { title: 'VOTUM — Engineered for impact.', description: 'VOTUM is an end-to-end engineering partner: technology strategy, software engineering, DevOps & cloud, managed services and quality engineering.' },
+      about:    { title: 'About — VOTUM', description: 'VOTUM is a senior engineering consultancy built around seniority, ownership and pragmatism. Meet the principles and the team behind our work.' },
+      blog:     { title: 'Insights — VOTUM', description: 'Engineering insights from the VOTUM team: architecture decisions, delivery patterns and lessons from production engineering.' },
+      privacy:  { title: 'Privacy Policy — VOTUM', description: 'How VOTUM collects, uses and protects personal data when you visit this website or contact us.' },
+      legal:    { title: 'Legal Notice — VOTUM', description: 'Company details of VOTUM IT EOOD & Co KD: registered address, UIC, VAT number and contact details.' },
+      terms:    { title: 'Terms and Conditions — VOTUM', description: 'The terms and conditions that apply to the use of the VOTUM website and services.' },
+      cookies:  { title: 'Cookie Policy — VOTUM', description: 'Which cookies and browser storage the VOTUM website uses — and which it does not.' },
+      notFound: { title: 'Page not found — VOTUM', description: 'The page you are looking for does not exist.' },
     },
 
     footer: {
       tagline:   'Engineered for impact.\nFrom vision to operations, we own your engineering excellence.',
-      cols: [
-        {
-          title: 'Company',
-          links: [
+      company: {
+        title: 'Company',
+        links: [
             { label: 'About',    href: '/about'   },
             { label: 'Our work', href: '/#work'   },
             { label: 'Blog',     href: '/blog'    },
             { label: 'Careers',  href: '/about#team' },
           ],
-        },
-        {
-          title: 'Contact',
-          links: [
-            { label: 'info@votum.com',   href: 'mailto:info@votum.com' },
-            { label: '+359 895 101 122', href: 'tel:+359895101122'     },
-          ],
-        },
-      ],
-      copyright: 'VOTUM IT EOOD & Co KD | All rights reserved.',
+      },
+      contactTitle: 'Contact',
+      copyright: 'All rights reserved.',
+      legalNotice: 'Legal Notice',
       privacy:   'Privacy Policy',
-      terms:     'Terms of Service',
+      terms:     'Terms and Conditions',
       cookies:   'Cookie Policy',
     },
   },
@@ -440,6 +504,13 @@ export const translations = {
       about:     'About',
       blog:      'Blog',
       cta:       'Kontakt aufnehmen',
+      skip:      'Zum Hauptinhalt springen',
+      home:      'VOTUM — Startseite',
+      menu:      'Hauptmenü',
+      openMenu:  'Menü öffnen',
+      closeMenu: 'Menü schließen',
+      close:     'Schließen',
+      language:  'Sprache',
     },
 
     hero: {
@@ -550,6 +621,7 @@ export const translations = {
 
     howWeWork: {
       eyebrow: 'Unser Vorgehen',
+      visualNote: 'Beispiel-Dashboard · illustrative Kennzahlen',
       title:   'Ein Prozess, der auf Transparenz ausgelegt ist.',
       lead:    'Wir gehen keine Abkürzungen. Jedes Engagement folgt einem bewährten Prozess, der Risiken eliminiert, Technologie mit Geschäftszielen ausrichtet und Lösungen liefert, hinter denen Ihr Team stehen kann.',
       phases: [
@@ -571,7 +643,7 @@ export const translations = {
           body:    'Jede Lösung wird mit modernen Engineering-, DevOps- und Qualitätspraktiken entwickelt, getestet und deployt – damit Ihr Team Systeme übernimmt, die zuverlässig, skalierbar und wartbar sind.',
           checks:  [
             '2-Wochen-Sprint-Zyklen mit Live-Demos',
-            '95%+ automatisierte Testabdeckung',
+            'Hohe automatisierte Testabdeckung als Standard',
             'Integriertes Quality Engineering & Testautomatisierung',
             'CI/CD und Infrastrukturautomatisierung als Standard',
             'Cloud-native und DevOps Best Practices',
@@ -605,9 +677,9 @@ export const translations = {
         summary:  'Zuverlässigen Betrieb und kontinuierliche Verbesserung unter definierten SLAs sichergestellt.',
         challenge:'Ein führender Automobilhersteller kämpfte mit fragmentierten Tools, begrenzter Transparenz und inkonsistenten Prozessen in globalen Teams. Nach einer groß angelegten Transformation benötigte er einen vertrauenswürdigen Langzeitpartner, um seine zentralisierte Software-Lieferungs- und Testplattform zu betreiben, zu warten und kontinuierlich zu verbessern.',
         solution: 'Wir haben eine Transformationsstrategie zur Vereinheitlichung der Software-Lieferung und des Testens definiert und umgesetzt, eine zentralisierte Plattform auf Basis von OpenText ALM & UFT entworfen und Legacy-Systeme in ein einziges Ökosystem migriert. Darauf aufbauend bieten wir End-to-End Managed Services für eine Plattform mit über 1.000 Nutzern weltweit. Unser Leistungsumfang umfasst Systemwartung, L1–L2-Nutzersupport, Incident Management und kontinuierliche Plattformerweiterungen – alles unter klar definierten SLAs.',
-        outcome:  'Eine standardisierte und skalierbare Umgebung mit vollständiger Lifecycle-Transparenz, kombiniert mit stabilem Betrieb und über 98% Verfügbarkeit. Der Kunde profitiert von deutlich reduzierter interner Arbeitsbelastung, kontinuierlicher Verbesserung und einer leistungsstarken Plattform für langfristige Skalierbarkeit.',
+        outcome:  'Eine standardisierte und skalierbare Umgebung mit vollständiger Lifecycle-Transparenz, kombiniert mit stabilem Betrieb innerhalb der vereinbarten SLA-Ziele. Der Kunde profitiert von deutlich reduzierter interner Arbeitsbelastung, kontinuierlicher Verbesserung und einer leistungsstarken Plattform für langfristige Skalierbarkeit.',
         tags:     ['OpenText ALM/UFT', 'Managed Services', 'SLA-Management', 'L1–L2-Support'],
-        stats:    [{ value: '1.000+', label: 'Nutzer' }, { value: '98%+', label: 'Verfügbarkeit' }, { value: '24/7', label: 'Kontinuität' }],
+        stats:    [{ value: '1.000+', label: 'Nutzer' }, { value: 'SLA', label: 'basierter Betrieb' }, { value: '24/7', label: 'Kontinuität' }],
       },
       hero: {
         category: 'Datenmigration & Cloud-Architektur',
@@ -616,9 +688,9 @@ export const translations = {
         summary:  'Unternehmensdaten aus OpenText SaaS in eine kosteneffiziente, audit-bereite AWS-Plattform migriert und archiviert.',
         challenge:'Eine führende europäische Versicherungsgruppe stellte ihre OpenText-ALM- und -PPM-Plattformen ein, stand aber vor einer kritischen Anforderung: Große Mengen historischer Oracle-Datenbankdatensätze, umfangreiche Anhänge und strenge Audit- und Compliance-Pflichten erforderten, dass die Daten vollständig zugänglich, sicher und audit-ready bleiben – ohne an die Legacy-Infrastruktur gebunden zu sein.',
         solution: 'Wir haben eine skalierbare, cloud-native Archivierungslösung auf AWS entwickelt und implementiert. Die Oracle-Datenbank wurde auf PostgreSQL auf AWS RDS migriert, mit vollständiger Datenintegrität und Schema-Optimierung. Alle Anhänge und Dokumente wurden extrahiert und strukturiert, um ihre Beziehungen zu den Basisdaten zu erhalten. Wir entwickelten außerdem ein maßgeschneidertes Zugriffstool für Audit- und Compliance-Anwendungsfälle, das einfaches Abfragen archivierter Datensätze ermöglicht.',
-        outcome:  '100% Datenerhaltung aus OpenText ALM und PPM, erfolgreiche Oracle-zu-PostgreSQL-Migration und vollständige Audit-Bereitschaft mit schnellem Zugriff auf historische Datensätze. Der Kunde eliminierte die Abhängigkeit von Legacy-SaaS-Plattformen, reduzierte operative Kosten und erhielt ein modernes, zukunftssicheres Archiv.',
+        outcome:  'Historische Daten aus OpenText ALM und PPM erhalten, erfolgreiche Oracle-zu-PostgreSQL-Migration und vollständige Audit-Bereitschaft mit schnellem Zugriff auf historische Datensätze. Der Kunde eliminierte die Abhängigkeit von Legacy-SaaS-Plattformen, reduzierte operative Kosten und erhielt ein modernes, zukunftssicheres Archiv.',
         tags:     ['AWS', 'PostgreSQL', 'Oracle Migration', 'OpenText ALM/PPM', 'Datenarchivierung'],
-        stats:    [{ value: '100%', label: 'Daten erhalten' }, { value: 'Kein', label: 'Vendor Lock-in' }, { value: '100%', label: 'Audit-bereit' }],
+        stats:    [{ value: 'ALM/PPM', label: 'Daten archiviert' }, { value: 'AWS', label: 'Cloud-natives Archiv' }, { value: 'Audit', label: 'bereiter Zugriff' }],
       },
       supporting: [
         {
@@ -628,9 +700,9 @@ export const translations = {
           summary:  'Manuelle Arbeitsabläufe in eine integrierte digitale Plattform transformiert.',
           challenge:'Ein führendes Asset-Management-Unternehmen wurde durch eine Legacy-Plattform ausgebremst, die nicht skalieren konnte. Veraltete Workflows, schlechte UX und isolierte Zusammenarbeit verlangsamten die spezialisierten Investment-Berater und schränkten die operative Effizienz ein.',
           solution: 'Wir haben eine moderne, enterprise-grade Webplattform von Grund auf entwickelt – von Planung, Design, Entwicklung, Testing bis hin zum vollständigen Rollout. Die Lösung umfasst ein skalierbares Microservices-Backend, ein React-Frontend, sichere Authentifizierung und containerisiertes Deployment.',
-          outcome:  'End-to-End-Prozesse vollständig digitalisiert – einschließlich Planung, Service-Vermittlung, Aktivitätsverfolgung und automatisierter Rechnungsstellung. Manuelle Arbeitsabläufe vollständig ersetzt und eine effiziente, skalierbare Zusammenarbeit in der gesamten Organisation ermöglicht.',
+          outcome:  'End-to-End-Prozesse digitalisiert – einschließlich Planung, Service-Vermittlung, Aktivitätsverfolgung und automatisierter Rechnungsstellung. Manuelle Arbeitsabläufe durch digitale ersetzt und eine effiziente, skalierbare Zusammenarbeit in der gesamten Organisation ermöglicht.',
           tags:     ['React', 'Java / Spring Boot', 'Keycloak', 'Docker', 'Kubernetes'],
-          stats:    [{ value: '100%', label: 'digitalisierte Workflows' }, { value: '0', label: 'manuelle Prozesse' }, { value: 'Full', label: 'Stack-Lieferung' }],
+          stats:    [{ value: 'Digital', label: 'End-to-End-Workflows' }, { value: 'Autom.', label: 'Rechnungsstellung' }, { value: 'Full', label: 'Stack-Lieferung' }],
         },
         {
           category: 'DevOps-Plattform',
@@ -639,9 +711,9 @@ export const translations = {
           summary:  'Sichere, kontrollierte Anwendungslieferung mit On-Premise-Infrastruktur ermöglicht.',
           challenge:'Um wachsenden Anwendungslieferungsanforderungen zu begegnen, benötigte ein Kunde eine robuste, vollständig On-Premise-DevOps-Plattform – eine, die moderne Deployment-Praktiken unterstützt und gleichzeitig strenge Enterprise-Sicherheits- und Infrastrukturanforderungen erfüllt.',
           solution: 'Wir haben eine vollständige On-Premise-Kubernetes-Plattform von Grund auf konzipiert und implementiert – mit dedizierten Clustern für Entwicklung und Produktion, integrierten Kerndiensten (Ingress, Storage, Backups, Monitoring) und CI/CD-Pipelines via Jenkins mit integriertem Security Scanning.',
-          outcome:  'Eine produktionsreife Infrastruktur, die sichere, skalierbare und konsistente Anwendungslieferung ermöglicht – mit voller Kontrolle über Deployment-Prozesse und messbarer Verbesserung der Release-Zuverlässigkeit.',
+          outcome:  'Eine produktionsreife Infrastruktur, die sichere, skalierbare und konsistente Anwendungslieferung ermöglicht – mit voller Kontrolle über Deployment-Prozesse und zuverlässigeren Releases.',
           tags:     ['Kubernetes', 'Jenkins', 'CI/CD', 'On-Premise-Infrastruktur', 'DevSecOps'],
-          stats:    [{ value: '100%', label: 'automatisierte Deployments' }, { value: '2', label: 'Cluster-Umgebungen' }, { value: 'Null', label: 'manuelle Infra-Schritte' }],
+          stats:    [{ value: 'CI/CD', label: 'automatisierte Deployments' }, { value: '2', label: 'Cluster-Umgebungen' }, { value: 'On-Prem', label: 'Kubernetes-Plattform' }],
         },
       ],
       final: {
@@ -653,23 +725,25 @@ export const translations = {
         solution: 'Wir haben ein umfassendes Testautomatisierungs-Framework von Grund auf entwickelt und implementiert, standardisierte Testprozesse definiert und automatisiertes Testing direkt in den Entwicklungs- und Release-Lebenszyklus integriert.',
         outcome:  'Deutlich reduzierter manueller Testaufwand, schnellere und zuverlässigere Release-Zyklen und verbesserte Testabdeckung über alle Teams hinweg – für eine skalierbare, hochwertige Software-Lieferung in Enterprise-Geschwindigkeit.',
         tags:     ['Testautomatisierung', 'QA-Strategie', 'Release-Management', 'Prozessstandardisierung'],
-        stats:    [{ value: '80%+', label: 'Testabdeckung' }, { value: '3×', label: 'schnellere Releases' }, { value: 'Null', label: 'Produktionsregressionen' }],
+        stats:    [{ value: 'Mehr', label: 'Testabdeckung' }, { value: 'Schnellere', label: 'Release-Zyklen' }, { value: 'Weniger', label: 'manuelles Testen' }],
       },
     },
 
     cta: {
       eyebrow: 'Bereit, Ihr Engineering zu transformieren?',
       title:   'Lassen Sie uns Ihren Wettbewerbsvorteil aufbauen.',
-      sub:     'Erzählen Sie uns von Ihrer Vision – wir melden uns innerhalb von 24 Stunden mit einer klaren Strategie, nicht mit einem Sales-Pitch.',
+      sub:     'Erzählen Sie uns von Ihrer Vision – wir melden uns innerhalb von {hours} Stunden mit einer klaren Strategie, nicht mit einem Sales-Pitch.',
       button:  'Kontakt aufnehmen →',
-      small:   'Keine Verpflichtung. Antwort innerhalb von 24 Std.',
+      small:   'Keine Verpflichtung. Antwort innerhalb von {hours} Std.',
     },
 
     contact: {
       eyebrow:  'Eine Nachricht genügt',
       title:    'Woran arbeiten Sie?',
-      sub:      'Ein grober Überblick reicht — ein Absatz ist genug. Einer unserer Senior Engineers liest Ihre Nachricht persönlich und meldet sich innerhalb von 24 Stunden mit einem klaren nächsten Schritt.',
+      sub:      'Ein grober Überblick reicht — ein Absatz ist genug. Einer unserer Senior Engineers liest Ihre Nachricht persönlich und meldet sich innerhalb von {hours} Stunden mit einem klaren nächsten Schritt.',
       note:     'Keine Verpflichtung erforderlich.',
+      sending:  'Wird gesendet…',
+      privacy:  { before: 'Wir verwenden Ihre Angaben ausschließlich zur Beantwortung Ihrer Anfrage. Details in unserer ', link: 'Datenschutzrichtlinie', after: '.' },
       send:     'Nachricht senden →',
       fields: {
         name:    'Name',
@@ -686,36 +760,30 @@ export const translations = {
       errors: {
         name:   'Bitte geben Sie Ihren Namen ein',
         email:  'Bitte geben Sie eine gültige E-Mail-Adresse ein',
-        submit: 'Beim Senden ist ein Fehler aufgetreten. Bitte erneut versuchen oder direkt an info@votum.com schreiben.',
+        brief:  'Bitte beschreiben Sie kurz Ihr Vorhaben (mindestens 10 Zeichen)',
+        submit: 'Beim Senden ist ein Fehler aufgetreten. Bitte erneut versuchen oder direkt an {email} schreiben.',
       },
       success: {
         title:  'Wir melden uns.',
-        body:   'Danke für Ihre Nachricht. Wir antworten innerhalb von 24 Stunden mit einer klaren Strategie — ohne Sales-Pitch.',
-        detail: 'Antwort innerhalb von 24 Std. · Keine Verpflichtung',
+        body:   'Danke für Ihre Nachricht. Wir antworten innerhalb von {hours} Stunden mit einer klaren Strategie — ohne Sales-Pitch.',
+        detail: 'Antwort innerhalb von {hours} Std. · Keine Verpflichtung',
       },
     },
 
     footer: {
       tagline:   'Entwickelt für Wirkung.\nVon der Vision bis zum Betrieb – wir verantworten Ihre Engineering-Exzellenz.',
-      cols: [
-        {
-          title: 'Unternehmen',
-          links: [
+      company: {
+        title: 'Unternehmen',
+        links: [
             { label: 'Über uns',      href: '/about'   },
             { label: 'Unsere Arbeit', href: '/#work'   },
             { label: 'Blog',          href: '/blog'    },
             { label: 'Karriere',      href: '/about#team' },
           ],
-        },
-        {
-          title: 'Kontakt',
-          links: [
-            { label: 'info@votum.com',   href: 'mailto:info@votum.com' },
-            { label: '+359 895 101 122', href: 'tel:+359895101122'     },
-          ],
-        },
-      ],
-      copyright: 'VOTUM IT EOOD & Co KD | Alle Rechte vorbehalten.',
+      },
+      contactTitle: 'Kontakt',
+      copyright: 'Alle Rechte vorbehalten.',
+      legalNotice: 'Impressum',
       privacy:   'Datenschutzrichtlinie',
       terms:     'Nutzungsbedingungen',
       cookies:   'Cookie-Richtlinie',
@@ -732,6 +800,13 @@ export const translations = {
       about:     'About',
       blog:      'Blog',
       cta:       'Свържете се',
+      skip:      'Към основното съдържание',
+      home:      'VOTUM — начало',
+      menu:      'Главно меню',
+      openMenu:  'Отвори менюто',
+      closeMenu: 'Затвори менюто',
+      close:     'Затвори',
+      language:  'Език',
     },
 
     hero: {
@@ -842,6 +917,7 @@ export const translations = {
 
     howWeWork: {
       eyebrow: 'Как работим',
+      visualNote: 'Примерно табло · илюстративни метрики',
       title:   'Процес, проектиран без изненади.',
       lead:    'Не вземаме преки пътища. Всяко ангажиране следва доказан процес, проектиран да елиминира риска, да синхронизира технологията с бизнес целите и да доставя решения, зад които вашият екип може да застане.',
       phases: [
@@ -863,7 +939,7 @@ export const translations = {
           body:    'Всяко решение се изгражда, тества и разгръща с използване на съвременни инженерни, DevOps и качествени практики – гарантирайки, че вашият екип наследява системи, които са надеждни, мащабируеми и поддържаеми.',
           checks:  [
             '2-седмични спринт цикли с демонстрации на живо',
-            '95%+ автоматизирано тестово покритие',
+            'Високо автоматизирано тестово покритие като стандарт',
             'Вградено quality engineering и тест автоматизация',
             'CI/CD и инфраструктурна автоматизация по подразбиране',
             'Cloud-native и DevOps добри практики',
@@ -897,9 +973,9 @@ export const translations = {
         summary:  'Осигуряване на надежден режим и непрекъснато подобрение под дефинирани SLA.',
         challenge:'Водещ автомобилен производител се бореше с фрагментирани инструменти, ограничена видимост и непоследователни процеси в глобалните екипи. След мащабна трансформация се нуждаеше от надежден дългосрочен партньор за управление, поддръжка и непрекъснато подобрение на централизираната си платформа за доставка на софтуер и тестване.',
         solution: 'Дефинирахме и изпълнихме стратегия за трансформация за обединяване на доставката на софтуер и тестването, проектирайки централизирана платформа на базата на OpenText ALM & UFT и мигрирайки наследени системи в единна екосистема. На тази основа предоставяме end-to-end управлявани услуги за платформа, поддържаща над 1 000 потребители по целия свят, включително поддръжка на системата, потребителска поддръжка L1–L2, управление на инциденти и непрекъснати подобрения на платформата.',
-        outcome:  'Стандартизирана и мащабируема среда с пълна видимост на жизнения цикъл, комбинирана со стабилни операции с над 98% наличност. Клиентът се възползва от значително намалено вътрешно натоварване, непрекъснато подобрение и високопроизводителна платформа за дългосрочна мащабируемост.',
+        outcome:  'Стандартизирана и мащабируема среда с пълна видимост на жизнения цикъл, комбинирана със стабилни операции в рамките на договорените SLA цели. Клиентът се възползва от значително намалено вътрешно натоварване, непрекъснато подобрение и високопроизводителна платформа за дългосрочна мащабируемост.',
         tags:     ['OpenText ALM/UFT', 'Управлявани услуги', 'Управление на SLA', 'Поддръжка L1–L2'],
-        stats:    [{ value: '1 000+', label: 'потребители' }, { value: '98%+', label: 'наличност' }, { value: '24/7', label: 'непрекъснатост' }],
+        stats:    [{ value: '1 000+', label: 'потребители' }, { value: 'SLA', label: 'базирани операции' }, { value: '24/7', label: 'непрекъснатост' }],
       },
       hero: {
         category: 'Миграция на данни и облачна архитектура',
@@ -908,9 +984,9 @@ export const translations = {
         summary:  'Мигрирани и архивирани корпоративни данни от OpenText SaaS към рентабилна, готова за одит AWS платформа.',
         challenge:'Голяма европейска застрахователна група извеждаше от употреба своите OpenText ALM и PPM платформи, но се сблъска с критично изискване: голям обем исторически записи в Oracle база данни, обширни прикачени файлове и строги задължения за одит и съответствие означаваха, че данните трябва да останат напълно достъпни, сигурни и готови за одит – без да бъдат обвързани с наследената инфраструктура.',
         solution: 'Проектирахме и внедрихме мащабируемо, cloud-native архивно решение на AWS. Базата данни Oracle беше мигрирана към PostgreSQL на AWS RDS, осигурявайки пълна цялост на данните и оптимизация на схемата. Всички прикачени файлове и документи бяха извлечени и структурирани за запазване на техните взаимовръзки. Разработихме също и персонализиран инструмент за достъп за одит и съответствие.',
-        outcome:  '100% запазване на данните от OpenText ALM и PPM, успешна миграция от Oracle към PostgreSQL и пълна готовност за одит с бърз достъп до исторически записи. Клиентът елиминира зависимостта от наследени SaaS платформи и намали оперативните разходи.',
+        outcome:  'Запазени исторически данни от OpenText ALM и PPM, успешна миграция от Oracle към PostgreSQL и пълна готовност за одит с бърз достъп до исторически записи. Клиентът елиминира зависимостта от наследени SaaS платформи и намали оперативните разходи.',
         tags:     ['AWS', 'PostgreSQL', 'Oracle Migration', 'OpenText ALM/PPM', 'Архивиране на данни'],
-        stats:    [{ value: '100%', label: 'запазени данни' }, { value: 'Нула', label: 'зависимост' }, { value: '100%', label: 'готовност за одит' }],
+        stats:    [{ value: 'ALM/PPM', label: 'архивирани данни' }, { value: 'AWS', label: 'cloud-native архив' }, { value: 'Одит', label: 'готов достъп' }],
       },
       supporting: [
         {
@@ -920,9 +996,9 @@ export const translations = {
           summary:  'Ръчните работни потоци са модернизирани в интегрирана цифрова платформа.',
           challenge:'Водеща фирма за управление на активи беше задържана от наследена платформа, която не можеше да се мащабира. Остарели работни потоци, лош UX и изолирано сътрудничество забавяха специализираните инвестиционни консултанти и ограничаваха оперативната ефективност.',
           solution: 'Проектирахме и изградихме модерна, корпоративна уеб платформа от нулата – покривайки планиране, дизайн, разработка, тестване и пълно внедряване. Решението включва мащабируем microservices backend, React frontend, сигурна автентикация и контейнеризирано deployment.',
-          outcome:  'End-to-end процеси напълно дигитализирани – включително планиране, медиация на услуги, проследяване на активности и автоматизирано фактуриране. Ръчните работни потоци изцяло заменени, осигурявайки ефективно и мащабируемо сътрудничество.',
+          outcome:  'End-to-end процеси дигитализирани – включително планиране, медиация на услуги, проследяване на активности и автоматизирано фактуриране. Ръчните работни потоци заменени с дигитални, осигурявайки ефективно и мащабируемо сътрудничество.',
           tags:     ['React', 'Java / Spring Boot', 'Keycloak', 'Docker', 'Kubernetes'],
-          stats:    [{ value: '100%', label: 'дигитализирани процеси' }, { value: '0', label: 'ръчни процеси' }, { value: 'Full', label: 'stack доставка' }],
+          stats:    [{ value: 'Дигитални', label: 'end-to-end процеси' }, { value: 'Авто', label: 'фактуриране' }, { value: 'Full', label: 'stack доставка' }],
         },
         {
           category: 'DevOps платформа',
@@ -931,9 +1007,9 @@ export const translations = {
           summary:  'Осигурена сигурна, контролирана доставка на приложения с on-premise инфраструктура.',
           challenge:'За да отговори на нарастващите изисквания за доставка на приложения, клиент се нуждаеше от стабилна, изцяло on-premise DevOps платформа – такава, която да поддържа съвременни практики за deployment, отговаряйки на строги корпоративни изисквания за сигурност и инфраструктура.',
           solution: 'Проектирахме и внедрихме пълна on-premise Kubernetes платформа от нулата – с dedicated клъстери за разработка и производство, интегрирани основни услуги (ingress, storage, backups, monitoring) и CI/CD тръбопроводи чрез Jenkins с вградено сканиране за сигурност.',
-          outcome:  'Готова за производство инфраструктура, осигуряваща сигурна, мащабируема и последователна доставка на приложения – с пълен контрол върху процесите на deployment и измеримо подобрение на надеждността на пускането.',
+          outcome:  'Готова за производство инфраструктура, осигуряваща сигурна, мащабируема и последователна доставка на приложения – с пълен контрол върху процесите на deployment и по-надеждни пускания.',
           tags:     ['Kubernetes', 'Jenkins', 'CI/CD', 'Локална инфраструктура', 'DevSecOps'],
-          stats:    [{ value: '100%', label: 'автоматизирани разгръщания' }, { value: '2', label: 'клъстер среди' }, { value: 'Нула', label: 'ръчни инфра стъпки' }],
+          stats:    [{ value: 'CI/CD', label: 'автоматизирани разгръщания' }, { value: '2', label: 'клъстер среди' }, { value: 'On-prem', label: 'Kubernetes платформа' }],
         },
       ],
       final: {
@@ -945,23 +1021,25 @@ export const translations = {
         solution: 'Проектирахме и внедрихме цялостна рамка за тест автоматизация от нулата, дефинирахме стандартизирани процеси за тестване и интегрирахме автоматизираното тестване директно в жизнения цикъл на разработка и пускане.',
         outcome:  'Значително намалени усилия за ръчно тестване, по-бързи и по-надеждни цикли на пускане и подобрено тестово покритие в екипите – осигурявайки мащабируема, висококачествена доставка на софтуер в корпоративен темп.',
         tags:     ['Тест автоматизация', 'QA стратегия', 'Управление на пускания', 'Стандартизация на процеси'],
-        stats:    [{ value: '80%+', label: 'тестово покритие' }, { value: '3×', label: 'по-бързи пускания' }, { value: 'Нула', label: 'регресии в производство' }],
+        stats:    [{ value: 'По-широко', label: 'тестово покритие' }, { value: 'По-бързи', label: 'цикли на пускане' }, { value: 'По-малко', label: 'ръчно тестване' }],
       },
     },
 
     cta: {
       eyebrow: 'Готови да трансформирате вашия инженеринг?',
       title:   'Нека изградим вашето конкурентно предимство.',
-      sub:     'Разкажете ни за вашата визия – ще се върнем в рамките на 24 часа с ясна стратегия, а не търговска презентация.',
+      sub:     'Разкажете ни за вашата визия – ще се върнем в рамките на {hours} часа с ясна стратегия, а не търговска презентация.',
       button:  'Свържете се →',
-      small:   'Без ангажимент. Отговор в рамките на 24 часа.',
+      small:   'Без ангажимент. Отговор в рамките на {hours} часа.',
     },
 
     contact: {
       eyebrow:  'Едно съобщение е достатъчно',
       title:    'По какво работите?',
-      sub:      'Споделете груб преглед — един абзац е достатъчен. Един от нашите старши инженери ще го прочете лично и ще се върне с ясна следваща стъпка в рамките на 24 часа.',
+      sub:      'Споделете груб преглед — един абзац е достатъчен. Един от нашите старши инженери ще го прочете лично и ще се върне с ясна следваща стъпка в рамките на {hours} часа.',
       note:     'Не е необходим ангажимент.',
+      sending:  'Изпращане…',
+      privacy:  { before: 'Използваме изпратените данни единствено за да отговорим на запитването ви. Вижте нашата ', link: 'Политика за поверителност', after: '.' },
       send:     'Изпратете съобщение →',
       fields: {
         name:    'Име',
@@ -978,36 +1056,30 @@ export const translations = {
       errors: {
         name:   'Моля, въведете вашето име',
         email:  'Моля, въведете валиден имейл адрес',
-        submit: 'Възникна грешка при изпращането. Моля, опитайте отново или пишете директно на info@votum.com.',
+        brief:  'Моля, опишете накратко по какво работите (поне 10 символа)',
+        submit: 'Възникна грешка при изпращането. Моля, опитайте отново или пишете директно на {email}.',
       },
       success: {
         title:  'Ще се свържем с вас.',
-        body:   'Благодарим ви, че се свързахте с нас. Ще отговорим в рамките на 24 часа с ясна стратегия — без търговска презентация.',
-        detail: 'Отговор в рамките на 24 ч. · Без ангажимент',
+        body:   'Благодарим ви, че се свързахте с нас. Ще отговорим в рамките на {hours} часа с ясна стратегия — без търговска презентация.',
+        detail: 'Отговор в рамките на {hours} ч. · Без ангажимент',
       },
     },
 
     footer: {
       tagline:   'Разработено за резултат.\nОт визията до операциите – ние отговаряме за вашето инженерно съвършенство.',
-      cols: [
-        {
-          title: 'Компания',
-          links: [
+      company: {
+        title: 'Компания',
+        links: [
             { label: 'За нас',         href: '/about'   },
             { label: 'Нашата работа',  href: '/#work'   },
             { label: 'Блог',           href: '/blog'    },
             { label: 'Кариери',        href: '/about#team' },
           ],
-        },
-        {
-          title: 'Контакт',
-          links: [
-            { label: 'info@votum.com',   href: 'mailto:info@votum.com' },
-            { label: '+359 895 101 122', href: 'tel:+359895101122'     },
-          ],
-        },
-      ],
-      copyright: 'VOTUM IT EOOD & Co KD | Всички права запазени.',
+      },
+      contactTitle: 'Контакт',
+      copyright: 'Всички права запазени.',
+      legalNotice: 'Правна информация',
       privacy:   'Политика за поверителност',
       terms:     'Условия за ползване',
       cookies:   'Политика за бисквитки',

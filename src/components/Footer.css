@@ -41,8 +41,16 @@
 
 .footer__tagline {
   font-size: 13px;
-  color: var(--navy-400);
-  line-height: 1.7 ;
+  color: var(--navy-300); /* 5.6:1 on navy-950 */
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.footer__legal {
+  display: flex; flex-direction: column; gap: 3px;
+  font-style: normal;
+  font-size: 12px; line-height: 1.6;
+  color: var(--navy-300);
   margin-bottom: 24px;
 }
 
@@ -52,21 +60,22 @@
 }
 
 .social-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
   background: var(--navy-800);
   border: 1px solid var(--navy-700);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  color: var(--navy-400);
+  color: var(--navy-200);
   transition: all var(--transition-fast);
   cursor: pointer;
 }
 
-.social-btn:hover {
+.social-btn:hover,
+.social-btn:focus-visible {
   border-color: var(--green-400);
   color: var(--green-400);
   background: rgba(120,214,75,0.08);
@@ -99,21 +108,25 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 4px;
   text-align: left;
   margin: 0;
   padding: 0;
 }
 
 .footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
   font-size: 14px;
-  color: var(--navy-400);
+  color: var(--navy-200); /* 8.7:1 */
   transition: color var(--transition-fast);
   white-space: nowrap;
 }
 
-.footer__links a:hover {
-  color: var(--green-400);
+.footer__links a:hover,
+.footer__links a:focus-visible {
+  color: var(--green-400); /* 10.3:1 */
 }
 
 /* Bottom bar */
@@ -126,7 +139,7 @@
   align-items: center;
   justify-content: space-between;
   font-size: 12px;
-  color: var(--navy-600);
+  color: var(--navy-300); /* was navy-600 = 1.5:1 */
 }
 
 .footer__bottom-right {
@@ -135,12 +148,16 @@
 }
 
 .footer__bottom a {
-  color: var(--navy-600);
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: var(--navy-300);
   transition: color var(--transition-fast);
 }
 
-.footer__bottom a:hover {
-  color: var(--navy-400);
+.footer__bottom a:hover,
+.footer__bottom a:focus-visible {
+  color: var(--white);
 }
 
 @media (max-width: 900px) {
@@ -172,5 +189,11 @@
   .footer__bottom-right {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 4px 24px;
+  }
+
+  .footer__links a,
+  .footer__bottom a {
+    min-height: 44px;
   }
 }

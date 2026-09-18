@@ -1,13 +1,9 @@
-// ── New LangSwitcher component (replaces LangToggle) ────────────
-// src/components/LangSwitcher.jsx
-
 import { useState, useEffect, useRef } from 'react'
-
-const LANGS = ['en', 'de', 'bg']
+import { useLanguage } from '../context/useLanguage'
 
 function CheckIcon() {
   return (
-    <svg className="lang-switcher__option-check"
+    <svg className="lang-switcher__option-check" aria-hidden="true"
          width="14" height="14" viewBox="0 0 14 14" fill="none"
          stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"
          strokeLinejoin="round">
@@ -18,7 +14,7 @@ function CheckIcon() {
 
 function GlobeIcon() {
   return (
-    <svg className="lang-switcher__globe" viewBox="0 0 14 14" fill="none"
+    <svg className="lang-switcher__globe" aria-hidden="true" viewBox="0 0 14 14" fill="none"
          stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
          strokeLinejoin="round">
       <circle cx="7" cy="7" r="5.5" />
@@ -29,7 +25,7 @@ function GlobeIcon() {
 
 function ChevronIcon() {
   return (
-    <svg className="lang-switcher__chevron" viewBox="0 0 10 10" fill="none"
+    <svg className="lang-switcher__chevron" aria-hidden="true" viewBox="0 0 10 10" fill="none"
          stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"
          strokeLinejoin="round">
       <path d="M2 4l3 3 3-3" />
@@ -37,9 +33,11 @@ function ChevronIcon() {
   )
 }
 
-export default function LangSwitcher({ lang, setLang }) {
+export default function LangSwitcher() {
+  const { lang, setLang, languages, locale } = useLanguage()
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
+  const triggerRef = useRef(null)
 
   // Close on outside click
   useEffect(() => {
@@ -50,20 +48,31 @@ export default function LangSwitcher({ lang, setLang }) {
     return () => document.removeEventListener('mousedown', handler)
   }, [])
 
-  // Close on Escape
+  // Close on Escape and hand focus back to the trigger
   useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') setOpen(false) }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [])
+    if (!open) return undefined
+    const handler = (e) => {
+      if (e.key !== 'Escape') return
+      e.stopPropagation()
+      setOpen(false)
+      triggerRef.current?.focus()
+    }
+    document.addEventListener('keydown', handler, true)
+    return () => document.removeEventListener('keydown', handler, true)
+  }, [open])
+
+  // Only languages with complete translations are offered (see i18n/languages.js)
+  if (languages.length < 2) return null
 
   return (
     <div className="lang-switcher" ref={ref}>
       <button
+        ref={triggerRef}
+        type="button"
         className="lang-switcher__trigger"
-        aria-haspopup="listbox"
+        aria-haspopup="menu"
         aria-expanded={open}
-        aria-label={`Language: ${lang.toUpperCase()}`}
+        aria-label={`${locale.nav.language}: ${lang.toUpperCase()}`}
         onClick={() => setOpen(!open)}
       >
         <GlobeIcon />
@@ -72,14 +81,16 @@ export default function LangSwitcher({ lang, setLang }) {
       </button>
 
       {open && (
-        <div className="lang-switcher__dropdown" role="listbox">
-          {LANGS.map((code) => (
+        <div className="lang-switcher__dropdown" role="menu" aria-label={locale.nav.language}>
+          {languages.map((code) => (
             <button
               key={code}
+              type="button"
               className={`lang-switcher__option${lang === code ? ' lang-switcher__option--active' : ''}`}
-              role="option"
-              aria-selected={lang === code}
-              onClick={() => { setLang(code); setOpen(false) }}
+              role="menuitemradio"
+              aria-checked={lang === code}
+              lang={code}
+              onClick={() => { setLang(code); setOpen(false); triggerRef.current?.focus() }}
             >
               {code.toUpperCase()}
               <CheckIcon />
