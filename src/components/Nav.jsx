@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
 import useOverlay from '../hooks/useOverlay'
 import { scrollBehavior, scrollToId } from '../utils/scroll'
+import { features } from '../config/features'
 import LangSwitcher from './LangSwitcher'
 import './Nav.css'
 
@@ -138,14 +139,16 @@ export default function Nav({ onContact }) {
               {t.about}
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/blog"
-              className={({ isActive }) => (isActive ? 'nav__link--active' : '')}
-            >
-              {t.blog}
-            </NavLink>
-          </li>
+          {features.blog && (
+            <li>
+              <NavLink
+                to="/blog"
+                className={({ isActive }) => (isActive ? 'nav__link--active' : '')}
+              >
+                {t.blog}
+              </NavLink>
+            </li>
+          )}
         </ul>
 
         <LangSwitcher />
@@ -191,7 +194,7 @@ export default function Nav({ onContact }) {
           </a>
         ))}
         <Link to="/about" onClick={() => setMenuOpen(false)}>{t.about}</Link>
-        <Link to="/blog"  onClick={() => setMenuOpen(false)}>{t.blog}</Link>
+        {features.blog && <Link to="/blog" onClick={() => setMenuOpen(false)}>{t.blog}</Link>}
         <button
           type="button"
           className="btn btn-primary nav__mobile-cta"

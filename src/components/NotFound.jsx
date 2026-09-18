@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
 import useSeo from '../hooks/useSeo'
+import { features } from '../config/features'
 import './NotFound.css'
 
 export default function NotFound() {
@@ -16,7 +17,7 @@ export default function NotFound() {
         <p className="not-found__body">{t.body}</p>
         <div className="not-found__actions">
           <Link to="/" className="btn btn-primary btn-lg">{t.home}</Link>
-          <Link to="/blog" className="btn btn-secondary-teal btn-lg">{t.blog}</Link>
+          {features.blog && <Link to="/blog" className="btn btn-secondary-teal btn-lg">{t.blog}</Link>}
         </div>
       </div>
     </main>

@@ -36,7 +36,7 @@ Open business / legal / content questions are tracked in:
 ```
 src/
 ├── App.jsx                  routes, skip link, scroll handling
-├── config/                  company.js · endpoints.js · seo.js
+├── config/                  company.js · endpoints.js · features.js · seo.js
 ├── content/articles.js      published blog articles (by slug)
 ├── context/                 LanguageContext (language + locale)
 ├── i18n/                    translations.js · languages.js (completeness check, fallback)
@@ -53,6 +53,7 @@ src/
 ## Things to know
 
 - **Languages.** A language is offered only when it has every key English has (`src/i18n/languages.js`). DE and BG are currently incomplete and therefore hidden; they reappear automatically once completed.
+- **Blog is switched off.** `features.blog` in `src/config/features.js` is `false`: no `/blog` routes, no nav / footer / 404 links, no `blog/index.html`, no sitemap entry. Code and translations are untouched — set it to `true` to bring the blog back.
 - **Per-route metadata.** The site is a SPA. The `votum-static-pages` plugin in `vite.config.js` writes `about/index.html`, `blog/index.html`, `privacy.html`, `terms.html`, `cookies.html` and `404.html` with their own static `<head>`, so crawlers and link previews get correct titles without running JS. nginx serves these files first and falls back to `index.html`.
 - **Legal pages** are React routes: `/legal.html` (provider identification / Impressum), `/privacy.html`, `/cookies.html` and `/terms.html` (historical URLs kept).
 - **No cookies, no analytics, no third-party requests** on page load (fonts are self-hosted). If that changes, a consent banner becomes mandatory — see the note in `src/components/legal/Cookies.jsx`.

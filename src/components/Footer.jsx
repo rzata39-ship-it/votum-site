@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
 import { company, socialLinks } from '../config/company'
+import { features } from '../config/features'
 import './Footer.css'
 
 const YEAR = new Date().getFullYear()
@@ -70,7 +71,7 @@ export default function Footer() {
           <nav className="footer__col" aria-label={t.company.title}>
             <div className="footer__col-title">{t.company.title}</div>
             <ul className="footer__links">
-              {t.company.links.map((link) => (
+              {t.company.links.filter((link) => features.blog || link.href !== '/blog').map((link) => (
                 <li key={link.label}>
                   <Link to={link.href}>{link.label}</Link>
                 </li>

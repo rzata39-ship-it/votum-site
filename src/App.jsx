@@ -4,6 +4,7 @@ import { LanguageProvider } from './context/LanguageContext'
 import { useLanguage } from './context/useLanguage'
 import useSeo from './hooks/useSeo'
 import { scrollToId } from './utils/scroll'
+import { features } from './config/features'
 import Nav          from './components/Nav'
 import Hero         from './components/Hero'
 import Stats        from './components/Stats'
@@ -77,8 +78,8 @@ export default function App() {
           <Routes>
             <Route path="/"             element={<Home  onContact={openContact} />} />
             <Route path="/about"        element={<About />} />
-            <Route path="/blog"         element={<Blog />} />
-            <Route path="/blog/:slug"   element={<Article />} />
+            {features.blog && <Route path="/blog"       element={<Blog />} />}
+            {features.blog && <Route path="/blog/:slug" element={<Article />} />}
             <Route path="/privacy.html" element={<Privacy />} />
             <Route path="/terms.html"   element={<Terms />} />
             <Route path="/legal.html"   element={<LegalNotice />} />
