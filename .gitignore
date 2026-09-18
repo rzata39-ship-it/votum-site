@@ -8,6 +8,9 @@ dist/
 .env.local
 .env.*.local
 
+# Full-size team photo sources (only the crops in public/team/ are shipped)
+team-originals/
+
 # Logs
 npm-debug.log*
 *.log

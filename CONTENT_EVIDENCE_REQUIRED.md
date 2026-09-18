@@ -67,7 +67,11 @@ uptime · `14 findings`, `12 objectives`, `8 risks`, `6 stakeholders`.
 ## D. People & articles
 
 - **Team (About)**: the placeholder names ("Ivan Mitev", anonymous "Senior Engineer" cards) were replaced on 2026-09-18 with the real team provided by the client: Hristo Kacarov (Managing Director / CTO), Velislav Kunev (Systems Architect), Nikolay Peshev (Senior DevOps/Cloud Engineer), Blagovest Kasabov (Senior FullStack Engineer), Ivan Petrov (Senior Test Manager). Cards show name, role and role-area tags only — **no personal bios were written** (none were provided). The "Extended team / on demand" role card was kept.
-  - [ ] Optional: short bios per person, photos, LinkedIn profiles.
+  - **Sample bios added 2026-09-18** (one sentence each, EN only). They are derived from the role and tags alone and contain no years of experience, former employers, certifications or client names.
+  - [ ] Each person reviews / rewrites their own bio.
+  - **Photos added 2026-09-18** for all five people, supplied by the client: 480×480 JPEG crops in `public/team/`, referenced by the optional `photo` field on each member. The full-size originals are kept outside `public/` in `team-originals/` so they are not shipped.
+  - [ ] Written consent from each person for publishing their photo (personal data under GDPR).
+  - [ ] Optional: LinkedIn profiles.
 - **Blog featured author** was the fictitious "Ivan Mitev"; the author block is now hidden (`author: null`) until the article exists and its real author is known.
 - **Blog**: all 7 entries (1 featured + 6 cards) are teasers — **no article body exists anywhere in the repository**. They are therefore rendered as non-interactive cards labelled "Full article in preparation" instead of dead `href="#"` links, and read-time labels are hidden. Titles, dates (Oct 2025 – Apr 2026) and excerpts were left as they were; some titles contain figures ("400GB", "99.98% uptime", "4 minutes", "95% test coverage") that must be backed by the article when it is published.
   - To publish: add the article to `src/content/articles.js` and set the same `slug` on the card in `translations.js` — the card then links to `/blog/<slug>`.
