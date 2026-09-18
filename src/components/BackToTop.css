@@ -1,0 +1,38 @@
+/* Floating "back to top" button — below the nav (100) and modals (200) */
+.back-to-top {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 90;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(120,214,75,0.35);
+  background: var(--navy-800);
+  color: var(--green-400);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  /* hidden state: not visible, not focusable, not clickable */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--transition-mid), transform var(--transition-mid),
+              visibility var(--transition-mid), background var(--transition-fast),
+              color var(--transition-fast);
+}
+.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: var(--green-400);
+  color: var(--navy-950);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top { transition: none; transform: none; }
+}

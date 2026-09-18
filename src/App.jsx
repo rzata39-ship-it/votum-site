@@ -13,6 +13,7 @@ import HowWeWork    from './components/HowWeWork'
 import Cases        from './components/Cases'
 import CtaBanner    from './components/CtaBanner'
 import Footer       from './components/Footer'
+import BackToTop    from './components/BackToTop'
 import ContactModal from './components/ContactModal'
 import About        from './components/About'
 import Blog         from './components/Blog'
@@ -87,6 +88,7 @@ export default function App() {
             <Route path="*"             element={<NotFound />} />
           </Routes>
           <Footer />
+          <BackToTop />
         </div>
         <ScrollManager />
         <ContactModal open={contactOpen} onClose={closeContact} />
