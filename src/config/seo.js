@@ -4,6 +4,7 @@
 // Node-safe: no `import.meta`, explicit .js extensions.
 
 import { company, socialLinks } from './company.js'
+import { features } from './features.js'
 
 export const OG_IMAGE = '/og-image.png'
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 }
@@ -18,7 +19,7 @@ export const ROUTES = [
   { key: 'legal',    path: '/legal.html',   file: 'legal.html',       sitemap: true  },
   { key: 'cookies',  path: '/cookies.html', file: 'cookies.html',     sitemap: true  },
   { key: 'notFound', path: '/404.html',     file: '404.html',         sitemap: false, noindex: true },
-]
+].filter((r) => r.key !== 'blog' || features.blog)
 
 export const absoluteUrl = (path) => new URL(path, company.siteUrl).href
 

@@ -334,14 +334,17 @@ export const translations = {
         // kind: 'person' → a named individual (only with real, confirmed data).
         // kind: 'role'   → a role / capability description, rendered without
         //                  initials so it is never mistaken for a personal profile.
-        // Real team members (confirmed by the client, 2026-09). `bio` is optional —
-        // none were provided, so cards show name, role and role-area tags only.
+        // Real team members (confirmed by the client, 2026-09). `bio` is optional.
+        // `photo` is optional too (square image in public/team/); without it the
+        // card shows the initials tile.
+        // The person bios are SAMPLE text derived from role + tags only — no years,
+        // employers, certifications or client names. Each person should review theirs.
         members: [
-          { kind: 'person', initials: 'HK', name: 'Hristo Kacarov',    role: 'Managing Director / CTO',        tags: ['Strategy', 'Architecture', 'Leadership'] },
-          { kind: 'person', initials: 'VK', name: 'Velislav Kunev',    role: 'Systems Architect',              tags: ['Architecture', 'Integration', 'Cloud'] },
-          { kind: 'person', initials: 'NP', name: 'Nikolay Peshev',    role: 'Senior DevOps / Cloud Engineer', tags: ['Kubernetes', 'CI/CD', 'Cloud'] },
-          { kind: 'person', initials: 'BK', name: 'Blagovest Kasabov', role: 'Senior Full-Stack Engineer',     tags: ['Full Stack', 'Backend', 'Frontend'] },
-          { kind: 'person', initials: 'IP', name: 'Ivan Petrov',       role: 'Senior Test Manager',            tags: ['Test Automation', 'QA Strategy', 'Release Management'] },
+          { kind: 'person', initials: 'HK', photo: '/team/hristo-kacarov.jpg', name: 'Hristo Kacarov', role: 'Managing Director / CTO',        bio: 'Leads VOTUM and sets its technical direction — from engineering strategy to the architecture decisions behind client projects.', tags: ['Strategy', 'Architecture', 'Leadership'] },
+          { kind: 'person', initials: 'VK', photo: '/team/velislav-kunev.jpg', name: 'Velislav Kunev', role: 'Systems Architect',              bio: 'Designs the software and infrastructure architecture behind our client platforms, ensuring clean service integration, scalable cloud foundations, security, and reliability.', tags: ['Architecture', 'Integration', 'Cloud'] },
+          { kind: 'person', initials: 'NP', photo: '/team/nikolay-peshev.jpg', name: 'Nikolay Peshev', role: 'Senior DevOps / Cloud Engineer', bio: 'Builds and runs the Kubernetes platforms and CI/CD pipelines that get software into production reliably — and keep it there.', tags: ['Kubernetes', 'CI/CD', 'Cloud'] },
+          { kind: 'person', initials: 'BK', photo: '/team/blagovest-kasabov.jpg', name: 'Blagovest Kasabov', role: 'Senior Full-Stack Engineer',     bio: 'Develops web applications end to end, from backend services and APIs to the interfaces people work with every day.', tags: ['Full Stack', 'Backend', 'Frontend'] },
+          { kind: 'person', initials: 'IP', photo: '/team/ivan-petrov.jpg', name: 'Ivan Petrov', role: 'Senior Test Manager',            bio: 'Shapes test strategy and automation so that quality is built into the release process rather than checked at the end.', tags: ['Test Automation', 'QA Strategy', 'Release Management'] },
           { kind: 'role',   name: 'Extended team',     role: 'On demand', bio: 'A network of senior engineers available for specific engagements. Every one vetted personally — no recruitment pool, no juniors.', tags: ['Full Stack', 'Mobile', 'Data'] },
         ],
         cta: {

@@ -127,12 +127,16 @@ export default function About() {
           <div className="team-grid">
             {t.team.members.map((m) => (
               <div key={m.name + m.role} className={`team-card team-card--${m.kind}`}>
-                {m.kind === 'person'
-                  ? <div className="team-card__avatar" aria-hidden="true">{m.initials}</div>
-                  : <div className="team-card__avatar team-card__avatar--role" aria-hidden="true"><RoleIcon /></div>}
-                <div>
-                  <div className="team-card__name">{m.name}</div>
-                  <div className="team-card__role">{m.role}</div>
+                <div className="team-card__head">
+                  {m.photo
+                    ? <img className="team-card__avatar team-card__avatar--photo" src={m.photo} alt="" width="72" height="72" loading="lazy" />
+                    : m.kind === 'person'
+                    ? <div className="team-card__avatar" aria-hidden="true">{m.initials}</div>
+                    : <div className="team-card__avatar team-card__avatar--role" aria-hidden="true"><RoleIcon /></div>}
+                  <div>
+                    <div className="team-card__name">{m.name}</div>
+                    <div className="team-card__role">{m.role}</div>
+                  </div>
                 </div>
                 {m.bio && <p className="team-card__bio">{m.bio}</p>}
                 <div className="team-card__tags">
