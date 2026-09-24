@@ -1,14 +1,12 @@
-import useReveal from '../hooks/useReveal'
 import { useLanguage } from '../context/useLanguage'
 import './Hero.css'
 
 export default function Hero({ onContact }) {
-  const ref = useReveal()
   const { locale } = useLanguage()
   const t = locale.hero
 
   return (
-    <section className="hero" ref={ref}>
+    <section className="hero">
 
       {/* Logo watermark */}
       <div className="hero__v-mark" aria-hidden="true">
@@ -16,22 +14,23 @@ export default function Hero({ onContact }) {
       </div>
 
       <div className="hero__inner">
-        <div className="hero__eyebrow reveal">
+        {/* Above the fold: no .reveal, so it is visible before any JS runs */}
+        <div className="hero__eyebrow">
           <span className="hero__eyebrow-text">{t.eyebrow}</span>
         </div>
 
-        <h1 className="hero__title reveal reveal-delay-1">
-          {t.title.line1}
+        <h1 className="hero__title">
+          {t.title.line1}{' '}
           <span className="line2">
             {t.title.line2} <span className="accent">{t.title.accent}</span>
           </span>
         </h1>
 
-        <p className="hero__lead reveal reveal-delay-2">
+        <p className="hero__lead">
           {t.lead}
         </p>
 
-        <div className="hero__cta reveal reveal-delay-3">
+        <div className="hero__cta">
           <button type="button" className="btn btn-primary btn-lg" onClick={onContact}>
             {t.ctaPrimary}
           </button>

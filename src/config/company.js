@@ -17,7 +17,7 @@ export const company = {
   tradingName:    'VOTUM',
 
   // Used for canonical URLs, Open Graph, sitemap.xml and robots.txt.
-  siteUrl: 'https://votum.bg',
+  siteUrl: 'https://www.votum.bg',
 
   email: 'info@votum.bg',
   phone: { display: '+359 895 101 122', href: 'tel:+359895101122' },
@@ -32,6 +32,7 @@ export const company = {
   },
   registrationNumber: '207746015',     // ЕИК / UIC
   vatNumber:          'BG207746015',   // VAT registration (ЗДДС) since 03.04.2024
+  foundingDate:       '2024-03-11',    // registration in the Commercial Register (JSON-LD foundingDate)
   foundingYear:       2024,            // company registered 11.03.2024 — NOT the same as "years of experience"
 
   // Managing director / legal representative (управител)

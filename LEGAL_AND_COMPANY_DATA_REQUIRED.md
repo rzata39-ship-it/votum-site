@@ -30,7 +30,7 @@ Still open:
 |---|---|---|---|
 | `legalName` / `legalNameLocal` | `VOTUM IT EOOD & Co KD` / `Вотум ИТ ЕООД и Ко КД` | ✅ confirmed (Commercial Register: „Вотум ИТ ЕООД и Ко“, командитно дружество) | footer ©, legal pages contact block, JSON-LD |
 | `tradingName` | `VOTUM` | confirm | legal texts, JSON-LD, og:site_name |
-| `siteUrl` | `https://votum.bg` | ✅ confirmed | canonical URLs, Open Graph, `sitemap.xml`, `robots.txt`, JSON-LD |
+| `siteUrl` | `https://www.votum.bg` | ✅ confirmed (primary host on Vercel; apex redirects to www) | canonical URLs, Open Graph, `sitemap.xml`, `robots.txt`, JSON-LD |
 | `email` | `info@votum.bg` | ✅ confirmed | footer, contact error message, legal pages, JSON-LD |
 | `phone` | `+359 895 101 122` | confirm | footer, legal pages, JSON-LD |
 | `address` | ul. Neofit Rilski 41, fl. 2, 1000 Sofia (Sredets), Bulgaria | ✅ confirmed (седалище) | legal contact block, privacy "controller" section, JSON-LD |
@@ -44,10 +44,15 @@ Still open:
 ### Social profiles — `company.social`
 
 All three are `null`, so **no social icons are rendered** (the old ones pointed to `#linkedin`, `#github`, `#x`).
+A configured URL is also emitted as `sameAs` on the JSON-LD `Organization` — the strongest signal separating VOTUM (Sofia) from the unrelated VOTUM brands in search.
 
 - [ ] LinkedIn URL
 - [ ] GitHub URL
 - [ ] X / Twitter URL
+
+### Structured data — pending decision
+
+- [ ] JSON-LD uses `Organization` (see `src/config/seo.js`). Switch to / add `ProfessionalService` (a `LocalBusiness` subtype) only if the Sofia address is a place where clients are served during stated hours — the same test decides Google Business Profile eligibility.
 
 ### Provider identification (Bulgarian E-Commerce Act, чл. 4 ЗЕТ) — status
 

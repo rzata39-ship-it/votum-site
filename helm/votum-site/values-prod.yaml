@@ -1,3 +1,6 @@
+# NOT LIVE: www.votum.bg is served by Vercel (DNS points there) — see README "Deployment".
+# If this path is ever activated, build the image with --build-arg SITE_ENV=production,
+# otherwise the site answers with noindex.
 global:
   namespace: votum-prod
 

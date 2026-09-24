@@ -90,7 +90,8 @@ export default function Footer() {
       </div>
 
       <div className="footer__bottom">
-        <span>© {YEAR} {company.legalName} | {t.copyright}</span>
+        {/* The year is baked in at build time; a client in a later year is not an error */}
+        <span suppressHydrationWarning>© {YEAR} {company.legalName} | {t.copyright}</span>
         <div className="footer__bottom-right">
           <Link to="/legal.html">{t.legalNotice}</Link>
           <Link to="/privacy.html">{t.privacy}</Link>

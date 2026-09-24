@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 import { useLanguage } from '../context/useLanguage'
 import { getMeta } from '../config/seo'
+import { isIndexable } from '../config/environment'
+
+// Resolved once at build time in vite.config.js
+const INDEXABLE = isIndexable(import.meta.env.VITE_SITE_ENV)
 
 function setTag(selector, create, attr, value) {
   let el = document.head.querySelector(selector)
@@ -26,16 +30,16 @@ const meta = (key, name) => () => {
  */
 export default function useSeo(key, override) {
   const { locale } = useLanguage()
-  const base = getMeta(key, locale.seo)
+  const base = getMeta(key, locale.seo, INDEXABLE)
   const title = override?.title || base.title
   const description = override?.description || base.description
   const canonical = override?.canonical || base.canonical
-  const { noindex } = base
+  const { robots } = base
 
   useEffect(() => {
     document.title = title
     setTag('meta[name="description"]', meta('name', 'description'), 'content', description)
-    setTag('meta[name="robots"]', meta('name', 'robots'), 'content', noindex ? 'noindex' : null)
+    setTag('meta[name="robots"]', meta('name', 'robots'), 'content', robots)
     setTag('link[rel="canonical"]', () => {
       const el = document.createElement('link')
       el.setAttribute('rel', 'canonical')
@@ -46,5 +50,5 @@ export default function useSeo(key, override) {
     setTag('meta[property="og:url"]', meta('property', 'og:url'), 'content', canonical)
     setTag('meta[name="twitter:title"]', meta('name', 'twitter:title'), 'content', title)
     setTag('meta[name="twitter:description"]', meta('name', 'twitter:description'), 'content', description)
-  }, [title, description, canonical, noindex])
+  }, [title, description, canonical, robots])
 }
