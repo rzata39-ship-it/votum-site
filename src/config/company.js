@@ -17,7 +17,7 @@ export const company = {
   tradingName:    'VOTUM',
 
   // Used for canonical URLs, Open Graph, sitemap.xml and robots.txt.
-  siteUrl: 'https://votum.bg',
+  siteUrl: 'https://www.votum.bg',
 
   email: 'info@votum.bg',
   phone: { display: '+359 895 101 122', href: 'tel:+359895101122' },

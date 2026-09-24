@@ -5,6 +5,7 @@
 
 import { company, socialLinks } from './company.js'
 import { features } from './features.js'
+import { NON_PRODUCTION_ROBOTS } from './environment.js'
 
 export const OG_IMAGE = '/og-image.png'
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 }
@@ -23,7 +24,8 @@ export const ROUTES = [
 
 export const absoluteUrl = (path) => new URL(path, company.siteUrl).href
 
-export function getMeta(key, seoStrings) {
+// indexable: whether this build may be indexed at all (see environment.js)
+export function getMeta(key, seoStrings, indexable) {
   const route = ROUTES.find((r) => r.key === key)
   const { title, description } = seoStrings[key]
   return {
@@ -31,7 +33,8 @@ export function getMeta(key, seoStrings) {
     description,
     canonical: route.noindex ? null : absoluteUrl(route.path),
     image: absoluteUrl(OG_IMAGE),
-    noindex: Boolean(route.noindex),
+    // null = indexable (no robots tag)
+    robots: !indexable ? NON_PRODUCTION_ROBOTS : route.noindex ? 'noindex' : null,
   }
 }
 
@@ -64,12 +67,13 @@ export function organizationJsonLd() {
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 
 // Static <head> block for one route (used at build time)
-export function renderHead(key, seoStrings) {
-  const m = getMeta(key, seoStrings)
+export function renderHead(key, seoStrings, indexable) {
+  const m = getMeta(key, seoStrings, indexable)
   return [
     `<title>${esc(m.title)}</title>`,
     `<meta name="description" content="${esc(m.description)}" />`,
-    m.noindex ? '<meta name="robots" content="noindex" />' : `<link rel="canonical" href="${m.canonical}" />`,
+    m.robots && `<meta name="robots" content="${m.robots}" />`,
+    m.canonical && `<link rel="canonical" href="${m.canonical}" />`,
     '<meta property="og:type" content="website" />',
     `<meta property="og:site_name" content="${esc(company.tradingName)}" />`,
     `<meta property="og:title" content="${esc(m.title)}" />`,
@@ -93,6 +97,7 @@ export function renderSitemap() {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
 }
 
-export function renderRobots() {
+export function renderRobots(indexable) {
+  if (!indexable) return 'User-agent: *\nDisallow: /\n'
   return `User-agent: *\nAllow: /\n\nSitemap: ${absoluteUrl('/sitemap.xml')}\n`
 }
