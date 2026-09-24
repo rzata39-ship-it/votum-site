@@ -32,6 +32,7 @@ export const company = {
   },
   registrationNumber: '207746015',     // ЕИК / UIC
   vatNumber:          'BG207746015',   // VAT registration (ЗДДС) since 03.04.2024
+  foundingDate:       '2024-03-11',    // registration in the Commercial Register (JSON-LD foundingDate)
   foundingYear:       2024,            // company registered 11.03.2024 — NOT the same as "years of experience"
 
   // Managing director / legal representative (управител)

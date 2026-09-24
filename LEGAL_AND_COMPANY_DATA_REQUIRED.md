@@ -44,10 +44,15 @@ Still open:
 ### Social profiles — `company.social`
 
 All three are `null`, so **no social icons are rendered** (the old ones pointed to `#linkedin`, `#github`, `#x`).
+A configured URL is also emitted as `sameAs` on the JSON-LD `Organization` — the strongest signal separating VOTUM (Sofia) from the unrelated VOTUM brands in search.
 
 - [ ] LinkedIn URL
 - [ ] GitHub URL
 - [ ] X / Twitter URL
+
+### Structured data — pending decision
+
+- [ ] JSON-LD uses `Organization` (see `src/config/seo.js`). Switch to / add `ProfessionalService` (a `LocalBusiness` subtype) only if the Sofia address is a place where clients are served during stated hours — the same test decides Google Business Profile eligibility.
 
 ### Provider identification (Bulgarian E-Commerce Act, чл. 4 ЗЕТ) — status
 
