@@ -36,7 +36,7 @@ export default function PhasePipeline() {
         <div className="phase-activity__header">
           <div>
             <div className="phase-activity__total-label">Total commits</div>
-            <div className="phase-activity__total-val">{totalCommits.toLocaleString()}</div>
+            <div className="phase-activity__total-val">{totalCommits.toLocaleString('en-US')}</div>
             <div className="phase-activity__total-sub">across 4 engineers</div>
           </div>
           <div className="phase-activity__branches">

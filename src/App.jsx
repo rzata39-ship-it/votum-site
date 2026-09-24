@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { LanguageProvider } from './context/LanguageContext'
 import { useLanguage } from './context/useLanguage'
 import useSeo from './hooks/useSeo'
@@ -64,35 +64,35 @@ function SkipLink() {
   return <a href="#main" className="skip-link" onClick={handleClick}>{locale.nav.skip}</a>
 }
 
+// Router-agnostic: main.jsx wraps it in BrowserRouter, entry-server.jsx
+// (build-time prerender) in StaticRouter.
 export default function App() {
   const [contactOpen, setContactOpen] = useState(false)
   const openContact  = () => setContactOpen(true)
   const closeContact = () => setContactOpen(false)
 
   return (
-    <BrowserRouter>
-      <LanguageProvider>
-        <SkipLink />
-        <Nav onContact={openContact} />
-        {/* #page is made inert while the mobile drawer is open */}
-        <div id="page">
-          <Routes>
-            <Route path="/"             element={<Home  onContact={openContact} />} />
-            <Route path="/about"        element={<About />} />
-            {features.blog && <Route path="/blog"       element={<Blog />} />}
-            {features.blog && <Route path="/blog/:slug" element={<Article />} />}
-            <Route path="/privacy.html" element={<Privacy />} />
-            <Route path="/terms.html"   element={<Terms />} />
-            <Route path="/legal.html"   element={<LegalNotice />} />
-            <Route path="/cookies.html" element={<Cookies />} />
-            <Route path="*"             element={<NotFound />} />
-          </Routes>
-          <Footer />
-          <BackToTop />
-        </div>
-        <ScrollManager />
-        <ContactModal open={contactOpen} onClose={closeContact} />
-      </LanguageProvider>
-    </BrowserRouter>
+    <LanguageProvider>
+      <SkipLink />
+      <Nav onContact={openContact} />
+      {/* #page is made inert while the mobile drawer is open */}
+      <div id="page">
+        <Routes>
+          <Route path="/"             element={<Home  onContact={openContact} />} />
+          <Route path="/about"        element={<About />} />
+          {features.blog && <Route path="/blog"       element={<Blog />} />}
+          {features.blog && <Route path="/blog/:slug" element={<Article />} />}
+          <Route path="/privacy.html" element={<Privacy />} />
+          <Route path="/terms.html"   element={<Terms />} />
+          <Route path="/legal.html"   element={<LegalNotice />} />
+          <Route path="/cookies.html" element={<Cookies />} />
+          <Route path="*"             element={<NotFound />} />
+        </Routes>
+        <Footer />
+        <BackToTop />
+      </div>
+      <ScrollManager />
+      <ContactModal open={contactOpen} onClose={closeContact} />
+    </LanguageProvider>
   )
 }

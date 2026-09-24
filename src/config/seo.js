@@ -11,15 +11,18 @@ export const OG_IMAGE = '/og-image.png'
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 }
 
 // key → translations.<lang>.seo[key]; file → static HTML written at build time
+// prerender → the page body is rendered at build time (react-dom/server) and
+// hydrated in the browser. 404.html is not: it is served for every unknown
+// path, so it is rendered on the client for whatever URL was requested.
 export const ROUTES = [
-  { key: 'home',     path: '/',             file: 'index.html',       sitemap: true  },
-  { key: 'about',    path: '/about',        file: 'about/index.html', sitemap: true  },
-  { key: 'blog',     path: '/blog',         file: 'blog/index.html',  sitemap: true  },
-  { key: 'privacy',  path: '/privacy.html', file: 'privacy.html',     sitemap: true  },
-  { key: 'terms',    path: '/terms.html',   file: 'terms.html',       sitemap: true  },
-  { key: 'legal',    path: '/legal.html',   file: 'legal.html',       sitemap: true  },
-  { key: 'cookies',  path: '/cookies.html', file: 'cookies.html',     sitemap: true  },
-  { key: 'notFound', path: '/404.html',     file: '404.html',         sitemap: false, noindex: true },
+  { key: 'home',     path: '/',             file: 'index.html',       sitemap: true,  prerender: true  },
+  { key: 'about',    path: '/about',        file: 'about/index.html', sitemap: true,  prerender: true  },
+  { key: 'blog',     path: '/blog',         file: 'blog/index.html',  sitemap: true,  prerender: true  },
+  { key: 'privacy',  path: '/privacy.html', file: 'privacy.html',     sitemap: true,  prerender: true  },
+  { key: 'terms',    path: '/terms.html',   file: 'terms.html',       sitemap: true,  prerender: true  },
+  { key: 'legal',    path: '/legal.html',   file: 'legal.html',       sitemap: true,  prerender: true  },
+  { key: 'cookies',  path: '/cookies.html', file: 'cookies.html',     sitemap: true,  prerender: true  },
+  { key: 'notFound', path: '/404.html',     file: '404.html',         sitemap: false, prerender: false, noindex: true },
 ].filter((r) => r.key !== 'blog' || features.blog)
 
 export const absoluteUrl = (path) => new URL(path, company.siteUrl).href

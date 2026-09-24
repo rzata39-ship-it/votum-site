@@ -10,14 +10,11 @@
     <!--seo:end-->
     <link rel="icon" type="image/svg+xml" href="/logo_icon.svg" />
     <link rel="preload" href="/fonts/AlteHaasGroteskBold.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Pages are pre-rendered; without JS the scroll-reveal never runs, so show everything -->
+    <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
   </head>
   <body>
     <div id="root"></div>
-    <noscript>
-      <p style="padding:24px;font-family:sans-serif;color:#fff;background:#11111f">
-        VOTUM — Engineered for impact. This website requires JavaScript.
-      </p>
-    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

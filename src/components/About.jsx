@@ -18,7 +18,7 @@ export default function About() {
             <span className="eyebrow">{t.hero.eyebrow}</span>
             <h1 className="about-hero__title">
               {t.hero.titleLines.map((line, i) => (
-                <span key={i}>{line}<br /></span>
+                <span key={i}>{line}{' '}<br /></span>
               ))}
               {t.hero.titleTail} <span className="accent">{t.hero.titleAccent}</span>
             </h1>

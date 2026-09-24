@@ -16,7 +16,15 @@ function readStoredLang() {
 }
 
 export function LanguageProvider({ children }) {
-  const [lang, setLangState] = useState(readStoredLang)
+  // Always start in the default language: that is what the pre-rendered HTML
+  // contains, so the hydrating render must match it. A stored preference is
+  // applied only after hydration.
+  const [lang, setLangState] = useState(DEFAULT_LANG)
+
+  useEffect(() => {
+    const stored = readStoredLang()
+    if (stored !== DEFAULT_LANG) setLangState(stored)
+  }, [])
 
   const setLang = (newLang) => {
     if (!isAvailable(newLang)) return
