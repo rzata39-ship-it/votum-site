@@ -61,6 +61,17 @@ src/
     └── legal/               LegalPage shell + Privacy, Terms, Cookies
 ```
 
+## Naming convention
+
+| Use | For |
+|---|---|
+| **VOTUM** | the brand — in all running copy (never "Votum", never "VOTUM IT" on its own) |
+| **VOTUM IT EOOD & Co KD** | the legal entity — footer, legal pages, JSON-LD `legalName`; on first mention in company context: "VOTUM (VOTUM IT EOOD & Co KD)" |
+| **Вотум ИТ ЕООД и Ко КД** | the registered Bulgarian name — legal notice, JSON-LD `alternateName` |
+| **votum.bg** | the domain; canonical host `https://www.votum.bg` |
+
+Factual claims (numbers, 24/7, client figures, response times) need evidence before they go on the site — see `CONTENT_EVIDENCE_REQUIRED.md`.
+
 ## Things to know
 
 - **Languages.** A language is offered only when it has every key English has (`src/i18n/languages.js`). DE and BG are currently incomplete and therefore hidden; they reappear automatically once completed.

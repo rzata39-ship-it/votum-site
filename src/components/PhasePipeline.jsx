@@ -29,6 +29,7 @@ export default function PhasePipeline() {
   return (
     <div className="phase-visual phase-pipeline" aria-hidden="true">
       <div className="phase-visual__inner">
+        <span className="phase-visual__example">Example</span>
         <span className="phase-visual__eyebrow">Phase 02 — Build &amp; Delivery</span>
         <div className="phase-visual__title">Engineering output · last 16 weeks</div>
 

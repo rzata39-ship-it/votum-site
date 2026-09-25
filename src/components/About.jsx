@@ -42,7 +42,7 @@ export default function About() {
           <div className="about-stats__grid">
             {t.stats.map(({ num, label, color }) => (
               <div key={label} className={`about-stat about-stat--${color}`}>
-                <div className="about-stat__num">{num}</div>
+                <div className={`about-stat__num${/[a-z]/i.test(num) ? ' about-stat__num--text' : ''}`}>{num}</div>
                 <div className="about-stat__label">{label}</div>
               </div>
             ))}

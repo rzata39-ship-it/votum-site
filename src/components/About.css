@@ -141,6 +141,11 @@
   letter-spacing: -0.03em;
   margin-bottom: 8px;
 }
+.about-stat__num--text {
+  font-size: clamp(20px, 2.4vw, 32px);
+  line-height: 48px; /* same height as the numeric values */
+  white-space: nowrap;
+}
 .about-stat--green .about-stat__num { color: var(--green-400); }
 .about-stat--teal  .about-stat__num { color: var(--teal-400); }
 .about-stat__label {
@@ -451,6 +456,7 @@
   .about-team       { padding: 56px var(--container-pad); }
   .about-stat       { padding: 26px 18px; }
   .about-stat__num  { font-size: 36px; }
+  .about-stat__num--text { font-size: clamp(20px, 5.4vw, 28px); line-height: 36px; }
   .diff-row__col    { padding: 22px 20px; }
   .principle-card   { padding: 26px 22px; }
 }

@@ -34,6 +34,7 @@ export default function PhaseHeartbeat() {
   return (
     <div className="phase-visual phase-heartbeat" aria-hidden="true">
       <div className="phase-visual__inner">
+        <span className="phase-visual__example">Example</span>
         <span className="phase-visual__eyebrow">Phase 03 — Launch &amp; Beyond</span>
         <div className="phase-visual__title">Production health</div>
 

@@ -17,7 +17,7 @@
 
 .stat {
   background: var(--navy-800);
-  padding: 40px 32px;
+  padding: 40px clamp(12px, 2.5vw, 32px);
   text-align: center;
   transition: background var(--transition-fast);
   position: relative;
@@ -40,6 +40,11 @@
   line-height: 1; margin-bottom: 8px;
   letter-spacing: -0.02em;
 }
+.stat__num--text {
+  font-size: clamp(20px, 2.5vw, 34px);
+  line-height: 52px; /* same height as the numeric values */
+  white-space: nowrap;
+}
 .stat--green .stat__num { color: var(--green-400); }
 .stat--teal  .stat__num { color: var(--teal-400); }
 
@@ -51,6 +56,7 @@
 
 @media (max-width: 768px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat__num--text { font-size: 30px; }
 }
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr; }

@@ -8,6 +8,7 @@ import { features } from './config/features'
 import Nav          from './components/Nav'
 import Hero         from './components/Hero'
 import Stats        from './components/Stats'
+import CompanyIntro from './components/CompanyIntro'
 import Services     from './components/Services'
 import HowWeWork    from './components/HowWeWork'
 import Cases        from './components/Cases'
@@ -31,6 +32,7 @@ function Home({ onContact }) {
     <main id="main" tabIndex={-1}>
       <Hero onContact={onContact} />
       <Stats />
+      <CompanyIntro />
       <Services />
       <HowWeWork />
       <Cases />

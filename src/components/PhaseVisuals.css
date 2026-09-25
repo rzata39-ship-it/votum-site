@@ -37,6 +37,24 @@
   padding: clamp(22px, 3vw, 34px);
 }
 
+/* Marks every dashboard as a mock-up (the caption below repeats it) */
+.phase-visual__example {
+  position: absolute;
+  top: clamp(16px, 2.4vw, 28px);
+  right: clamp(22px, 3vw, 34px);
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy-200);
+}
+
 .phase-visual__eyebrow {
   display: block;
   margin-bottom: 8px;

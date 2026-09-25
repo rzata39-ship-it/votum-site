@@ -23,22 +23,27 @@ export const translations = {
     hero: {
       eyebrow:     'End-to-End Engineering',
       title:       { line1: 'Engineered', line2: 'for', accent: 'impact.' },
-      lead:        'From vision to operations, we own your engineering excellence.',
+      lead:        'From strategy to operations — we design, build and run the software your business depends on.',
       ctaPrimary:  'Get in touch →',
       ctaSecondary:'Case Studies',
     },
 
+    intro: {
+      title: 'About VOTUM',
+      body:  'VOTUM is a software engineering and technology consultancy based in Sofia, Bulgaria. Founded in {year} and operated by {legalName}, we help companies plan, build and run business-critical software across five areas: technology strategy and consulting, software engineering, DevOps and cloud, managed services and operations, and quality engineering and test automation.',
+    },
+
     stats: [
-      { num: '45+', label: 'Projects delivered',  color: 'green' },
-      { num: '18+', label: 'Years of experience', color: 'teal'  },
-      { num: '80%', label: 'Client retention',    color: 'green' },
-      { num: '20+', label: 'Expert engineers',    color: 'teal'  },
+      { num: '2024',       label: 'Founded in Sofia',       color: 'green' },
+      { num: '5',          label: 'Service areas',          color: 'teal'  },
+      { num: '5',          label: 'Published case studies', color: 'green' },
+      { num: 'End-to-end', label: 'Strategy to operations', color: 'teal'  },
     ],
 
     services: {
       eyebrow:   'What we do',
       title:     'End-to-end engineering',
-      lead:      "We cover every layer of the engineering lifecycle, so you don't have to coordinate five different vendors.",
+      lead:      "We cover strategy, build, delivery and operations, so you don't have to coordinate separate vendors for each.",
       learnMore: 'Learn more →',
       cards: [
         {
@@ -64,7 +69,7 @@ export const translations = {
             "We deliver custom software solutions built from the ground up with production excellence in mind. Whether you're launching a new product, modernizing legacy systems, or scaling an existing application, we architect and build systems designed for growth.",
             'Our engineering practice emphasizes clean code, comprehensive testing, automated deployment pipelines, and documentation that enables your team to maintain and evolve the product.',
             'We pair senior engineers with your team, transferring knowledge and ensuring your in-house capabilities are strengthened. We focus on solving your actual business problems, not over-engineering solutions.',
-            'Every line of code is designed to be maintainable, testable, and scalable — eliminating technical debt before it starts.',
+            'We design code to be maintainable, testable, and scalable, so technical debt doesn\'t build up unnoticed.',
           ],
           tags:       [
             { label: 'Custom Development', variant: 'teal' },
@@ -94,7 +99,7 @@ export const translations = {
           body:       "We don't just build and hand off. We stay on to monitor, maintain, and continuously improve your systems — so your team focuses on features, not firefighting.",
           details:    [
             'Production systems require continuous care. We provide comprehensive managed services to keep your applications running smoothly and improving over time.',
-            'This includes 24/7 system monitoring and alerting, proactive incident response and root cause analysis, performance optimization and tuning, security patching and vulnerability management, regular health audits and recommendations, capacity planning and scaling decisions, and documentation updates.',
+            'This includes system monitoring and alerting (24/7 monitoring and support available under agreed SLAs), proactive incident response and root cause analysis, performance optimization and tuning, security patching and vulnerability management, regular health audits and recommendations, capacity planning and scaling decisions, and documentation updates.',
             'Rather than reactive troubleshooting, we take a proactive approach — identifying issues before they impact users, optimizing systems based on real usage patterns, and continuously improving reliability.',
             'Your team focuses on building new features while we ensure infrastructure stability, performance, and security. We provide regular reports on system health, incident summaries, and optimization recommendations so you stay informed without the operational overhead.',
           ],
@@ -108,12 +113,12 @@ export const translations = {
         },
         {
           title:      'Quality Engineering & Test Automation',
-          body:       'Comprehensive testing strategies ensuring reliability at every layer. We build automated test suites, implement quality gates, and establish processes that catch issues before they reach production.',
+          body:       'Testing strategies that improve reliability across the stack. We build automated test suites, implement quality gates, and establish processes that catch issues before they reach production.',
           details:    [
             'Shipping with confidence requires more than manual testing. We establish quality engineering practices that catch issues early and scale with your product.',
             'Our approach includes test strategy development aligned with your product roadmap, automated unit and integration testing frameworks, end-to-end test automation for critical user flows, performance and load testing to identify bottlenecks, security testing and vulnerability scanning, continuous integration test execution, and quality metrics dashboards.',
-            'We implement testing at every layer — from unit tests during development to production monitoring and synthetic testing. We work with your team to establish quality gates that enforce standards without slowing deployment velocity.',
-            'This means fewer production incidents, faster feedback loops, and the confidence to ship features quickly. Our goal is to make quality invisible — testing so thorough and automated that it becomes part of your normal development rhythm, not a bottleneck.',
+            'We implement testing across the stack — from unit tests during development to production monitoring and synthetic testing. We work with your team to establish quality gates that enforce standards without slowing deployment velocity.',
+            'This means fewer production incidents, faster feedback loops, and the confidence to ship features quickly. Our goal is to make quality invisible — testing that is automated and part of your normal development rhythm, not a bottleneck.',
           ],
           tags:       [
             { label: 'Test Automation',    variant: 'green' },
@@ -130,14 +135,14 @@ export const translations = {
       eyebrow: 'How we work',
       visualNote: 'Example delivery dashboard · illustrative metrics',
       title:   'A process designed around no surprises.',
-      lead:    "We don't take shortcuts. Every engagement follows a proven process designed to eliminate risk, align technology with business goals, and deliver solutions your team can stand behind.",
+      lead:    'Every engagement follows the same structured process — designed to reduce delivery risk, align technology with business goals, and give your team solutions it can stand behind.',
       phases: [
         {
           eyebrow: 'Phase 01 — Discovery & Strategy',
           title:   'We start by understanding your business, not your backlog.',
           body:    'Before any solution is designed or built, we define your technology strategy, align stakeholders, and assess your current landscape. The result is a clear architecture and delivery roadmap everyone can commit to.',
           checks:  [
-            'Fixed scope. No surprises',
+            'Agreed scope before build',
             'Stakeholder workshops & requirements gathering',
             'Technology strategy & architecture definition',
             'Technical audit of systems and cloud landscape',
@@ -162,7 +167,7 @@ export const translations = {
           body:    'We ensure your systems run reliably at scale through observability, proactive operations, and continuous optimization—acting as your long-term technology partner.',
           checks:  [
             'Zero-downtime production deployments',
-            'Full observability and monitoring',
+            'Observability and monitoring built in',
             'Cloud and DevOps operations at scale',
             'Managed services with L1–L3 support',
             'Optional SLA and long-term support',
@@ -175,7 +180,7 @@ export const translations = {
     cases: {
       eyebrow: 'Our work',
       title:   'Results that speak',
-      lead:    'A selection of projects where precision engineering made a measurable difference.',
+      lead:    'A selection of projects — the challenge, what we did and the result.',
       labels:  { challenge: 'The Challenge', solution: 'What We Did', outcome: 'The Result' },
       feature: {
         category: 'Managed Services & Operations',
@@ -184,28 +189,28 @@ export const translations = {
         summary:  'Ensuring reliable operations and continuous improvement under defined SLAs.',
         challenge:'A Tier 1 automotive OEM with 150,000+ employees struggled with fragmented tools, limited visibility, and inconsistent processes across global teams. Following a large-scale transformation, they required a trusted long-term partner to operate, maintain, and continuously improve their centralized software delivery and testing platform at enterprise scale.',
         solution: 'We defined and executed a transformation strategy to unify software delivery and testing, designing a centralized platform based on OpenText ALM & UFT and migrating legacy systems into a single ecosystem. Building on this foundation, we provide end-to-end managed services for a platform supporting over 1,000 users worldwide. Our scope includes system maintenance, L1–L2 user support, incident management, and continuous platform enhancements—all under clearly defined SLAs.',
-        outcome:  'A standardized and scalable environment with full lifecycle visibility, combined with stable operations within the agreed SLA targets. The client benefits from significantly reduced internal workload, continuous improvement, and a high-performing platform that ensures long-term scalability and consistent global operations.',
+        outcome:  'A standardized and scalable environment with full lifecycle visibility, combined with stable operations within the agreed SLA targets. The client benefits from reduced internal workload, continuous improvement, and a platform built for long-term scalability and consistent global operations.',
         tags:     ['OpenText ALM/UFT', 'Managed Services', 'SLA Management', 'L1–L2 Support'],
         stats:    [{ value: '1,000+', label: 'users' }, { value: 'SLA', label: 'based operations' }, { value: '24/7', label: 'continuity' }],
       },
       hero: {
         category: 'Data Migration & Cloud Architecture',
-        title:    'Data Archival and Migration for a Leading Insurance Group',
-        cardBody: 'A major European insurance group needed to decommission critical legacy platforms while preserving years of historical data, attachments, and audit trails — without vendor lock-in.',
+        title:    'Data Archival and Migration for a European Insurance Group',
+        cardBody: 'A European insurance group needed to decommission critical legacy platforms while preserving years of historical data, attachments, and audit trails — without vendor lock-in.',
         summary:  'Migrated and archived enterprise ALM and PPM data from legacy OpenText SaaS to a cost-efficient, audit-ready AWS platform.',
-        challenge:'A major European insurance group was decommissioning their OpenText ALM and PPM platforms but faced a critical requirement: large volumes of historical Oracle database records, extensive attachments, and strict audit and compliance obligations meant the data had to remain fully accessible, secure, and audit-ready — without staying tied to legacy vendor infrastructure.',
+        challenge:'A European insurance group was decommissioning their OpenText ALM and PPM platforms but faced a critical requirement: large volumes of historical Oracle database records, extensive attachments, and strict audit and compliance obligations meant the data had to remain fully accessible, secure, and audit-ready — without staying tied to legacy vendor infrastructure.',
         solution: 'We designed and implemented a scalable, cloud-native archival solution on AWS. The Oracle database was migrated to PostgreSQL on AWS RDS, ensuring full data integrity and schema optimization. All attachments and documents were extracted and structured to preserve their relationships with the underlying data. We also built a custom lightweight access tool — purpose-built for audit and compliance use cases — allowing easy querying of archived records and seamless retrieval of related files.',
-        outcome:  'Historical data from OpenText ALM and PPM preserved, a successful Oracle-to-PostgreSQL migration, and full audit readiness with fast access to historical records. The client eliminated their dependency on legacy SaaS platforms, reduced operational costs, and gained a modern, future-proof archive aligned with their long-term IT strategy.',
+        outcome:  'Historical data from OpenText ALM and PPM preserved, a successful Oracle-to-PostgreSQL migration, and full audit readiness with fast access to historical records. The client eliminated their dependency on legacy SaaS platforms, reduced operational costs, and gained a modern archive aligned with their long-term IT strategy.',
         tags:     ['AWS', 'PostgreSQL', 'Oracle Migration', 'OpenText ALM/PPM', 'Data Archival'],
         stats:    [{ value: 'ALM/PPM', label: 'data archived' }, { value: 'AWS', label: 'cloud-native archive' }, { value: 'Audit', label: 'ready access' }],
       },
       supporting: [
         {
           category: 'Asset Management Platform',
-          title:    'Modern Digital Advisory Platform for a Leading Asset Manager',
-          cardBody: 'A leading asset management enterprise faced limitations with a legacy system — poor usability, limited scalability, and workflows that slowed down their consultants.',
+          title:    'Modern Digital Advisory Platform for an Asset Management Firm',
+          cardBody: 'An asset management firm faced limitations with a legacy system — poor usability, limited scalability, and workflows that slowed down their consultants.',
           summary:  'Modernized manual workflows into an integrated digital platform.',
-          challenge:"A leading asset management firm was held back by a legacy platform that couldn't scale. Outdated workflows, poor UX, and siloed collaboration were slowing down their specialist investment consultants and limiting operational efficiency.",
+          challenge:"An asset management firm was held back by a legacy platform that couldn't scale. Outdated workflows, poor UX, and siloed collaboration were slowing down their specialist investment consultants and limiting operational efficiency.",
           solution: 'We designed and built a modern, enterprise-grade web platform from scratch — covering planning, design, development, testing, and full rollout. The solution features a scalable microservices backend, a React frontend, secure authentication, and containerized deployment.',
           outcome:  'End-to-end processes digitized — including planning, service mediation, activity tracking, and automated invoicing. Manual workflows replaced by digital ones, enabling efficient and scalable collaboration across the organization.',
           tags:     ['React', 'Java / Spring Boot', 'Keycloak', 'Docker', 'Kubernetes'],
@@ -226,11 +231,11 @@ export const translations = {
       final: {
         category: 'Test Automation',
         title:    'Scalable Test Automation Framework for an Automotive Enterprise',
-        cardBody: 'A leading automotive manufacturer relied heavily on manual testing — resulting in slow releases, limited scalability, and growing delivery risk.',
+        cardBody: 'An automotive manufacturer relied heavily on manual testing — resulting in slow releases, limited scalability, and growing delivery risk.',
         summary:  'Integrated testing directly into the release lifecycle with automation.',
-        challenge:"A leading automotive manufacturer was over-reliant on manual UI and functional testing. Slow release cycles, limited scalability, and growing system complexity were creating real risk — and the testing function couldn't keep pace with delivery demands.",
-        solution: 'We designed and implemented a comprehensive test automation framework from scratch using world-class, industry-standard test automation platform, defined standardized testing processes, and integrated automated testing directly into the development and release lifecycle.',
-        outcome:  'Significantly reduced manual testing effort, faster and more reliable release cycles, and improved test coverage across teams — enabling scalable, high-quality software delivery at enterprise pace.',
+        challenge:"An automotive manufacturer was over-reliant on manual UI and functional testing. Slow release cycles, limited scalability, and growing system complexity were creating real risk — and the testing function couldn't keep pace with delivery demands.",
+        solution: 'We designed and implemented a comprehensive test automation framework from scratch using an industry-standard test automation platform, defined standardized testing processes, and integrated automated testing directly into the development and release lifecycle.',
+        outcome:  'Reduced manual testing effort, faster and more reliable release cycles, and improved test coverage across teams — enabling scalable, high-quality software delivery.',
         tags:     ['Test Automation', 'QA Strategy', 'Release Management', 'Process Standardization'],
         stats:    [{ value: 'Broader', label: 'test coverage' }, { value: 'Faster', label: 'release cycles' }, { value: 'Less', label: 'manual testing' }],
       },
@@ -279,20 +284,20 @@ export const translations = {
 
     about: {
       hero: {
-        eyebrow: 'About Votum',
+        eyebrow: 'About VOTUM',
         titleLines: ['We build', 'engineering'],
         titleTail: 'that',
         titleAccent: 'lasts.',
-        lead: 'Votum is a senior engineering consultancy. We embed with your team, take ownership of outcomes, and build the technical foundations that let your product scale — without the overhead of a traditional agency.',
+        lead: 'VOTUM is a senior engineering consultancy based in Sofia, Bulgaria. We embed with your team, take ownership of outcomes, and build the technical foundations that let your product scale — without the overhead of a traditional agency.',
         // The year itself comes from company.foundingYear (src/config/company.js)
         // and is only rendered once it is confirmed.
         foundedText: "Built on the belief that great engineering is about ownership, not output. That hasn't changed.",
       },
       stats: [
-        { num: '45+', label: 'Projects delivered',   color: 'green' },
-        { num: '18+', label: 'Years of experience',  color: 'teal'  },
-        { num: '80%', label: 'Client retention',     color: 'green' },
-        { num: '20+', label: 'Senior engineers',     color: 'teal'  },
+        { num: '2024',       label: 'Founded in Sofia',       color: 'green' },
+        { num: '5',          label: 'Service areas',          color: 'teal'  },
+        { num: '5',          label: 'Published case studies', color: 'green' },
+        { num: 'End-to-end', label: 'Strategy to operations', color: 'teal'  },
       ],
       mission: {
         eyebrow: 'Our mission',
@@ -300,8 +305,8 @@ export const translations = {
         quoteAccent: 'outlast the engagement.',
         paragraphs: [
           'Most agencies optimize for delivery: ship the feature, invoice the hours, move on. We optimize for the moment you no longer need us — when your team is confident, your systems are stable, and the architecture we built together is something you can grow on for years.',
-          "That means we embed deeply. We sit in your standups, write your documentation, and have the conversations that don't fit in a Jira ticket. It's slower in the short term and dramatically more valuable in the long term.",
-          'Votum was built by engineers who had spent years watching the same patterns fail — disconnected strategy, short-term execution, and handoffs that left teams worse off than when the engagement started. We set out to build the alternative.',
+          "That means we embed deeply. We sit in your standups, write your documentation, and have the conversations that don't fit in a Jira ticket. It's slower in the short term and more valuable in the long term.",
+          'VOTUM was built by engineers who had spent years watching the same patterns fail — disconnected strategy, short-term execution, and handoffs that left teams worse off than when the engagement started. We set out to build the alternative.',
         ],
       },
       principles: {
@@ -311,16 +316,16 @@ export const translations = {
           { num: '01', color: 'green', title: 'Senior engineers only',     body: "We don't staff with juniors and supervise from a distance. Every engineer working on your product has years of production experience. You pay for expertise, you get expertise." },
           { num: '02', color: 'teal',  title: 'Ownership, not output',     body: "We measure success by outcomes, not tickets closed. If a feature shipped but the system is harder to maintain, we didn't succeed. We own the full lifecycle of what we build." },
           { num: '03', color: 'green', title: 'No architecture astronauts', body: "We recommend the simplest solution that solves the real problem. We won't introduce complexity to look sophisticated or to extend the engagement. If a boring solution is the right one, we'll say so." },
-          { num: '04', color: 'teal',  title: 'Fixed scope before build',  body: "We won't start building until we understand the problem. Every engagement starts with a discovery phase — even a short one. Scope agreed on paper beats scope discovered in code." },
+          { num: '04', color: 'teal',  title: 'Scope and success criteria agreed before build',  body: "We won't start building until we understand the problem. Every engagement starts with a discovery phase — even a short one. Scope agreed on paper beats scope discovered in code." },
           { num: '05', color: 'green', title: 'Transparent progress',      body: "You see what we're doing every week. No black-box development cycles. Live demos every sprint, open backlogs, and honest status updates — including the hard ones." },
           { num: '06', color: 'teal',  title: 'We leave teams stronger',   body: 'The goal of every engagement is to make ourselves unnecessary. We write the documentation, run the knowledge transfers, and design systems your team can operate confidently without us.' },
         ],
       },
       diff: {
-        eyebrow: 'Why Votum',
+        eyebrow: 'Why VOTUM',
         title: 'Not a typical agency.',
         lead: 'The model most clients have experienced before — and what we do differently.',
-        headers: ['Typical agency', 'Votum'],
+        headers: ['Typical agency', 'VOTUM'],
         rows: [
           { label: 'Team composition',  left: 'Mix of seniors and juniors, often rotated between projects',                      right: 'Senior engineers only. The person in your standup is the person writing your code.' },
           { label: 'Engagement model',  left: 'Time-and-materials or fixed-price deliverables, optimized for hours billed',      right: 'Outcome-based. We define success criteria before we start and hold ourselves to them.' },
@@ -331,7 +336,7 @@ export const translations = {
       team: {
         eyebrow: 'The team',
         title: "People who've done this before.",
-        note: 'Every person at Votum has spent years in production engineering — not in consulting about it. We hire experienced specialists and give them the ownership and environment to keep growing.',
+        note: 'Every person at VOTUM has spent years in production engineering — not in consulting about it. We hire experienced specialists and give them the ownership and environment to keep growing.',
         // kind: 'person' → a named individual (only with real, confirmed data).
         // kind: 'role'   → a role / capability description, rendered without
         //                  initials so it is never mistaken for a personal profile.
@@ -364,7 +369,7 @@ export const translations = {
       hero: {
         eyebrow: 'Engineering insights',
         titleLines: ['From the', 'engineers', 'doing it.'],
-        subStrong: 'Technical writing from the Votum team.',
+        subStrong: 'Technical writing from the VOTUM team.',
         sub: ' Architecture decisions, delivery patterns, and hard-won lessons from production engineering across 45+ engagements.',
       },
       filtersLabel: 'Filter articles by category',
@@ -469,7 +474,7 @@ export const translations = {
     // values into the static HTML of each route; useSeo() updates them at runtime.
     seo: {
       home:     { title: 'VOTUM – Software Engineering, DevOps & Test Automation', description: 'Sofia-based engineering partner for technology consulting, custom software, DevOps & cloud, managed operations and test automation — from discovery to production.' },
-      about:    { title: 'About VOTUM – Engineering Team in Sofia', description: 'Meet the VOTUM team and how we work: experienced engineers, fixed scope before build and transparent delivery. VOTUM IT EOOD & Co KD, Sofia, Bulgaria.' },
+      about:    { title: 'About VOTUM – Software Engineering Company in Sofia', description: 'Meet the VOTUM team: experienced engineers, scope and success criteria agreed before build, and transparent delivery. VOTUM IT EOOD & Co KD, Sofia, Bulgaria.' },
       blog:     { title: 'Insights — VOTUM', description: 'Engineering insights from the VOTUM team: architecture decisions, delivery patterns and lessons from production engineering.' },
       privacy:  { title: 'Privacy Policy — VOTUM', description: 'How VOTUM collects, uses and protects personal data when you visit this website or contact us.' },
       legal:    { title: 'Legal Notice — VOTUM', description: 'Company details of VOTUM IT EOOD & Co KD: registered address, UIC, VAT number and contact details.' },
@@ -479,7 +484,7 @@ export const translations = {
     },
 
     footer: {
-      tagline:   'Engineered for impact.\nFrom vision to operations, we own your engineering excellence.',
+      tagline:   'Engineered for impact.\nFrom strategy to operations — we design, build and run the software your business depends on.',
       company: {
         title: 'Company',
         links: [
