@@ -182,6 +182,32 @@
   color: var(--green-400);
 }
 
+/* Contextual link to a solution page (components/RelatedSolutions.jsx) */
+.related-solution {
+  margin-top: 56px;
+  padding: 18px 22px;
+  border: 1px solid rgba(106, 214, 161, 0.25);
+  border-radius: var(--radius-lg);
+  background: rgba(106, 214, 161, 0.05);
+}
+.related-solution__label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-400);
+}
+.related-solution p { font-size: 15.5px; line-height: 1.6; color: #d5d5ea; }
+.related-solution a {
+  color: var(--teal-400);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.related-solution a:hover { color: var(--white); }
+
 .page-cta {
   margin-top: 72px;
   padding: 40px;

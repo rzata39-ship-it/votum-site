@@ -4,8 +4,10 @@ import useSeo from '../hooks/useSeo'
 import { company } from '../config/company'
 import { findCase, casePath } from '../config/cases'
 import { SERVICES, findService, servicePath } from '../config/services'
+import { solutionsForCase } from '../config/solutions'
 import { fmt } from '../utils/format'
 import Breadcrumbs from './Breadcrumbs'
+import RelatedSolutions from './RelatedSolutions'
 import NotFound from './NotFound'
 import './ContentPage.css'
 import './CaseStudies.css'
@@ -81,6 +83,8 @@ function CaseContent({ study }) {
             </div>
           </Section>
         )}
+
+        <RelatedSolutions solutions={solutionsForCase(study.slug)} pageSlug={study.slug} />
 
         <section className="page-cta">
           <h2>{t.cta.title}</h2>

@@ -160,6 +160,22 @@ Not recorded and not published: any legal or company relationship to an earlier 
 - [ ] **Test automation measurements** — manual effort, release cadence, coverage (before / after). Until then only qualitative wording.
 - [ ] **Automotive client classification** — OEM or Tier 1 supplier; until confirmed, "a global automotive organization".
 
+### OpenText ALM solution page (Sprint 3B)
+
+`/solutions/opentext-alm` uses only what the public case studies and service
+pages support: OpenText ALM / UFT (software delivery platform case),
+OpenText ALM / PPM migration and archival (insurance case), and the confirmed
+company capabilities (L1–L3, L3 as a core strength, 24/7 under agreed SLAs).
+The page states that the products belong to OpenText and that VOTUM is an
+independent engineering company.
+
+Not claimed — provide evidence before adding any of these:
+
+- [ ] OpenText partner, reseller or certification status
+- [ ] Supported product versions or modules beyond ALM, UFT and PPM
+- [ ] Years of OpenText experience, number of ALM projects or users supported
+- [ ] OpenText-specific CI/CD integrations, response times or SLA figures
+
 ### Client-scale figures — evidence notes
 
 | Figure | Case | Status | Evidence source |
