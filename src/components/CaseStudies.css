@@ -1,0 +1,20 @@
+/* Case pages + /case-studies hub (shell and teasers: ContentPage.css) */
+
+/* Attribution note under the H1 — secondary, but always visible */
+.case-page__note {
+  margin-top: 4px;
+  padding: 10px 14px;
+  border-left: 2px solid var(--teal-400);
+  background: rgba(106, 214, 161, 0.06);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--navy-200);
+}
+
+.case-page__text,
+.case-studies-hub__text {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #d5d5ea;
+}

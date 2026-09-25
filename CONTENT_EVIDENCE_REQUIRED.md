@@ -112,10 +112,10 @@ Approved by the business on 2026-09-25 to stay on the site. **Not** legally or N
 For each: provide the evidence, or approve the prepared replacement.
 
 - [ ] **Zero-downtime** — How we work, Phase 03 ("Zero-downtime production deployments"). Replacement ready: "Zero-downtime deployment strategies (rolling / blue-green) where the platform supports them".
-- [ ] **Project / case attribution** — all five case studies say "we". The service pages do not repeat this: their "Relevant project experience" teasers use neutral copy (`caseTeasers` in `translations.js`) without first-person delivery, "Tier 1 OEM", "European", "manufacturer" or client-specific 24/7 / L3 claims. Switch them back to the case text once attribution is confirmed (Sprint 2C). Need per case: delivered by VOTUM IT EOOD & Co KD (since 2024) or by team members before / through another company; period; client approval to publish. Blocks Sprint 2 case-study pages.
-- [ ] **"Tier 1 OEM"** — Tier 1 usually denotes a supplier, OEM the manufacturer. Need: which one the client is.
-- [ ] **"reduced operational costs"** — Case: insurance archive (outcome). Need: cost comparison.
-- [ ] **"European" insurance group** — Case: insurance archive. Need: confirm.
+- [x] **Project / case attribution** — resolved 2026-09-25: all five projects were delivered by members of the current VOTUM team before VOTUM was founded; each case page carries a visible attribution note (§F).
+- [x] **"Tier 1 OEM"** — applied: the case now says "a global automotive organization"; OEM vs Tier 1 supplier stays undecided and is not stated anywhere (§F).
+- [x] **"reduced operational costs"** — applied: removed from the insurance case (no cost comparison) (§F).
+- [x] **"European" insurance group** — applied: "an insurance group" (§F). Reinstate only if confirmed.
 - [ ] **Response time (24 h)** — CTA banner, contact modal (`responseTimeHours` in `src/config/company.js`). Need: an operational commitment incl. weekends. Replacement ready: "We'll reply within one business day with concrete next steps — not a sales pitch."
 - [ ] **Senior engineers only / no juniors** — About lead ("senior engineering consultancy"), principle 01, comparison table, extended team, careers CTA. Need: literally true incl. the on-demand network. Replacement ready: "Senior-led delivery — every engagement is led by senior engineers, and the people in your standups are the people writing your code."
 - [ ] **"Outcome-based" engagement model** — About comparison table. Need: the actual contract model. Replacement ready: "Success criteria agreed before we start, and progress measured against them."
@@ -123,3 +123,46 @@ For each: provide the evidence, or approve the prepared replacement.
 - [ ] **Trading name** `VOTUM` — JSON-LD `name`, `og:site_name`, legal texts. Still "confirm" in `LEGAL_AND_COMPANY_DATA_REQUIRED.md`.
 - [ ] **Team bios + photo consent** — see section D.
 - [ ] **DE / BG copies** — the hidden German and Bulgarian texts still contain the old stats (45+, 18+, 80%, 20+) and the pre-Sprint-2A wording. Bring them in line before either language is enabled.
+
+## F. Sprint 2C — case studies (decided 2026-09-25, applied in Stage B)
+
+The five case studies have their own pages under `/case-studies/<slug>`
+(list, URLs and technologies: `src/config/cases.js`; copy: `cases.items` in
+`src/i18n/translations.js`).
+
+### Confirmed by the business (2026-09-25)
+
+- [x] **All five projects were delivered by members of the current VOTUM team, before VOTUM was founded.** Every case page shows: *"This project was delivered by members of the current VOTUM team before VOTUM IT EOOD & Co KD was founded in 2024."* Case copy uses "the team" / "we", never "VOTUM delivered…".
+- [x] **The team has worked together on enterprise software projects since 2018** (`company.teamSince`). Used on the About page and the `/case-studies` hub — always as the team's history, never as the company's age.
+- [x] **VOTUM IT EOOD & Co KD was founded in 2024** (`company.foundingYear`, JSON-LD `foundingDate` 2024-03-11) — unchanged.
+
+Not recorded and not published: any legal or company relationship to an earlier entity. No previous company is named on the site.
+
+### Rules
+
+- **Publication:** all five are published as anonymous case studies. No client names; no identifying details beyond the approved ones.
+- **Outcomes:** without concrete evidence or an internal source, a measurable outcome is softened, not presented as a proven result.
+- **Company capability ≠ project scope:** 24/7 and L1–L3 are confirmed VOTUM capabilities (service pages); a case only states what its own engagement included.
+- **URLs are canonical** — do not change them without a strong reason.
+
+| Case | URL | Client wording | What was applied |
+|---|---|---|---|
+| Software delivery platform transformation & operations | `/case-studies/software-delivery-platform-operations` | "a global automotive organization" (not "Tier 1 OEM") | "24/7 continuity" / "24/7 managed operations" removed; support scope L1–L2 under agreed SLAs, no L3; "the engagement included…" (no claim that it is ongoing); 150,000+ employees and 1,000+ users only in this case; "stable operations within the agreed SLA targets", "reduced internal workload", "full lifecycle visibility", scalability / global-operations phrasing softened |
+| Insurance data archival & migration | `/case-studies/insurance-data-archival-migration` | "an insurance group" (not "European") | "reduced operational costs" and "cost-efficient" removed; "full data integrity" and "full audit readiness" / "audit-ready" replaced by implementation facts (migration, preserved attachments, access tool) |
+| Asset management advisory platform | `/case-studies/asset-management-advisory-platform` | "an asset management firm" | Planning, service mediation, activity tracking and automated invoicing kept as delivered functionality; "enterprise-grade", "efficient and scalable collaboration" removed |
+| On-premise Kubernetes platform | `/case-studies/on-premise-kubernetes-platform` | "an organization with strict on-premise security requirements" | "more reliable releases" replaced by the delivery architecture; no managed operations implied |
+| Automotive test automation framework | `/case-studies/automotive-test-automation-framework` | "an automotive organization" — independent case, not the operations client | No tool named (the case does not name one); "Broader / Faster / Less" stats replaced by descriptive ones; reduced manual testing only qualitative; no "manufacturer" |
+
+### Still open (case studies)
+
+- [ ] **Case-specific 24/7 scope** — software delivery operations case: 24/7 is not stated until confirmed for that engagement.
+- [ ] **Insurance outcome evidence** — reconciliation evidence (data integrity), audit / compliance evidence (audit readiness), cost comparison (operational costs). Until then these are not claimed.
+- [ ] **Test automation measurements** — manual effort, release cadence, coverage (before / after). Until then only qualitative wording.
+- [ ] **Automotive client classification** — OEM or Tier 1 supplier; until confirmed, "a global automotive organization".
+
+### Client-scale figures — evidence notes
+
+| Figure | Case | Status | Evidence source |
+|---|---|---|---|
+| 150,000+ employees | Software delivery transformation & operations | Business-approved for publication (2026-09-25). Not independently verified. | **Missing** — ideally an approved public company source |
+| 1,000+ users | Software delivery transformation & operations | Business-approved for publication (2026-09-25). Not independently verified. | **Missing** — internal platform / user statistics or another documented source |

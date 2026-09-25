@@ -2,6 +2,7 @@ import { useLanguage } from '../context/useLanguage'
 import { company } from '../config/company'
 import useSeo from '../hooks/useSeo'
 import { statValue, isTextStat } from './Stats'
+import { fmt } from '../utils/format'
 import './About.css'
 
 export default function About() {
@@ -31,7 +32,9 @@ export default function About() {
               {company.foundingYear && (
                 <div className="about-hero__founded-year">{company.foundingYear}</div>
               )}
-              <div className="about-hero__founded-text">{t.hero.foundedText}</div>
+              <div className="about-hero__founded-text">
+                {fmt(t.hero.foundedText, { year: company.foundingYear, teamSince: company.teamSince })}
+              </div>
             </div>
           </div>
         </div>

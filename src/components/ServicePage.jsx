@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
 import useSeo from '../hooks/useSeo'
 import { findService, servicePath } from '../config/services'
-import { CASES, caseLink } from '../config/cases'
+import { casePath, casesForService } from '../config/cases'
 import Breadcrumbs from './Breadcrumbs'
 import NotFound from './NotFound'
 import './ContentPage.css'
@@ -75,24 +75,24 @@ function ServiceContent({ service }) {
 
         {p.technologies.length > 0 && (
           <Section title={t.technologies}>
-            <ul className="service-tags">
+            <ul className="tag-list">
               {p.technologies.map((tech) => <li key={tech} className="tag tag--teal">{tech}</li>)}
             </ul>
           </Section>
         )}
 
         <Section title={t.cases}>
-          <div className="service-cases">
-            {service.cases.map((key) => {
-              // Neutral teaser copy (caseTeasers) — not the homepage case text,
-              // whose attribution and client details are still being confirmed
-              const teaser = locale.caseTeasers[key]
+          <div className="teaser-grid">
+            {/* Cases that list this service in config/cases.js → their case pages
+                (which carry the attribution note) */}
+            {casesForService(service.slug).map((c) => {
+              const item = locale.cases.items[c.slug]
               return (
-                <article key={key} className="service-case">
-                  <span className="service-case__category">{CASES[key].get(locale.cases).category}</span>
-                  <h3><Link to={caseLink(key)}>{teaser.title}</Link></h3>
-                  <p>{teaser.body}</p>
-                  <span className="service-case__more" aria-hidden="true">{t.caseLink}</span>
+                <article key={c.slug} className="teaser">
+                  <span className="teaser__category">{item.category}</span>
+                  <h3><Link to={casePath(c.slug)}>{item.title}</Link></h3>
+                  <p>{item.cardBody}</p>
+                  <span className="teaser__more" aria-hidden="true">{t.caseLink}</span>
                 </article>
               )
             })}

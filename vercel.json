@@ -9,6 +9,12 @@
     { "source": "/services/devops-cloud/index.html", "destination": "/services/devops-cloud", "permanent": true },
     { "source": "/services/managed-services/index.html", "destination": "/services/managed-services", "permanent": true },
     { "source": "/services/test-automation/index.html", "destination": "/services/test-automation", "permanent": true },
+    { "source": "/case-studies/index.html", "destination": "/case-studies", "permanent": true },
+    { "source": "/case-studies/software-delivery-platform-operations/index.html", "destination": "/case-studies/software-delivery-platform-operations", "permanent": true },
+    { "source": "/case-studies/insurance-data-archival-migration/index.html", "destination": "/case-studies/insurance-data-archival-migration", "permanent": true },
+    { "source": "/case-studies/asset-management-advisory-platform/index.html", "destination": "/case-studies/asset-management-advisory-platform", "permanent": true },
+    { "source": "/case-studies/on-premise-kubernetes-platform/index.html", "destination": "/case-studies/on-premise-kubernetes-platform", "permanent": true },
+    { "source": "/case-studies/automotive-test-automation-framework/index.html", "destination": "/case-studies/automotive-test-automation-framework", "permanent": true },
     { "source": "/contact/index.html", "destination": "/contact", "permanent": true }
   ],
   "headers": [

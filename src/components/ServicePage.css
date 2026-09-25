@@ -55,62 +55,6 @@
 }
 .service-tier .page-list li { font-size: 14.5px; }
 
-.service-tags {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.service-tags .tag { font-size: 13px; padding: 6px 12px; }
-
-/* Case-study teasers — link to the case card on the homepage */
-.service-cases {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-.service-case {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  background: var(--navy-800);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: var(--radius-lg);
-  transition: border-color 0.2s;
-}
-.service-case:hover,
-.service-case:focus-within { border-color: rgba(120, 214, 75, 0.4); }
-.service-case__category {
-  margin-bottom: 10px;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--teal-400);
-}
-.service-case h3 {
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.35;
-  margin-bottom: 10px;
-}
-.service-case h3 a { color: var(--white); text-decoration: none; }
-/* whole card clickable, one link in the accessibility tree */
-.service-case h3 a::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
-.service-case p {
-  flex: 1;
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--navy-200);
-  margin-bottom: 16px;
-}
-.service-case__more {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--green-400);
-}
-
 /* Approach steps */
 .service-steps {
   list-style: none;
@@ -144,6 +88,5 @@
 
 @media (max-width: 760px) {
   .service-grid,
-  .service-tiers,
-  .service-cases { grid-template-columns: 1fr; }
+  .service-tiers { grid-template-columns: 1fr; }
 }

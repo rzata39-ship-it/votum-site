@@ -34,6 +34,9 @@ export const company = {
   vatNumber:          'BG207746015',   // VAT registration (ЗДДС) since 03.04.2024
   foundingDate:       '2024-03-11',    // registration in the Commercial Register (JSON-LD foundingDate)
   foundingYear:       2024,            // company registered 11.03.2024 — NOT the same as "years of experience"
+  // The team (not the company) has worked together on enterprise projects since
+  // this year — confirmed 2026-09-25. Never present it as the company's age.
+  teamSince:          2018,
 
   // Managing director / legal representative (управител)
   representative:      'Hristo Kacarov, Managing Director',

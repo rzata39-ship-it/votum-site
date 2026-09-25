@@ -6,6 +6,7 @@ export const translations = {
       services:  'Services',
       howWeWork: 'How we work',
       work:      'Our work',
+      caseStudies: 'Case Studies',
       contact:   'Contact',
       about:     'About',
       blog:      'Blog',
@@ -36,7 +37,7 @@ export const translations = {
     stats: [
       { num: '2024',       label: 'Founded in Sofia',       color: 'green' },
       { num: '{serviceCount}', label: 'Service areas',     color: 'teal'  },
-      { num: '5',          label: 'Published case studies', color: 'green' },
+      { num: '{caseCount}', label: 'Published case studies', color: 'green' },
       { num: 'End-to-end', label: 'Strategy to operations', color: 'teal'  },
     ],
 
@@ -144,70 +145,95 @@ export const translations = {
       ],
     },
 
+    // Case studies — the list, order, URLs and technologies are in
+    // src/config/cases.js; this is the copy per slug. All five projects were
+    // delivered by members of the current VOTUM team before VOTUM IT EOOD &
+    // Co KD was founded in 2024 — never write "VOTUM delivered…" for them.
+    // Evidence rules: CONTENT_EVIDENCE_REQUIRED.md §F.
     cases: {
       eyebrow: 'Our work',
-      title:   'Results that speak',
-      lead:    'A selection of projects — the challenge, what we did and the result.',
-      labels:  { challenge: 'The Challenge', solution: 'What We Did', outcome: 'The Result' },
-      feature: {
-        category: 'Managed Services & Operations',
-        title:    'End-to-End Software Delivery Transformation & Operations for a Tier 1 OEM',
-        cardBody: 'From platform transformation to 24/7 managed operations—ensuring reliability, scalability, and continuous improvement.',
-        summary:  'Ensuring reliable operations and continuous improvement under defined SLAs.',
-        challenge:'A Tier 1 automotive OEM with 150,000+ employees struggled with fragmented tools, limited visibility, and inconsistent processes across global teams. Following a large-scale transformation, they required a trusted long-term partner to operate, maintain, and continuously improve their centralized software delivery and testing platform at enterprise scale.',
-        solution: 'We defined and executed a transformation strategy to unify software delivery and testing, designing a centralized platform based on OpenText ALM & UFT and migrating legacy systems into a single ecosystem. Building on this foundation, we provide end-to-end managed services for a platform supporting over 1,000 users worldwide. Our scope includes system maintenance, L1–L2 user support, incident management, and continuous platform enhancements—all under clearly defined SLAs.',
-        outcome:  'A standardized and scalable environment with full lifecycle visibility, combined with stable operations within the agreed SLA targets. The client benefits from reduced internal workload, continuous improvement, and a platform built for long-term scalability and consistent global operations.',
-        tags:     ['OpenText ALM/UFT', 'Managed Services', 'SLA Management', 'L1–L2 Support'],
-        stats:    [{ value: '1,000+', label: 'users' }, { value: 'SLA', label: 'based operations' }, { value: '24/7', label: 'continuity' }],
-      },
-      hero: {
-        category: 'Data Migration & Cloud Architecture',
-        title:    'Data Archival and Migration for a European Insurance Group',
-        cardBody: 'A European insurance group needed to decommission critical legacy platforms while preserving years of historical data, attachments, and audit trails — without vendor lock-in.',
-        summary:  'Migrated and archived enterprise ALM and PPM data from legacy OpenText SaaS to a cost-efficient, audit-ready AWS platform.',
-        challenge:'A European insurance group was decommissioning their OpenText ALM and PPM platforms but faced a critical requirement: large volumes of historical Oracle database records, extensive attachments, and strict audit and compliance obligations meant the data had to remain fully accessible, secure, and audit-ready — without staying tied to legacy vendor infrastructure.',
-        solution: 'We designed and implemented a scalable, cloud-native archival solution on AWS. The Oracle database was migrated to PostgreSQL on AWS RDS, ensuring full data integrity and schema optimization. All attachments and documents were extracted and structured to preserve their relationships with the underlying data. We also built a custom lightweight access tool — purpose-built for audit and compliance use cases — allowing easy querying of archived records and seamless retrieval of related files.',
-        outcome:  'Historical data from OpenText ALM and PPM preserved, a successful Oracle-to-PostgreSQL migration, and full audit readiness with fast access to historical records. The client eliminated their dependency on legacy SaaS platforms, reduced operational costs, and gained a modern archive aligned with their long-term IT strategy.',
-        tags:     ['AWS', 'PostgreSQL', 'Oracle Migration', 'OpenText ALM/PPM', 'Data Archival'],
-        stats:    [{ value: 'ALM/PPM', label: 'data archived' }, { value: 'AWS', label: 'cloud-native archive' }, { value: 'Audit', label: 'ready access' }],
-      },
-      supporting: [
-        {
-          category: 'Asset Management Platform',
-          title:    'Modern Digital Advisory Platform for an Asset Management Firm',
-          cardBody: 'An asset management firm faced limitations with a legacy system — poor usability, limited scalability, and workflows that slowed down their consultants.',
-          summary:  'Modernized manual workflows into an integrated digital platform.',
-          challenge:"An asset management firm was held back by a legacy platform that couldn't scale. Outdated workflows, poor UX, and siloed collaboration were slowing down their specialist investment consultants and limiting operational efficiency.",
-          solution: 'We designed and built a modern, enterprise-grade web platform from scratch — covering planning, design, development, testing, and full rollout. The solution features a scalable microservices backend, a React frontend, secure authentication, and containerized deployment.',
-          outcome:  'End-to-end processes digitized — including planning, service mediation, activity tracking, and automated invoicing. Manual workflows replaced by digital ones, enabling efficient and scalable collaboration across the organization.',
-          tags:     ['React', 'Java / Spring Boot', 'Keycloak', 'Docker', 'Kubernetes'],
-          stats:    [{ value: 'Digital', label: 'end-to-end workflows' }, { value: 'Automated', label: 'invoicing' }, { value: 'Full', label: 'stack delivery' }],
+      title:   'Selected project experience',
+      lead:    'Selected enterprise software projects delivered by the engineering team behind VOTUM.',
+      readLink: 'Read the case study →',
+      allLink:  'All case studies →',
+      items: {
+        'software-delivery-platform-operations': {
+          category:  'Managed Services & Operations',
+          title:     'Software Delivery Platform Transformation & Operations',
+          cardBody:  'A centralized software delivery and testing platform, followed by managed operations under agreed SLAs — maintenance, L1–L2 user support, incident management and continuous enhancements.',
+          client:    'A global automotive organization with 150,000+ employees. The platform in scope supports 1,000+ users.',
+          challenge: 'Fragmented tools, limited visibility and inconsistent processes across global teams made software delivery and testing hard to manage. Following a large-scale transformation, the organization needed a long-term partner to operate, maintain and continuously improve its centralized software delivery and testing platform.',
+          solution:  'The team defined and executed a transformation strategy to unify software delivery and testing: a centralized platform based on OpenText ALM and UFT, with legacy systems migrated into a single ecosystem. Building on this foundation, the engagement included managed services for the platform — system maintenance, L1–L2 user support, incident management and continuous platform enhancements, all under agreed SLAs.',
+          outcome:   'A standardized, centralized platform for software delivery and testing, operated under agreed SLAs. Day-to-day platform operations and user support were covered by the managed-services scope, alongside continuous improvements to the platform.',
+          stats:     [{ value: '1,000+', label: 'users' }, { value: 'SLA', label: 'based operations' }, { value: 'L1–L2', label: 'user support' }],
         },
-        {
-          category: 'DevOps Platform',
-          title:    'Production-Ready Kubernetes Platform for Scalable Application Delivery',
-          cardBody: 'To support modern delivery demands, a client needed a robust on-premise DevOps platform built to enterprise security and infrastructure standards.',
-          summary:  'Enabled secure, controlled application delivery with on-premise infrastructure.',
-          challenge:'To meet growing application delivery demands, a client needed a robust, fully on-premise DevOps platform — one that could support modern deployment practices while meeting strict enterprise security and infrastructure requirements.',
-          solution: 'We designed and implemented a complete on-premise Kubernetes platform from scratch — with dedicated clusters for development and production, integrated core services (ingress, storage, backups, monitoring), and CI/CD pipelines via Jenkins with built-in security scanning.',
-          outcome:  'A production-ready infrastructure enabling secure, scalable, and consistent application delivery — with full control over deployment processes and more reliable releases.',
-          tags:     ['Kubernetes', 'Jenkins', 'CI/CD', 'On-Premise Infrastructure', 'DevSecOps'],
-          stats:    [{ value: 'CI/CD', label: 'automated deploys' }, { value: '2', label: 'cluster environments' }, { value: 'On-prem', label: 'Kubernetes platform' }],
+        'insurance-data-archival-migration': {
+          category:  'Data Migration & Cloud Architecture',
+          title:     'Data Archival and Migration for an Insurance Group',
+          cardBody:  'An insurance group needed to decommission legacy OpenText ALM and PPM platforms while keeping historical data, attachments and audit trails accessible — without staying tied to the legacy vendor.',
+          client:    'An insurance group decommissioning its OpenText ALM and PPM platforms.',
+          challenge: 'Large volumes of historical Oracle database records, extensive attachments and strict audit and compliance obligations meant the data had to remain accessible and secure after the legacy platforms were switched off — without staying tied to the legacy vendor infrastructure.',
+          solution:  'The team designed and implemented a cloud-native archival solution on AWS. The Oracle database was migrated to PostgreSQL on AWS RDS, including schema optimization. Attachments and documents were extracted and structured to preserve their relationships with the underlying data. A lightweight access tool, built for audit and compliance use cases, lets users query archived records and retrieve the related files.',
+          outcome:   'Historical ALM and PPM data preserved in a PostgreSQL archive on AWS, with attachments kept linked to their records and an access tool for audit and compliance queries. Access to the historical data no longer depends on the legacy SaaS platforms.',
+          stats:     [{ value: 'ALM/PPM', label: 'data archived' }, { value: 'AWS', label: 'cloud-native archive' }, { value: 'Audit', label: 'and compliance access' }],
         },
-      ],
-      final: {
-        category: 'Test Automation',
-        title:    'Scalable Test Automation Framework for an Automotive Enterprise',
-        cardBody: 'An automotive manufacturer relied heavily on manual testing — resulting in slow releases, limited scalability, and growing delivery risk.',
-        summary:  'Integrated testing directly into the release lifecycle with automation.',
-        challenge:"An automotive manufacturer was over-reliant on manual UI and functional testing. Slow release cycles, limited scalability, and growing system complexity were creating real risk — and the testing function couldn't keep pace with delivery demands.",
-        solution: 'We designed and implemented a comprehensive test automation framework from scratch using an industry-standard test automation platform, defined standardized testing processes, and integrated automated testing directly into the development and release lifecycle.',
-        outcome:  'Reduced manual testing effort, faster and more reliable release cycles, and improved test coverage across teams — enabling scalable, high-quality software delivery.',
-        tags:     ['Test Automation', 'QA Strategy', 'Release Management', 'Process Standardization'],
-        stats:    [{ value: 'Broader', label: 'test coverage' }, { value: 'Faster', label: 'release cycles' }, { value: 'Less', label: 'manual testing' }],
+        'asset-management-advisory-platform': {
+          category:  'Asset Management Platform',
+          title:     'Digital Advisory Platform for an Asset Management Firm',
+          cardBody:  "An asset management firm replaced a legacy system — limited in usability and scalability — with a new web platform for its consultants' planning, activity tracking and invoicing.",
+          client:    'An asset management firm whose specialist investment consultants worked with a legacy platform.',
+          challenge: "The firm's legacy platform could not scale. Outdated workflows, poor usability and siloed collaboration were slowing down its specialist investment consultants.",
+          solution:  'The team designed and built a new web platform from scratch — covering planning, design, development, testing and full rollout. The solution has a microservices backend, a React frontend, secure authentication and containerized deployment.',
+          outcome:   'Planning, service mediation, activity tracking and invoicing moved onto the new platform, with invoicing automated. Manual workflows were replaced by digital ones.',
+          stats:     [{ value: 'Digital', label: 'end-to-end workflows' }, { value: 'Automated', label: 'invoicing' }, { value: 'Full', label: 'stack delivery' }],
+        },
+        'on-premise-kubernetes-platform': {
+          category:  'DevOps Platform',
+          title:     'On-Premise Kubernetes Platform for Application Delivery',
+          cardBody:  'An organization with strict on-premise security requirements needed a DevOps platform for modern application delivery on its own infrastructure.',
+          client:    'An organization with strict on-premise security requirements.',
+          challenge: 'To meet growing application delivery demands, the organization needed a fully on-premise DevOps platform that supports modern deployment practices while meeting strict enterprise security and infrastructure requirements.',
+          solution:  'The team designed and implemented an on-premise Kubernetes platform from scratch, with dedicated clusters for development and production, integrated core services (ingress, storage, backups, monitoring) and CI/CD pipelines in Jenkins with built-in security scanning.',
+          outcome:   "A consistent, pipeline-based delivery path from development to production on the organization's own infrastructure, with separate development and production clusters and security scanning built into the CI/CD pipelines.",
+          stats:     [{ value: 'CI/CD', label: 'automated deploys' }, { value: '2', label: 'cluster environments' }, { value: 'On-prem', label: 'Kubernetes platform' }],
+        },
+        'automotive-test-automation-framework': {
+          category:  'Test Automation',
+          title:     'Test Automation Framework for an Automotive Organization',
+          cardBody:  'An automotive organization relied heavily on manual UI and functional testing, with slow release cycles and growing delivery risk.',
+          client:    'An automotive organization that relied heavily on manual UI and functional testing.',
+          challenge: "Slow release cycles, limited scalability and growing system complexity were creating delivery risk, and the testing function couldn't keep pace with delivery demands.",
+          solution:  'The team designed and implemented a test automation framework from scratch on an industry-standard test automation platform, defined standardized testing processes, and integrated automated testing directly into the development and release lifecycle.',
+          outcome:   'Automated testing became part of the development and release lifecycle, with standardized testing processes and less reliance on manual UI and functional testing.',
+          stats:     [{ value: 'Framework', label: 'built from scratch' }, { value: 'Standard', label: 'testing processes' }, { value: 'Integrated', label: 'in the release lifecycle' }],
+        },
       },
     },
 
+    // /case-studies/<slug> — labels. {legalName}/{year} come from config/company.js
+    casePage: {
+      eyebrow:      'Case study',
+      note:         'This project was delivered by members of the current VOTUM team before {legalName} was founded in {year}.',
+      client:       'Client context',
+      challenge:    'The challenge',
+      solution:     'What the team did',
+      outcome:      'The result',
+      technologies: 'Technologies',
+      services:     'Related services',
+      related:      'Related case studies',
+      cta:          { title: 'Working on something similar?', body: 'Tell us about your project — a short outline is enough to start the conversation.' },
+    },
+
+    // /case-studies — hub. {year}/{teamSince} come from config/company.js
+    caseStudiesHub: {
+      eyebrow:        'Case studies',
+      h1:             'Software Engineering Case Studies',
+      intro:          'Selected enterprise software projects delivered by the engineering team behind VOTUM — software delivery platforms and their operation, data archival and migration, web platforms, DevOps platforms and test automation. Client names are not published.',
+      cardsTitle:     'Projects',
+      portfolioTitle: 'About this portfolio',
+      portfolio:      'VOTUM was founded in {year} by a team that has worked together on enterprise software projects since {teamSince}. The projects on this page were delivered by members of that team before the company was founded.',
+      cta:            { title: 'Working on something similar?', body: 'Describe your project, and we will tell you where we can help.' },
+    },
     cta: {
       eyebrow: 'Ready to transform your engineering?',
       title:   "Let's build your competitive advantage.",
@@ -258,12 +284,13 @@ export const translations = {
         lead: 'VOTUM is a senior engineering consultancy based in Sofia, Bulgaria. We embed with your team, take ownership of outcomes, and build the technical foundations that let your product scale — without the overhead of a traditional agency.',
         // The year itself comes from company.foundingYear (src/config/company.js)
         // and is only rendered once it is confirmed.
-        foundedText: "Built on the belief that great engineering is about ownership, not output. That hasn't changed.",
+        // {year} = company.foundingYear, {teamSince} = company.teamSince (config/company.js)
+        foundedText: 'VOTUM was founded in {year} by a team that has worked together on enterprise software projects since {teamSince}.',
       },
       stats: [
         { num: '2024',       label: 'Founded in Sofia',       color: 'green' },
         { num: '{serviceCount}', label: 'Service areas',     color: 'teal'  },
-        { num: '5',          label: 'Published case studies', color: 'green' },
+        { num: '{caseCount}', label: 'Published case studies', color: 'green' },
         { num: 'End-to-end', label: 'Strategy to operations', color: 'teal'  },
       ],
       mission: {
@@ -447,7 +474,7 @@ export const translations = {
       deliverables: 'Typical deliverables',
       technologies: 'Technologies from our project work',
       cases:        'Relevant project experience',
-      caseLink:     'Project summary →',
+      caseLink:     'Read the case study →',
       approach:     'How we approach the engagement',
       related:      'Related services',
       cta:          'Contact us →',
@@ -648,19 +675,6 @@ export const translations = {
       },
     },
 
-    // Project teasers on the service pages, keyed like src/config/cases.js.
-    // Neutral on purpose until case attribution is confirmed (see
-    // CONTENT_EVIDENCE_REQUIRED.md §E): they describe the project, not who
-    // delivered it, and avoid unresolved details ("Tier 1 OEM", "European",
-    // "manufacturer", 24/7 for this client).
-    caseTeasers: {
-      feature:     { title: 'Automotive platform operations',       body: 'A centralized software delivery and testing platform based on OpenText ALM and UFT, operated with user support, incident management and continuous enhancements under defined SLAs.' },
-      hero:        { title: 'Insurance data archival and migration', body: 'Legacy OpenText ALM and PPM platforms decommissioned: historical Oracle data migrated to PostgreSQL on AWS RDS, attachments preserved, and a lightweight access tool for audit and compliance queries.' },
-      supporting0: { title: 'Asset management advisory platform',   body: 'A legacy system replaced by a web platform with a microservices backend, React frontend, secure authentication and containerized deployment — digitizing planning, activity tracking and invoicing.' },
-      supporting1: { title: 'On-premise Kubernetes platform',       body: 'A Kubernetes platform built to enterprise security requirements, with separate development and production clusters, core services (ingress, storage, backups, monitoring) and Jenkins CI/CD with security scanning.' },
-      final:       { title: 'Automotive test automation framework', body: 'Manual UI and functional testing replaced by a test automation framework with standardized testing processes, integrated into the development and release lifecycle.' },
-    },
-
     // /services — hub; the cards come from src/config/services.js
     servicesHub: {
       eyebrow:  'Services',
@@ -714,7 +728,13 @@ export const translations = {
       serviceTesting:    { name: 'Test Automation & Quality Engineering',         title: 'Test Automation & Quality Engineering | VOTUM',          description: 'Test strategy, UI, API and end-to-end automation, regression and performance testing, and quality gates in CI/CD — test automation services from VOTUM.' },
       contact:           { name: 'Contact',                                       title: 'Contact VOTUM – Sofia, Bulgaria',                        description: 'Contact VOTUM IT EOOD & Co KD in Sofia, Bulgaria: email info@votum.bg or send us a message about your software, DevOps, support or testing project.' },
       services:          { name: 'Services',                                      title: 'Software Engineering Services | VOTUM',                   description: 'Software engineering services from VOTUM in Sofia: technology consulting, custom software, DevOps & cloud, L1–L3 managed services and test automation.' },
-      breadcrumb: { home: 'Home', services: 'Services' },
+      caseStudies:          { name: 'Case Studies',                         title: 'Case Studies – Software Engineering Projects | VOTUM',      description: 'Anonymized case studies from the team behind VOTUM: software delivery platform operations, data archival, web platforms, Kubernetes and test automation.' },
+      caseDeliveryOps:      { name: 'Software Delivery Platform Operations', title: 'Software Delivery Platform Operations – Case Study | VOTUM', description: 'Case study: a centralized OpenText ALM and UFT delivery and testing platform for a global automotive organization, with L1–L2 support under agreed SLAs.' },
+      caseInsuranceArchive: { name: 'Insurance Data Archival & Migration',   title: 'Insurance Data Archival & Migration – Case Study | VOTUM',   description: 'Case study: legacy OpenText ALM and PPM data archived on AWS for an insurance group — Oracle migrated to PostgreSQL on AWS RDS, attachments preserved.' },
+      caseAssetPlatform:    { name: 'Asset Management Advisory Platform',    title: 'Asset Management Advisory Platform – Case Study | VOTUM',    description: 'Case study: a new web platform for an asset management firm, with a microservices backend, React frontend, secure authentication and containerized deployment.' },
+      caseKubernetes:       { name: 'On-Premise Kubernetes Platform',        title: 'On-Premise Kubernetes Platform – Case Study | VOTUM',        description: 'Case study: an on-premise Kubernetes platform with separate development and production clusters and Jenkins CI/CD pipelines with built-in security scanning.' },
+      caseTestAutomation:   { name: 'Automotive Test Automation Framework',  title: 'Automotive Test Automation Framework – Case Study | VOTUM',  description: 'Case study: a test automation framework for an automotive organization, integrated into the development and release lifecycle to reduce manual testing.' },
+      breadcrumb: { home: 'Home', services: 'Services', caseStudies: 'Case Studies' },
     },
 
     footer: {
@@ -723,7 +743,7 @@ export const translations = {
         title: 'Company',
         links: [
             { label: 'About',    href: '/about'   },
-            { label: 'Our work', href: '/#work'   },
+            { label: 'Case Studies', href: '/case-studies' },
             { label: 'Blog',     href: '/blog'    },
             { label: 'Careers',  href: '/about#team' },
             { label: 'Contact',  href: '/contact' },
