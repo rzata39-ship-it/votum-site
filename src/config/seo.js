@@ -7,6 +7,7 @@ import { company, socialLinks } from './company.js'
 import { features } from './features.js'
 import { NON_PRODUCTION_ROBOTS } from './environment.js'
 import { SERVICES, SERVICES_HUB_PATH, servicePath } from './services.js'
+import { CASES, CASES_HUB_PATH, casePath } from './cases.js'
 
 export const OG_IMAGE = '/og-image.png'
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 }
@@ -25,7 +26,8 @@ export const SITE_LANGUAGE = { html: 'en', og: 'en_US' }
 // path, so it is rendered on the client for whatever URL was requested.
 // pageType → schema.org type of the page's node in the JSON-LD graph (default 'WebPage')
 // aboutOrg → the page is about the company itself (JSON-LD `about` → #organization)
-// breadcrumb → visible breadcrumb + BreadcrumbList (Home > [Services >] page)
+// breadcrumb → visible breadcrumb + BreadcrumbList (Home > [parent hub >] page)
+// parent → the hub the page sits under in the breadcrumb (see PARENTS)
 // service → the page describes one service (JSON-LD Service node, provider → #organization)
 export const ROUTES = [
   { key: 'home',     path: '/',             file: 'index.html',       sitemap: true,  prerender: true,  aboutOrg: true },
@@ -33,7 +35,12 @@ export const ROUTES = [
   { key: 'services', path: SERVICES_HUB_PATH, file: 'services/index.html', sitemap: true, prerender: true, aboutOrg: true, breadcrumb: true },
   ...SERVICES.map((s) => ({
     key: s.key, path: servicePath(s.slug), file: `services/${s.slug}/index.html`,
-    sitemap: true, prerender: true, breadcrumb: true, service: true,
+    sitemap: true, prerender: true, breadcrumb: true, parent: 'services', service: true,
+  })),
+  { key: 'caseStudies', path: CASES_HUB_PATH, file: 'case-studies/index.html', sitemap: true, prerender: true, breadcrumb: true },
+  ...CASES.map((c) => ({
+    key: c.key, path: casePath(c.slug), file: `case-studies/${c.slug}/index.html`,
+    sitemap: true, prerender: true, breadcrumb: true, parent: 'caseStudies',
   })),
   { key: 'contact',  path: '/contact',      file: 'contact/index.html', sitemap: true, prerender: true, aboutOrg: true, breadcrumb: true, pageType: 'ContactPage' },
   { key: 'blog',     path: '/blog',         file: 'blog/index.html',  sitemap: true,  prerender: true  },
@@ -46,6 +53,11 @@ export const ROUTES = [
 
 export const absoluteUrl = (path) => new URL(path, company.siteUrl).href
 
+// Hub pages that appear as the middle breadcrumb level (label: seo.breadcrumb[key])
+const PARENTS = {
+  services:    { label: 'services',    path: SERVICES_HUB_PATH },
+  caseStudies: { label: 'caseStudies', path: CASES_HUB_PATH },
+}
 
 // [{ name, path }] from Home to the page, or null. Shared by the visible
 // breadcrumb (components/Breadcrumbs.jsx) and the BreadcrumbList JSON-LD.
@@ -53,9 +65,10 @@ export function breadcrumbTrail(key, seoStrings) {
   const route = ROUTES.find((r) => r.key === key)
   if (!route?.breadcrumb) return null
   const labels = seoStrings.breadcrumb
+  const parent = route.parent && PARENTS[route.parent]
   return [
     { name: labels.home, path: '/' },
-    route.service && { name: labels.services, path: SERVICES_HUB_PATH },
+    parent && { name: labels[parent.label], path: parent.path },
     { name: seoStrings[key].name, path: route.path },
   ].filter(Boolean)
 }

@@ -7,7 +7,7 @@ import { features } from '../config/features'
 import LangSwitcher from './LangSwitcher'
 import './Nav.css'
 
-const SECTION_IDS = ['how', 'work', 'contact']
+const SECTION_IDS = ['how', 'contact']
 const MOBILE_MENU_ID = 'mobile-menu'
 const DESKTOP_QUERY = '(min-width: 769px)'
 
@@ -78,10 +78,9 @@ export default function Nav({ onContact }) {
     return () => observer.disconnect()
   }, [isHome])
 
-  // "Services" is a page (/services and /services/*); these are homepage sections
+  // "Services" and "Case Studies" are pages (with sub-pages); this is a homepage section
   const SECTION_LINKS = [
     { label: t.howWeWork, hash: 'how',      id: 'how'      },
-    { label: t.work,      hash: 'work',     id: 'work'     },
   ]
 
   const goToSection = (hash) => {
@@ -139,6 +138,14 @@ export default function Nav({ onContact }) {
               </a>
             </li>
           ))}
+          <li>
+            <NavLink
+              to="/case-studies"
+              className={({ isActive }) => (isActive ? 'nav__link--active' : '')}
+            >
+              {t.caseStudies}
+            </NavLink>
+          </li>
           <li>
             <NavLink
               to="/about"
@@ -202,6 +209,7 @@ export default function Nav({ onContact }) {
             {label}
           </a>
         ))}
+        <Link to="/case-studies" onClick={() => setMenuOpen(false)}>{t.caseStudies}</Link>
         <Link to="/about" onClick={() => setMenuOpen(false)}>{t.about}</Link>
         {features.blog && <Link to="/blog" onClick={() => setMenuOpen(false)}>{t.blog}</Link>}
         <button

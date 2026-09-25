@@ -20,6 +20,8 @@ import About        from './components/About'
 import ServicesHub  from './components/ServicesHub'
 import ServicePage  from './components/ServicePage'
 import ContactPage  from './components/ContactPage'
+import CaseStudiesHub from './components/CaseStudiesHub'
+import CasePage     from './components/CasePage'
 import Blog         from './components/Blog'
 import Article      from './components/Article'
 import NotFound     from './components/NotFound'
@@ -87,6 +89,8 @@ export default function App() {
           <Route path="/about"        element={<About />} />
           <Route path="/services"     element={<ServicesHub />} />
           <Route path="/services/:slug" element={<ServicePage />} />
+          <Route path="/case-studies" element={<CaseStudiesHub />} />
+          <Route path="/case-studies/:slug" element={<CasePage />} />
           <Route path="/contact"      element={<ContactPage onContact={openContact} />} />
           {features.blog && <Route path="/blog"       element={<Blog />} />}
           {features.blog && <Route path="/blog/:slug" element={<Article />} />}
