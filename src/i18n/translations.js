@@ -691,6 +691,103 @@ export const translations = {
       cta: { title: 'Not sure where to start?', body: 'Describe what you are working on, and we will suggest which service fits.' },
     },
 
+    // Solution pages (/solutions/<slug>, see src/config/solutions.js).
+    // Evidence-based: every statement maps to a public case study, a service
+    // page or a confirmed company capability. No partner status,
+    // certifications, versions, modules, counts or response times.
+    solutionPages: {
+      'opentext-alm': {
+        eyebrow: 'Solution',
+        h1: 'OpenText ALM Engineering, Modernization & Support',
+        intro: 'VOTUM is a software engineering company based in Sofia, Bulgaria. We work with enterprise teams that run software delivery and testing on OpenText ALM: transforming and consolidating ALM environments, operating and supporting them, automating tests with OpenText UFT, and migrating or archiving ALM and PPM data when platforms are retired.',
+        // Entity clarity: the products belong to OpenText; VOTUM is a separate company
+        productNote: 'OpenText ALM, OpenText UFT and OpenText PPM are products of OpenText. VOTUM is an independent software engineering company; this page describes the team’s engineering work with these products.',
+        challengesTitle: 'Common OpenText ALM challenges',
+        challenges: [
+          'Software delivery and testing spread across fragmented tools, with limited visibility and inconsistent processes across teams.',
+          'Legacy systems that need to be migrated into one central ALM environment.',
+          'A central ALM and testing platform that needs long-term operation, user support, incident management and continuous improvement.',
+          'Test execution that still relies heavily on manual UI and functional testing.',
+          'ALM or PPM platforms being retired while historical records, attachments and audit trails must remain accessible for audit and compliance.',
+        ],
+        capabilitiesTitle: 'What VOTUM covers',
+        capabilities: [
+          { title: 'Modernization & transformation', body: 'Consolidating software delivery and testing onto a centralized OpenText ALM platform, including the migration of legacy systems.' },
+          { title: 'Operations & support',           body: 'Maintenance, user support, incident management and continuous enhancements, with L1–L3 support and 24/7 monitoring and support available under agreed SLAs.' },
+          { title: 'Test automation',                body: 'Automated testing with OpenText UFT, integrated into the development and release lifecycle.' },
+          { title: 'Data migration & archival',      body: 'Extracting and archiving ALM and PPM data (records, attachments and their relationships) when platforms are decommissioned.' },
+        ],
+        sections: [
+          {
+            title: 'ALM modernization and transformation',
+            body: 'We define the transformation strategy and the target platform, then consolidate: software delivery and testing on a centralized OpenText ALM environment, with legacy systems migrated into one ecosystem.',
+            points: [
+              'Assessment of current tools, processes and dependencies',
+              'Transformation strategy and roadmap',
+              'A centralized delivery and testing platform based on OpenText ALM and UFT',
+              'Migration of legacy systems into the central platform',
+            ],
+            evidence: 'software-delivery-platform-operations',
+          },
+          {
+            title: 'Managed support and operations',
+            body: 'A central platform needs owners after go-live. Our managed services cover maintenance, user support, incident management and continuous enhancements. Support is organized in three levels, and 24/7 monitoring and support is available under agreed SLAs.',
+            tiers: [
+              { level: 'L1', text: 'Intake, triage and routine user support' },
+              { level: 'L2', text: 'Investigation and remediation at application and platform level, including configuration' },
+              { level: 'L3', text: 'Engineering-level root-cause analysis, configuration and code-level fixes, and permanent improvements fed back into the platform' },
+            ],
+            note: 'L3 engineering support is one of our core strengths. The scope of each engagement is agreed individually: in the software delivery platform case below, the managed-services scope covered L1–L2 user support under agreed SLAs.',
+            evidence: 'software-delivery-platform-operations',
+          },
+          {
+            title: 'Test automation with OpenText UFT',
+            body: 'Where testing runs on OpenText UFT and ALM, we build and maintain the automation around it: test strategy, automated regression suites and quality gates, integrated into the development and release lifecycle. Tool choice follows your environment; not every test automation engagement is built on UFT.',
+            points: [
+              'Test strategy aligned with the release process',
+              'Automated regression suites for critical flows',
+              'Quality gates in the delivery pipeline',
+              'Centralized test management and execution on OpenText ALM and UFT',
+            ],
+            evidence: 'software-delivery-platform-operations',
+          },
+          {
+            title: 'ALM and PPM data migration and archival',
+            body: 'When OpenText ALM or PPM platforms are retired, historical data often has to stay available for audit and compliance. We extract and restructure that data into an archive the organization controls.',
+            points: [
+              'Extraction of historical ALM and PPM records, attachments and documents, keeping their relationships to the underlying data',
+              'Database migration, for example from Oracle to PostgreSQL on AWS RDS',
+              'A lightweight access tool for querying archived records and retrieving related files',
+              'Access to historical data that no longer depends on the legacy SaaS platform',
+            ],
+            evidence: 'insurance-data-archival-migration',
+          },
+        ],
+        evidenceLabel: 'Project experience:',
+        technologiesTitle: 'Technologies from this work',
+        casesTitle: 'Relevant project experience',
+        casesNote: 'Both projects were delivered by members of the current VOTUM team before {legalName} was founded in {year}.',
+        servicesTitle: 'Related services',
+        approachTitle: 'How we approach an ALM engagement',
+        approach: [
+          { title: 'Review the ALM environment',                     body: 'Current platform, processes, integrations and data, and what has to change.' },
+          { title: 'Scope and success criteria agreed before build', body: 'Scope, priorities and success criteria are agreed with you before transformation, migration or automation work starts.' },
+          { title: 'Deliver in controlled steps',                    body: 'Transformation, migration and automation are delivered iteratively, with working results reviewed along the way.' },
+          { title: 'Operate or hand over',                           body: 'We operate the platform under agreed SLAs, or hand it over with documentation and knowledge transfer.' },
+        ],
+        cta: { title: 'Working with OpenText ALM?', body: 'Tell us about your ALM environment and what you need: transformation, support, test automation or a data migration.' },
+        // Contextual links back to this page (config/solutions.js → linkedFrom)
+        inboundLabel: 'Related solution',
+        inbound: {
+          'technology-consulting':                 { lead: 'Planning a change to an OpenText ALM environment?', link: 'OpenText ALM modernization' },
+          'managed-services':                      { lead: 'Running OpenText ALM or UFT?',                      link: 'OpenText ALM support' },
+          'test-automation':                       { lead: 'Testing on OpenText UFT and ALM?',                  link: 'OpenText ALM and UFT test automation' },
+          'software-delivery-platform-operations': { lead: 'More on this kind of work:',                        link: 'OpenText ALM engineering' },
+          'insurance-data-archival-migration':     { lead: 'More on this kind of work:',                        link: 'OpenText ALM and PPM data migration' },
+        },
+      },
+    },
+
     // /contact — company facts come from src/config/company.js
     contactPage: {
       eyebrow: 'Contact',
@@ -734,6 +831,7 @@ export const translations = {
       caseAssetPlatform:    { name: 'Asset Management Advisory Platform',    title: 'Asset Management Advisory Platform – Case Study | VOTUM',    description: 'Case study: a new web platform for an asset management firm, with a microservices backend, React frontend, secure authentication and containerized deployment.' },
       caseKubernetes:       { name: 'On-Premise Kubernetes Platform',        title: 'On-Premise Kubernetes Platform – Case Study | VOTUM',        description: 'Case study: an on-premise Kubernetes platform with separate development and production clusters and Jenkins CI/CD pipelines with built-in security scanning.' },
       caseTestAutomation:   { name: 'Automotive Test Automation Framework',  title: 'Automotive Test Automation Framework – Case Study | VOTUM',  description: 'Case study: a test automation framework for an automotive organization, integrated into the development and release lifecycle to reduce manual testing.' },
+      solutionOpentextAlm:  { name: 'OpenText ALM',                          title: 'OpenText ALM Engineering, Modernization & Support | VOTUM',  description: 'OpenText ALM engineering from VOTUM: platform transformation, L1–L3 application support, UFT test automation, and ALM and PPM data migration and archival.' },
       breadcrumb: { home: 'Home', services: 'Services', caseStudies: 'Case Studies' },
     },
 

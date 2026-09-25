@@ -3,7 +3,9 @@ import { useLanguage } from '../context/useLanguage'
 import useSeo from '../hooks/useSeo'
 import { findService, servicePath } from '../config/services'
 import { casePath, casesForService } from '../config/cases'
+import { solutionsForService } from '../config/solutions'
 import Breadcrumbs from './Breadcrumbs'
+import RelatedSolutions from './RelatedSolutions'
 import NotFound from './NotFound'
 import './ContentPage.css'
 import './ServicePage.css'
@@ -122,6 +124,8 @@ function ServiceContent({ service }) {
             ))}
           </ul>
         </Section>
+
+        <RelatedSolutions solutions={solutionsForService(service.slug)} pageSlug={service.slug} />
 
         <section className="page-cta">
           <h2>{p.cta.title}</h2>

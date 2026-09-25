@@ -1,0 +1,52 @@
+/* Solution pages (shell: ContentPage.css; grid/steps: ServicePage.css) */
+
+.solution-page__note {
+  margin-top: 26px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--navy-300);
+}
+
+.solution-page__text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #d5d5ea;
+  margin-bottom: 18px;
+}
+.solution-page__text--muted { color: var(--navy-200); font-size: 15px; }
+
+.solution-page__tiers {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.solution-page__tiers > div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+.solution-page__tiers dt {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--teal-400);
+}
+.solution-page__tiers > div:last-child dt { color: var(--green-400); }
+.solution-page__tiers dd {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #d5d5ea;
+}
+
+.solution-page__evidence {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--navy-300);
+}
+.solution-page__evidence a {
+  color: var(--teal-400);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.solution-page__evidence a:hover { color: var(--white); }

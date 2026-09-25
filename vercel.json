@@ -15,6 +15,7 @@
     { "source": "/case-studies/asset-management-advisory-platform/index.html", "destination": "/case-studies/asset-management-advisory-platform", "permanent": true },
     { "source": "/case-studies/on-premise-kubernetes-platform/index.html", "destination": "/case-studies/on-premise-kubernetes-platform", "permanent": true },
     { "source": "/case-studies/automotive-test-automation-framework/index.html", "destination": "/case-studies/automotive-test-automation-framework", "permanent": true },
+    { "source": "/solutions/opentext-alm/index.html", "destination": "/solutions/opentext-alm", "permanent": true },
     { "source": "/contact/index.html", "destination": "/contact", "permanent": true }
   ],
   "headers": [

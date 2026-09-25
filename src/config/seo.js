@@ -8,6 +8,7 @@ import { features } from './features.js'
 import { NON_PRODUCTION_ROBOTS } from './environment.js'
 import { SERVICES, SERVICES_HUB_PATH, servicePath } from './services.js'
 import { CASES, CASES_HUB_PATH, casePath } from './cases.js'
+import { SOLUTIONS, solutionPath } from './solutions.js'
 
 export const OG_IMAGE = '/og-image.png'
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 }
@@ -41,6 +42,11 @@ export const ROUTES = [
   ...CASES.map((c) => ({
     key: c.key, path: casePath(c.slug), file: `case-studies/${c.slug}/index.html`,
     sitemap: true, prerender: true, breadcrumb: true, parent: 'caseStudies',
+  })),
+  // Solution pages: breadcrumb Home > [solution] (no /solutions hub)
+  ...SOLUTIONS.map((s) => ({
+    key: s.key, path: solutionPath(s.slug), file: `solutions/${s.slug}/index.html`,
+    sitemap: true, prerender: true, breadcrumb: true,
   })),
   { key: 'contact',  path: '/contact',      file: 'contact/index.html', sitemap: true, prerender: true, aboutOrg: true, breadcrumb: true, pageType: 'ContactPage' },
   { key: 'blog',     path: '/blog',         file: 'blog/index.html',  sitemap: true,  prerender: true  },
