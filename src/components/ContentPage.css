@@ -1,0 +1,155 @@
+/* ── Content pages (service pages, contact) ─────────────────────
+   Shared shell: hero with breadcrumb + H1, stacked sections, CTA.
+   Same tokens and look as the About page and section headers.
+   ─────────────────────────────────────────────────────────── */
+
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--nav-height) + 56px) var(--container-pad) 64px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 60% 55% at 20% -10%, rgba(120, 214, 75, 0.08), transparent 65%);
+}
+
+.page-hero__inner {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.page-eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-400);
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  margin-bottom: 22px;
+}
+
+.page-hero__lead {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--navy-200);
+  margin-bottom: 16px;
+}
+.page-hero__lead:last-of-type { margin-bottom: 30px; }
+
+.page-body {
+  /* same text column as .page-hero__inner (880px) — the padding sits outside it */
+  max-width: calc(880px + 2 * var(--container-pad));
+  margin: 0 auto;
+  padding: 24px var(--container-pad) 96px;
+}
+
+.page-section { padding-top: 56px; }
+
+.page-section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin-bottom: 20px;
+}
+
+.page-section__lead {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--navy-200);
+  margin: -8px 0 22px;
+}
+
+.page-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.page-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d5d5ea;
+}
+.page-list li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-400);
+}
+.page-list--check li::before {
+  content: '✓';
+  top: 0;
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--green-400);
+  font-weight: 700;
+}
+
+.page-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.page-links a {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid rgba(106, 214, 161, 0.3);
+  border-radius: var(--radius-pill);
+  color: var(--teal-400);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.page-links a:hover { border-color: var(--teal-400); color: var(--white); }
+
+.page-cta {
+  margin-top: 72px;
+  padding: 40px;
+  border: 1px solid rgba(120, 214, 75, 0.25);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, rgba(120, 214, 75, 0.08), rgba(106, 214, 161, 0.03));
+}
+.page-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.page-cta p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--navy-200);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .page-hero { padding-top: calc(var(--nav-height) + 32px); padding-bottom: 48px; }
+  .page-hero__lead { font-size: 16px; }
+  .page-section { padding-top: 44px; }
+  .page-cta { padding: 28px 22px; }
+}

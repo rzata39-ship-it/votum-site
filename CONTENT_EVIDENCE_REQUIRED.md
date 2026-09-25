@@ -97,7 +97,8 @@ answered. Nothing in this section is confirmed.
 ### Confirmed by the business (2026-09-25)
 
 - [x] **24/7 monitoring and support** — a real VOTUM capability. Wording: "24/7 monitoring and support available under agreed SLAs"; never imply that every contract includes 24/7 coverage. Used in: Service: Managed Services (detail text, tag "24/7 Monitoring"); Case: Tier 1 OEM ("24/7 managed operations", stat "24/7 continuity" — note the case text itself describes L1–L2 support under SLA).
-- [x] **L3 support** — a real VOTUM capability. Wording: "L1–L3 support". Used in: How we work, Phase 03 ("Managed services with L1–L3 support").
+- [x] **L3 support** — a real VOTUM capability. Wording: "L1–L3 support". Used in: How we work, Phase 03 ("Managed services with L1–L3 support"); `/services/managed-services` (L1 / L2 / L3 breakdown).
+- [x] **L3 engineering support as a core strength** — confirmed with the Sprint 2B brief. Used in: `/services/managed-services` ("L3 engineering support is one of our core strengths…"). No response times, SLA figures or availability percentages are published.
 
 ### Business-approved for publication — accuracy still to verify
 
@@ -111,14 +112,14 @@ Approved by the business on 2026-09-25 to stay on the site. **Not** legally or N
 For each: provide the evidence, or approve the prepared replacement.
 
 - [ ] **Zero-downtime** — How we work, Phase 03 ("Zero-downtime production deployments"). Replacement ready: "Zero-downtime deployment strategies (rolling / blue-green) where the platform supports them".
-- [ ] **Project / case attribution** — all five case studies say "we". Need per case: delivered by VOTUM IT EOOD & Co KD (since 2024) or by team members before / through another company; period; client approval to publish. Blocks Sprint 2 case-study pages.
+- [ ] **Project / case attribution** — all five case studies say "we". The service pages do not repeat this: their "Relevant project experience" teasers use neutral copy (`caseTeasers` in `translations.js`) without first-person delivery, "Tier 1 OEM", "European", "manufacturer" or client-specific 24/7 / L3 claims. Switch them back to the case text once attribution is confirmed (Sprint 2C). Need per case: delivered by VOTUM IT EOOD & Co KD (since 2024) or by team members before / through another company; period; client approval to publish. Blocks Sprint 2 case-study pages.
 - [ ] **"Tier 1 OEM"** — Tier 1 usually denotes a supplier, OEM the manufacturer. Need: which one the client is.
 - [ ] **"reduced operational costs"** — Case: insurance archive (outcome). Need: cost comparison.
 - [ ] **"European" insurance group** — Case: insurance archive. Need: confirm.
 - [ ] **Response time (24 h)** — CTA banner, contact modal (`responseTimeHours` in `src/config/company.js`). Need: an operational commitment incl. weekends. Replacement ready: "We'll reply within one business day with concrete next steps — not a sales pitch."
 - [ ] **Senior engineers only / no juniors** — About lead ("senior engineering consultancy"), principle 01, comparison table, extended team, careers CTA. Need: literally true incl. the on-demand network. Replacement ready: "Senior-led delivery — every engagement is led by senior engineers, and the people in your standups are the people writing your code."
 - [ ] **"Outcome-based" engagement model** — About comparison table. Need: the actual contract model. Replacement ready: "Success criteria agreed before we start, and progress measured against them."
-- [ ] **Phone number** `+359 895 101 122` — footer, legal pages, JSON-LD `telephone`. Still "confirm" in `LEGAL_AND_COMPANY_DATA_REQUIRED.md`.
+- [ ] **Phone number** `+359 895 101 122` — footer, legal pages, `/contact`, JSON-LD `telephone`. Already public and kept for now; still needs explicit business confirmation (`LEGAL_AND_COMPANY_DATA_REQUIRED.md`).
 - [ ] **Trading name** `VOTUM` — JSON-LD `name`, `og:site_name`, legal texts. Still "confirm" in `LEGAL_AND_COMPANY_DATA_REQUIRED.md`.
 - [ ] **Team bios + photo consent** — see section D.
 - [ ] **DE / BG copies** — the hidden German and Bulgarian texts still contain the old stats (45+, 18+, 80%, 20+) and the pre-Sprint-2A wording. Bring them in line before either language is enabled.

@@ -1,0 +1,26 @@
+.breadcrumbs { margin-bottom: 28px; }
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;
+  list-style: none;
+  font-size: 13px;
+  color: var(--navy-300);
+}
+
+.breadcrumbs li { display: flex; align-items: center; }
+
+.breadcrumbs li + li::before {
+  content: '/';
+  margin: 0 10px;
+  color: var(--navy-400);
+}
+
+.breadcrumbs a {
+  color: var(--navy-200);
+  text-decoration: none;
+}
+.breadcrumbs a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+
+.breadcrumbs [aria-current='page'] { color: var(--white); }

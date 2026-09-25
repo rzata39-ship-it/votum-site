@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import useReveal from '../hooks/useReveal'
 import { useLanguage } from '../context/useLanguage'
-import Modal from './Modal'
+import { SERVICES, servicePath } from '../config/services'
 import './Services.css'
 
 const VARIANTS = ['green', 'teal', 'green', 'teal', 'green']
@@ -35,7 +35,6 @@ const ICONS = [
 const DELAY = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3', 'reveal-delay-4', 'reveal-delay-5']
 
 export default function Services() {
-  const [selectedService, setSelectedService] = useState(null)
   const ref = useReveal()
   const { locale } = useLanguage()
   const t = locale.services
@@ -44,6 +43,7 @@ export default function Services() {
     ...card,
     icon: ICONS[i],
     variant: VARIANTS[i],
+    path: servicePath(SERVICES[i].slug),
   }))
 
   return (
@@ -57,18 +57,11 @@ export default function Services() {
 
         <div className="services-grid">
           {services.map((svc, i) => (
-            <div
-              key={i}
+            // A real, crawlable link to the service page (config/services.js)
+            <Link
+              key={svc.path}
+              to={svc.path}
               className={`service-card service-card--${svc.variant} service-card--clickable reveal ${DELAY[i]}`}
-              role="button"
-              tabIndex={0}
-              onClick={() => setSelectedService(svc)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault()
-                  setSelectedService(svc)
-                }
-              }}
             >
               <div className="service-card__heading">
                 <div className="service-card__icon">{svc.icon}</div>
@@ -83,31 +76,10 @@ export default function Services() {
               <span className="service-card__link" aria-hidden="true">
                 {t.learnMore}
               </span>
-            </div>
+            </Link>
           ))}
         </div>
-        <ServiceModal item={selectedService} onClose={() => setSelectedService(null)} />
       </section>
     </>
-  )
-}
-
-function ServiceModal({ item, onClose }) {
-  return (
-    <Modal open={Boolean(item)} onClose={onClose} labelledBy="service-modal-title">
-      {item && (
-        <>
-          <div className="service-modal__header">
-            <span className="service-modal__eyebrow">{item.title}</span>
-            <h2 id="service-modal-title" className="service-modal__title">{item.modalTitle}</h2>
-          </div>
-          <div className="service-modal__content">
-            {item.details?.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
-        </>
-      )}
-    </Modal>
   )
 }

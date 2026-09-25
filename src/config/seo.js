@@ -6,6 +6,7 @@
 import { company, socialLinks } from './company.js'
 import { features } from './features.js'
 import { NON_PRODUCTION_ROBOTS } from './environment.js'
+import { SERVICES, SERVICES_HUB_PATH, servicePath } from './services.js'
 
 export const OG_IMAGE = '/og-image.png'
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 }
@@ -24,9 +25,17 @@ export const SITE_LANGUAGE = { html: 'en', og: 'en_US' }
 // path, so it is rendered on the client for whatever URL was requested.
 // pageType → schema.org type of the page's node in the JSON-LD graph (default 'WebPage')
 // aboutOrg → the page is about the company itself (JSON-LD `about` → #organization)
+// breadcrumb → visible breadcrumb + BreadcrumbList (Home > [Services >] page)
+// service → the page describes one service (JSON-LD Service node, provider → #organization)
 export const ROUTES = [
   { key: 'home',     path: '/',             file: 'index.html',       sitemap: true,  prerender: true,  aboutOrg: true },
   { key: 'about',    path: '/about',        file: 'about/index.html', sitemap: true,  prerender: true,  aboutOrg: true, pageType: 'AboutPage' },
+  { key: 'services', path: SERVICES_HUB_PATH, file: 'services/index.html', sitemap: true, prerender: true, aboutOrg: true, breadcrumb: true },
+  ...SERVICES.map((s) => ({
+    key: s.key, path: servicePath(s.slug), file: `services/${s.slug}/index.html`,
+    sitemap: true, prerender: true, breadcrumb: true, service: true,
+  })),
+  { key: 'contact',  path: '/contact',      file: 'contact/index.html', sitemap: true, prerender: true, aboutOrg: true, breadcrumb: true, pageType: 'ContactPage' },
   { key: 'blog',     path: '/blog',         file: 'blog/index.html',  sitemap: true,  prerender: true  },
   { key: 'privacy',  path: '/privacy.html', file: 'privacy.html',     sitemap: true,  prerender: true  },
   { key: 'terms',    path: '/terms.html',   file: 'terms.html',       sitemap: true,  prerender: true  },
@@ -36,6 +45,20 @@ export const ROUTES = [
 ].filter((r) => r.key !== 'blog' || features.blog)
 
 export const absoluteUrl = (path) => new URL(path, company.siteUrl).href
+
+
+// [{ name, path }] from Home to the page, or null. Shared by the visible
+// breadcrumb (components/Breadcrumbs.jsx) and the BreadcrumbList JSON-LD.
+export function breadcrumbTrail(key, seoStrings) {
+  const route = ROUTES.find((r) => r.key === key)
+  if (!route?.breadcrumb) return null
+  const labels = seoStrings.breadcrumb
+  return [
+    { name: labels.home, path: '/' },
+    route.service && { name: labels.services, path: SERVICES_HUB_PATH },
+    { name: seoStrings[key].name, path: route.path },
+  ].filter(Boolean)
+}
 
 // indexable: whether this build may be indexed at all (see environment.js)
 export function getMeta(key, seoStrings, indexable) {
@@ -111,26 +134,53 @@ function websiteNode() {
 }
 
 // One graph per page: Organization + WebSite (the same @ids on every page)
-// + the page itself. null for pages without a canonical URL (404).
-export function structuredData(key, meta) {
+// + the page itself, plus Service / BreadcrumbList where the route has them.
+// null for pages without a canonical URL (404).
+export function structuredData(key, meta, seoStrings) {
   if (!meta.canonical) return null
   const route = ROUTES.find((r) => r.key === key)
+  const serviceId = `${meta.canonical}#service`
+  const breadcrumbId = `${meta.canonical}#breadcrumb`
+  const trail = breadcrumbTrail(key, seoStrings)
+
+  const page = {
+    '@type': route.pageType || 'WebPage',
+    '@id': `${meta.canonical}#webpage`,
+    url: meta.canonical,
+    name: meta.title,
+    description: meta.description,
+    inLanguage: SITE_LANGUAGE.html,
+    isPartOf: { '@id': WEBSITE_ID },
+    about: route.service ? { '@id': serviceId } : route.aboutOrg ? { '@id': ORGANIZATION_ID } : undefined,
+    mainEntity: route.service ? { '@id': serviceId } : undefined,
+    breadcrumb: trail ? { '@id': breadcrumbId } : undefined,
+  }
+
+  // No areaServed, offers or ratings — none of them is confirmed
+  const service = route.service && {
+    '@type': 'Service',
+    '@id': serviceId,
+    name: seoStrings[key].name,
+    serviceType: seoStrings[key].name,
+    description: meta.description,
+    url: meta.canonical,
+    provider: { '@id': ORGANIZATION_ID },
+  }
+
+  const breadcrumbList = trail && {
+    '@type': 'BreadcrumbList',
+    '@id': breadcrumbId,
+    itemListElement: trail.map((crumb, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: crumb.name,
+      item: absoluteUrl(crumb.path),
+    })),
+  }
+
   return {
     '@context': 'https://schema.org',
-    '@graph': [
-      organizationNode(),
-      websiteNode(),
-      {
-        '@type': route.pageType || 'WebPage',
-        '@id': `${meta.canonical}#webpage`,
-        url: meta.canonical,
-        name: meta.title,
-        description: meta.description,
-        inLanguage: SITE_LANGUAGE.html,
-        isPartOf: { '@id': WEBSITE_ID },
-        about: route.aboutOrg ? { '@id': ORGANIZATION_ID } : undefined,
-      },
-    ],
+    '@graph': [organizationNode(), websiteNode(), page, service, breadcrumbList].filter(Boolean),
   }
 }
 
@@ -139,7 +189,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').repl
 // Static <head> block for one route (used at build time)
 export function renderHead(key, seoStrings, indexable) {
   const m = getMeta(key, seoStrings, indexable)
-  const jsonLd = structuredData(key, m)
+  const jsonLd = structuredData(key, m, seoStrings)
   return [
     `<title>${esc(m.title)}</title>`,
     `<meta name="description" content="${esc(m.description)}" />`,

@@ -7,7 +7,7 @@ import { features } from '../config/features'
 import LangSwitcher from './LangSwitcher'
 import './Nav.css'
 
-const SECTION_IDS = ['services', 'how', 'work', 'contact']
+const SECTION_IDS = ['how', 'work', 'contact']
 const MOBILE_MENU_ID = 'mobile-menu'
 const DESKTOP_QUERY = '(min-width: 769px)'
 
@@ -78,8 +78,8 @@ export default function Nav({ onContact }) {
     return () => observer.disconnect()
   }, [isHome])
 
+  // "Services" is a page (/services and /services/*); these are homepage sections
   const SECTION_LINKS = [
-    { label: t.services,  hash: 'services', id: 'services' },
     { label: t.howWeWork, hash: 'how',      id: 'how'      },
     { label: t.work,      hash: 'work',     id: 'work'     },
   ]
@@ -119,6 +119,14 @@ export default function Nav({ onContact }) {
         </button>
 
         <ul className="nav__links">
+          <li>
+            <NavLink
+              to="/services"
+              className={({ isActive }) => (isActive ? 'nav__link--active' : '')}
+            >
+              {t.services}
+            </NavLink>
+          </li>
           {SECTION_LINKS.map(({ label, hash, id }) => (
             <li key={hash}>
               <a
@@ -182,6 +190,7 @@ export default function Nav({ onContact }) {
         className="nav__mobile-menu"
         hidden={!menuOpen}
       >
+        <Link to="/services" onClick={() => setMenuOpen(false)}>{t.services}</Link>
         {SECTION_LINKS.map(({ label, hash, id }) => (
           <a
             key={hash}
