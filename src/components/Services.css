@@ -177,78 +177,12 @@
   transform: translateX(4px);
 }
 
-/* ── Modal ──────────────────────────────────────────────── */
-
-.service-modal__header {
-  margin-bottom: 36px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.service-modal__eyebrow {
-  display: block;
-  margin-bottom: 16px;
-  font-size: 14px; /* increased from 13px */
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--green-400);
-}
-
-.service-modal__title {
-  font-family: var(--font-display);
-  font-size: 32px; /* large, prominent title */
-  font-weight: 800;
-  line-height: 1.2;
-  color: var(--white);
-  margin: 0;
-  letter-spacing: -0.02em;
-}
-
-.service-modal__summary {
-  color: var(--white);
-  font-size: 16px;
-  line-height: 1.75;
-}
-
-.service-modal__content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.service-modal__content p {
-  color: var(--navy-200);
-  font-size: 15px;
-  line-height: 1.8;
-  margin: 0;
-}
-
-.service-modal__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.service-modal__tags .tag {
-  margin: 0;
-}
-
 @media (max-width: 900px) {
   .services-grid { grid-template-columns: 1fr; }
   .services-grid .service-card { grid-column: auto !important; }
 }
 
 @media (max-width: 640px) {
-
-  .service-modal__title {
-    font-size: 24px;
-  }
-
-  .service-modal__summary {
-    font-size: 15px;
-  }
 
   .section {
     padding: 60px var(--container-pad);

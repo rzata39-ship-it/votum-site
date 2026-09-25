@@ -32,6 +32,8 @@ There is no lint, typecheck or test tooling in this project yet.
 | Form endpoints | `.env` → `VITE_FORMSPREE_ENDPOINT`, `VITE_NEWSLETTER_ENDPOINT` (see `.env.example`) |
 | Indexing (robots.txt, `<meta name="robots">`, `X-Robots-Tag`) | `SITE_ENV` at build time — see below and `src/config/environment.js` |
 | Routes, page titles/descriptions, canonical, Open Graph, JSON-LD, sitemap | `src/config/seo.js` + `seo` section in `src/i18n/translations.js` |
+| Service pages (`/services/<slug>`): slugs, related cases / services | `src/config/services.js`; copy in `servicePages` in `src/i18n/translations.js` |
+| Case-study anchors on the homepage (`/#case-…`) | `src/config/cases.js` |
 | All UI copy (EN / DE / BG) | `src/i18n/translations.js` |
 | Blog article bodies | `src/content/articles.js` |
 | Legal texts (English only) | `src/components/legal/` |
@@ -47,7 +49,7 @@ Open business / legal / content questions are tracked in:
 ```
 src/
 ├── App.jsx                  routes, skip link, scroll handling
-├── config/                  company.js · endpoints.js · features.js · seo.js
+├── config/                  company.js · endpoints.js · environment.js · features.js · seo.js · services.js · cases.js
 ├── content/articles.js      published blog articles (by slug)
 ├── context/                 LanguageContext (language + locale)
 ├── i18n/                    translations.js · languages.js (completeness check, fallback)
@@ -61,6 +63,17 @@ src/
     └── legal/               LegalPage shell + Privacy, Terms, Cookies
 ```
 
+## Naming convention
+
+| Use | For |
+|---|---|
+| **VOTUM** | the brand — in all running copy (never "Votum", never "VOTUM IT" on its own) |
+| **VOTUM IT EOOD & Co KD** | the legal entity — footer, legal pages, JSON-LD `legalName`; on first mention in company context: "VOTUM (VOTUM IT EOOD & Co KD)" |
+| **Вотум ИТ ЕООД и Ко КД** | the registered Bulgarian name — legal notice, JSON-LD `alternateName` |
+| **votum.bg** | the domain; canonical host `https://www.votum.bg` |
+
+Factual claims (numbers, 24/7, client figures, response times) need evidence before they go on the site — see `CONTENT_EVIDENCE_REQUIRED.md`.
+
 ## Things to know
 
 - **Languages.** A language is offered only when it has every key English has (`src/i18n/languages.js`). DE and BG are currently incomplete and therefore hidden; they reappear automatically once completed.
@@ -69,6 +82,9 @@ src/
 - **Canonical host** is `company.siteUrl` (`https://www.votum.bg`) — canonical, `og:url`, `og:image`, JSON-LD, sitemap and robots all derive from it.
 - **Pre-rendered pages.** The `votum-static-pages` plugin in `vite.config.js` writes one HTML file per route (`ROUTES` in `src/config/seo.js`) with its own static `<head>` **and the page body rendered at build time** (`src/entry-server.jsx`, `react-dom/server` + `StaticRouter`); `main.jsx` hydrates it. Crawlers, link previews and visitors without JS get the full content. `404.html` is not pre-rendered (it is served for every unknown path).
   - Render output must be deterministic: no `window`/`document`/`localStorage` during render (only in effects/handlers), no locale-dependent formatting without an explicit locale. The first render is always English; a stored language preference is applied after hydration. Hydration mismatches show up as console errors — check the console after changes. Vercel / nginx serve only these files; every other path gets `404.html` with a real 404 status (no SPA fallback).
+- **Service pages** — `/services/technology-consulting`, `/software-development`, `/devops-cloud`, `/managed-services`, `/test-automation` — are generated from `SERVICES` in `src/config/services.js`: route, prerendered HTML, sitemap entry, homepage card link, footer link, breadcrumb (`Home > Services > …`, "Services" = the `/services` hub) and JSON-LD `Service` + `BreadcrumbList`. To add a service: add it to `SERVICES` (same position as its homepage card), add `seo.<key>` and `servicePages.<slug>` to `translations.js`, and add its `/services/<slug>/index.html` redirect to `vercel.json`. The hub, footer, contact page and the "Service areas" count pick it up automatically. Case-study teasers link to the case cards on the homepage (`/#case-…`, `src/config/cases.js`) until the case studies get their own pages; their text is the neutral `caseTeasers` copy, not the homepage case text (attribution is not confirmed yet).
+- **`/services`** is the hub: breadcrumb `Home > Services`, one card per entry in `SERVICES`, header "Services" link and footer "All services". The "Service areas" stat is `{serviceCount}` = `SERVICES.length`.
+- **`/contact`** reuses the contact modal (same endpoint) and shows only data from `src/config/company.js`; the address is labelled as the registered office — no opening hours or walk-in claims.
 - **Legal pages** are React routes: `/legal.html` (provider identification / Impressum), `/privacy.html`, `/cookies.html` and `/terms.html` (historical URLs kept).
 - **No cookies, no analytics, no third-party requests** on page load (fonts are self-hosted). If that changes, a consent banner becomes mandatory — see the note in `src/components/legal/Cookies.jsx`.
 - **Forms never fake success.** Contact shows an error if the endpoint is missing or fails; the newsletter section is not rendered in production until `VITE_NEWSLETTER_ENDPOINT` is set.

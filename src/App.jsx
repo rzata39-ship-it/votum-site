@@ -8,6 +8,7 @@ import { features } from './config/features'
 import Nav          from './components/Nav'
 import Hero         from './components/Hero'
 import Stats        from './components/Stats'
+import CompanyIntro from './components/CompanyIntro'
 import Services     from './components/Services'
 import HowWeWork    from './components/HowWeWork'
 import Cases        from './components/Cases'
@@ -16,6 +17,9 @@ import Footer       from './components/Footer'
 import BackToTop    from './components/BackToTop'
 import ContactModal from './components/ContactModal'
 import About        from './components/About'
+import ServicesHub  from './components/ServicesHub'
+import ServicePage  from './components/ServicePage'
+import ContactPage  from './components/ContactPage'
 import Blog         from './components/Blog'
 import Article      from './components/Article'
 import NotFound     from './components/NotFound'
@@ -31,6 +35,7 @@ function Home({ onContact }) {
     <main id="main" tabIndex={-1}>
       <Hero onContact={onContact} />
       <Stats />
+      <CompanyIntro />
       <Services />
       <HowWeWork />
       <Cases />
@@ -80,6 +85,9 @@ export default function App() {
         <Routes>
           <Route path="/"             element={<Home  onContact={openContact} />} />
           <Route path="/about"        element={<About />} />
+          <Route path="/services"     element={<ServicesHub />} />
+          <Route path="/services/:slug" element={<ServicePage />} />
+          <Route path="/contact"      element={<ContactPage onContact={openContact} />} />
           {features.blog && <Route path="/blog"       element={<Blog />} />}
           {features.blog && <Route path="/blog/:slug" element={<Article />} />}
           <Route path="/privacy.html" element={<Privacy />} />

@@ -2,7 +2,14 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/about/index.html", "destination": "/about", "permanent": true }
+    { "source": "/about/index.html", "destination": "/about", "permanent": true },
+    { "source": "/services/index.html", "destination": "/services", "permanent": true },
+    { "source": "/services/technology-consulting/index.html", "destination": "/services/technology-consulting", "permanent": true },
+    { "source": "/services/software-development/index.html", "destination": "/services/software-development", "permanent": true },
+    { "source": "/services/devops-cloud/index.html", "destination": "/services/devops-cloud", "permanent": true },
+    { "source": "/services/managed-services/index.html", "destination": "/services/managed-services", "permanent": true },
+    { "source": "/services/test-automation/index.html", "destination": "/services/test-automation", "permanent": true },
+    { "source": "/contact/index.html", "destination": "/contact", "permanent": true }
   ],
   "headers": [
     {

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
 import { company, socialLinks } from '../config/company'
 import { features } from '../config/features'
+import { SERVICES, SERVICES_HUB_PATH, servicePath } from '../config/services'
 import './Footer.css'
 
 const YEAR = new Date().getFullYear()
@@ -68,6 +69,18 @@ export default function Footer() {
         </div>
 
         <div className="footer__right">
+          {/* Every service page is linked from every page (config/services.js) */}
+          <nav className="footer__col" aria-label={t.servicesTitle}>
+            <div className="footer__col-title">{t.servicesTitle}</div>
+            <ul className="footer__links">
+              {SERVICES.map((s, i) => (
+                <li key={s.slug}>
+                  <Link to={servicePath(s.slug)}>{locale.services.cards[i].title}</Link>
+                </li>
+              ))}
+              <li><Link to={SERVICES_HUB_PATH}>{t.servicesAll}</Link></li>
+            </ul>
+          </nav>
           <nav className="footer__col" aria-label={t.company.title}>
             <div className="footer__col-title">{t.company.title}</div>
             <ul className="footer__links">

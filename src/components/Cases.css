@@ -153,6 +153,7 @@
 /* ── Card ──────────────────────────────────────────────── */
 
 .case-card {
+  scroll-margin-top: calc(var(--nav-height) + 24px); /* /#case-… links */
   display: flex;
   flex-direction: column;
   gap: 0;

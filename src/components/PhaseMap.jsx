@@ -9,6 +9,7 @@ export default function PhaseMap() {
   return (
     <div className="phase-visual phase-map" aria-hidden="true">
       <div className="phase-visual__inner">
+        <span className="phase-visual__example">Example</span>
         <span className="phase-visual__eyebrow">Phase 01 — Discovery &amp; Strategy</span>
         <div className="phase-visual__title">The Map</div>
 

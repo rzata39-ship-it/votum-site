@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLanguage } from '../context/useLanguage'
 import Modal from './Modal'
+import { CASES } from '../config/cases'
 import './Cases.css'
 
 const CASE_VISUALS = {
@@ -82,11 +83,13 @@ function CaseVisual({ type, featured = false }) {
   )
 }
 
-function CaseCard({ item, variant = 'supporting', layout = 'visual', visualType, onClick }) {
+// id = stable anchor (config/cases.js) so service pages can link to /#<id>
+function CaseCard({ id, item, variant = 'supporting', layout = 'visual', visualType, onClick }) {
   const featured = variant === 'hero' || variant === 'feature'
 
   return (
     <article
+      id={id}
       className={`case-card case-card--${variant} case-card--${layout} case-card--clickable`}
       onClick={onClick}
       role="button"
@@ -182,6 +185,7 @@ export default function Cases() {
         <div className="cases-layout">
           <div className="cases-row cases-row--feature-first">
             <CaseCard
+              id={CASES.feature.anchor}
               item={t.feature}
               variant="feature"
               layout="clean"
@@ -192,6 +196,7 @@ export default function Cases() {
 
           <div className="cases-row cases-row--hero-first">
             <CaseCard
+              id={CASES.hero.anchor}
               item={t.hero}
               variant="hero"
               layout="clean"
@@ -199,6 +204,7 @@ export default function Cases() {
               onClick={() => setSelectedCase(t.hero)}
             />
             <CaseCard
+              id={CASES.supporting0.anchor}
               item={t.supporting[0]}
               variant="supporting"
               layout="clean"
@@ -209,6 +215,7 @@ export default function Cases() {
 
           <div className="cases-row cases-row--equal">
             <CaseCard
+              id={CASES.supporting1.anchor}
               item={t.supporting[1]}
               variant="supporting"
               layout="clean"
@@ -216,6 +223,7 @@ export default function Cases() {
               onClick={() => setSelectedCase(t.supporting[1])}
             />
             <CaseCard
+              id={CASES.final.anchor}
               item={t.final}
               variant="supporting"
               layout="clean"
