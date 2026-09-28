@@ -409,6 +409,62 @@
 
 .team-card__avatar--role { color: var(--teal-400); border-style: dashed; }
 
+/* ── Expertise across the team ── */
+/* Deliberately quieter than the team cards (no accent bar, smaller type):
+   people stay the trust focus, capabilities are supporting evidence. */
+.about-expertise {
+  padding: 80px var(--container-pad);
+  background: var(--navy-800);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.about-expertise__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.about-expertise__header { margin-bottom: 48px; }
+.about-expertise__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.expertise-item {
+  background: var(--navy-900);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.expertise-item__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.expertise-item__body {
+  font-size: 14px;
+  color: var(--navy-200);
+  line-height: 1.7;
+  flex: 1;
+}
+.expertise-item__link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal-400);
+  align-self: flex-start;
+}
+.expertise-item__link:hover { color: var(--white); }
+
+/* ── Careers / contact (reuses .about-team__cta / .about-roles) ── */
+.about-careers {
+  padding: 80px var(--container-pad);
+}
+.about-careers__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
 .about-roles { margin-top: 24px; }
 .about-roles__title {
   font-family: var(--font-display);
@@ -442,9 +498,11 @@
   }
   .team-grid { grid-template-columns: 1fr 1fr; }
   .about-stats__grid { grid-template-columns: 1fr 1fr; }
+  .about-expertise__grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
   .team-grid { grid-template-columns: 1fr; }
+  .about-expertise__grid { grid-template-columns: 1fr; }
   .about-team__cta { flex-direction: column; align-items: flex-start; }
 
   /* Tighter vertical rhythm on phones */
@@ -453,7 +511,9 @@
   .about-mission,
   .about-principles,
   .about-diff,
-  .about-team       { padding: 56px var(--container-pad); }
+  .about-team,
+  .about-expertise,
+  .about-careers    { padding: 56px var(--container-pad); }
   .about-stat       { padding: 26px 18px; }
   .about-stat__num  { font-size: 36px; }
   .about-stat__num--text { font-size: clamp(20px, 5.4vw, 28px); line-height: 36px; }

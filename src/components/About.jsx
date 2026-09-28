@@ -1,9 +1,23 @@
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
 import { company } from '../config/company'
+import { servicePath } from '../config/services'
+import { solutionPath } from '../config/solutions'
 import useSeo from '../hooks/useSeo'
 import { statValue, isTextStat } from './Stats'
 import { fmt } from '../utils/format'
 import './About.css'
+
+// One contextual link per expertise item (translations about.expertise.items,
+// matched by `key`). At most one link per capability — no link walls.
+const EXPERTISE_LINKS = {
+  strategy:   servicePath('technology-consulting'),
+  software:   servicePath('software-development'),
+  devops:     servicePath('devops-cloud'),
+  quality:    servicePath('test-automation'),
+  operations: servicePath('managed-services'),
+  platforms:  solutionPath('opentext-adm'),
+}
 
 export default function About() {
   const { locale } = useLanguage()
@@ -56,6 +70,63 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      {/* ── Team ── */}
+      <section id="team" className="about-team">
+        <div className="about-team__inner">
+          <div className="about-team__header">
+            <span className="eyebrow">{t.team.eyebrow}</span>
+            <h2 className="section-h2">{t.team.title}</h2>
+            <p className="about-team__note">{t.team.note}</p>
+          </div>
+          <div className="team-grid">
+            {t.team.members.map((m) => (
+              <div key={m.name + m.role} className={`team-card team-card--${m.kind}`}>
+                <div className="team-card__head">
+                  {m.photo
+                    ? <img className="team-card__avatar team-card__avatar--photo" src={m.photo} alt={`${m.name}, ${m.role} at VOTUM`} width="72" height="72" loading="lazy" />
+                    : m.kind === 'person'
+                    ? <div className="team-card__avatar" aria-hidden="true">{m.initials}</div>
+                    : <div className="team-card__avatar team-card__avatar--role" aria-hidden="true"><RoleIcon /></div>}
+                  <div>
+                    <div className="team-card__name">{m.name}</div>
+                    <div className="team-card__role">{m.role}</div>
+                  </div>
+                </div>
+                {m.bio && <p className="team-card__bio">{m.bio}</p>}
+                <div className="team-card__tags">
+                  {m.tags.map((tag) => (
+                    <span key={tag} className="team-tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Expertise across the team ── */}
+      {/* Six equal items — deliberately quieter than the team cards. */}
+      <section className="about-expertise">
+        <div className="about-expertise__inner">
+          <div className="about-expertise__header">
+            <span className="eyebrow">{t.expertise.eyebrow}</span>
+            <h2 className="section-h2">{t.expertise.title}</h2>
+            <p className="section-lead">{t.expertise.intro}</p>
+          </div>
+          <div className="about-expertise__grid">
+            {t.expertise.items.map((item) => (
+              <div key={item.key} className="expertise-item">
+                <h3 className="expertise-item__title">{item.title}</h3>
+                <p className="expertise-item__body">{item.body}</p>
+                <Link className="expertise-item__link" to={EXPERTISE_LINKS[item.key]}>
+                  {item.linkLabel} →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── Mission ── */}
       <section className="about-mission">
@@ -123,37 +194,9 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Team ── */}
-      <section id="team" className="about-team">
-        <div className="about-team__inner">
-          <div className="about-team__header">
-            <span className="eyebrow">{t.team.eyebrow}</span>
-            <h2 className="section-h2">{t.team.title}</h2>
-            <p className="about-team__note">{t.team.note}</p>
-          </div>
-          <div className="team-grid">
-            {t.team.members.map((m) => (
-              <div key={m.name + m.role} className={`team-card team-card--${m.kind}`}>
-                <div className="team-card__head">
-                  {m.photo
-                    ? <img className="team-card__avatar team-card__avatar--photo" src={m.photo} alt="" width="72" height="72" loading="lazy" />
-                    : m.kind === 'person'
-                    ? <div className="team-card__avatar" aria-hidden="true">{m.initials}</div>
-                    : <div className="team-card__avatar team-card__avatar--role" aria-hidden="true"><RoleIcon /></div>}
-                  <div>
-                    <div className="team-card__name">{m.name}</div>
-                    <div className="team-card__role">{m.role}</div>
-                  </div>
-                </div>
-                {m.bio && <p className="team-card__bio">{m.bio}</p>}
-                <div className="team-card__tags">
-                  {m.tags.map((tag) => (
-                    <span key={tag} className="team-tag">{tag}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* ── Careers / contact ── */}
+      <section className="about-careers">
+        <div className="about-careers__inner">
           <div className="about-team__cta">
             <p className="about-team__cta-text">
               <strong>{t.team.cta.textBefore}</strong>{t.team.cta.textAfter}

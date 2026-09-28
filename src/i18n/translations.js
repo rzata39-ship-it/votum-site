@@ -281,7 +281,7 @@ export const translations = {
         titleLines: ['We build', 'engineering'],
         titleTail: 'that',
         titleAccent: 'lasts.',
-        lead: 'VOTUM is a senior engineering consultancy based in Sofia, Bulgaria. We embed with your team, take ownership of outcomes, and build the technical foundations that let your product scale — without the overhead of a traditional agency.',
+        lead: 'VOTUM is a software engineering company based in Sofia, Bulgaria. We embed with your team, take ownership of outcomes, and build the technical foundations that let your product scale — from architecture and development to delivery, testing and operations.',
         // The year itself comes from company.foundingYear (src/config/company.js)
         // and is only rendered once it is confirmed.
         // {year} = company.foundingYear, {teamSince} = company.teamSince (config/company.js)
@@ -298,7 +298,7 @@ export const translations = {
         quote: 'Engineering organizations that',
         quoteAccent: 'outlast the engagement.',
         paragraphs: [
-          'Most agencies optimize for delivery: ship the feature, invoice the hours, move on. We optimize for the moment you no longer need us — when your team is confident, your systems are stable, and the architecture we built together is something you can grow on for years.',
+          'We optimize for long-term ownership and maintainability, not just feature delivery — and for the moment you no longer need us: when your team is confident, your systems are stable, and the architecture we built together is something you can grow on for years.',
           "That means we embed deeply. We sit in your standups, write your documentation, and have the conversations that don't fit in a Jira ticket. It's slower in the short term and more valuable in the long term.",
           'VOTUM was built by engineers who had spent years watching the same patterns fail — disconnected strategy, short-term execution, and handoffs that left teams worse off than when the engagement started. We set out to build the alternative.',
         ],
@@ -307,22 +307,22 @@ export const translations = {
         eyebrow: 'How we work',
         title: "Six things we won't compromise on.",
         cards: [
-          { num: '01', color: 'green', title: 'Senior engineers only',     body: "We don't staff with juniors and supervise from a distance. Every engineer working on your product has years of production experience. You pay for expertise, you get expertise." },
+          { num: '01', color: 'green', title: 'Senior-led delivery',       body: 'Client work is led by experienced engineers, and expertise stays close to delivery — the people making the technical decisions work directly on your product. You pay for expertise, you get expertise.' },
           { num: '02', color: 'teal',  title: 'Ownership, not output',     body: "We measure success by outcomes, not tickets closed. If a feature shipped but the system is harder to maintain, we didn't succeed. We own the full lifecycle of what we build." },
           { num: '03', color: 'green', title: 'No architecture astronauts', body: "We recommend the simplest solution that solves the real problem. We won't introduce complexity to look sophisticated or to extend the engagement. If a boring solution is the right one, we'll say so." },
           { num: '04', color: 'teal',  title: 'Scope and success criteria agreed before build',  body: "We won't start building until we understand the problem. Every engagement starts with a discovery phase — even a short one. Scope agreed on paper beats scope discovered in code." },
-          { num: '05', color: 'green', title: 'Transparent progress',      body: "You see what we're doing every week. No black-box development cycles. Live demos every sprint, open backlogs, and honest status updates — including the hard ones." },
+          { num: '05', color: 'green', title: 'Transparent progress',      body: "You see what we're doing every week. No black-box development cycles. Regular progress reviews and demos throughout delivery, open backlogs, and honest status updates — including the hard ones." },
           { num: '06', color: 'teal',  title: 'We leave teams stronger',   body: 'The goal of every engagement is to make ourselves unnecessary. We write the documentation, run the knowledge transfers, and design systems your team can operate confidently without us.' },
         ],
       },
       diff: {
         eyebrow: 'Why VOTUM',
         title: 'Not a typical agency.',
-        lead: 'The model most clients have experienced before — and what we do differently.',
-        headers: ['Typical agency', 'VOTUM'],
+        lead: 'A delivery model many teams have experienced before — and how ours works instead.',
+        headers: ['A common agency model', 'VOTUM'],
         rows: [
-          { label: 'Team composition',  left: 'Mix of seniors and juniors, often rotated between projects',                      right: 'Senior engineers only. The person in your standup is the person writing your code.' },
-          { label: 'Engagement model',  left: 'Time-and-materials or fixed-price deliverables, optimized for hours billed',      right: 'Outcome-based. We define success criteria before we start and hold ourselves to them.' },
+          { label: 'Team composition',  left: 'Mix of seniors and juniors, often rotated between projects',                      right: 'Senior-led delivery. The engineers making technical decisions stay directly involved in delivery.' },
+          { label: 'Engagement model',  left: 'Time-and-materials or fixed-price deliverables, optimized for hours billed',      right: 'Success criteria agreed up front. Scope, priorities and success criteria are agreed before delivery starts, and progress is reviewed against them.' },
           { label: 'Handoff',           left: 'Code delivered, documentation minimal, team left to figure out the rest',         right: 'Full documentation, knowledge transfer sessions, and optional long-term support retainer.' },
           { label: 'Strategy',          left: 'Separate from execution — consultants advise, different team builds',             right: 'The engineers who advise are the engineers who build. No strategy-execution gap.' },
         ],
@@ -330,22 +330,22 @@ export const translations = {
       team: {
         eyebrow: 'The team',
         title: "People who've done this before.",
-        note: 'Every person at VOTUM has spent years in production engineering — not in consulting about it. We hire experienced specialists and give them the ownership and environment to keep growing.',
+        note: 'VOTUM is a software engineering company built around experienced engineers covering complementary disciplines — architecture, development, DevOps, quality and operations. We hire specialists with production engineering backgrounds and give them the ownership and environment to keep growing.',
         // kind: 'person' → a named individual (only with real, confirmed data).
         // kind: 'role'   → a role / capability description, rendered without
         //                  initials so it is never mistaken for a personal profile.
-        // Real team members (confirmed by the client, 2026-09). `bio` is optional.
-        // `photo` is optional too (square image in public/team/); without it the
-        // card shows the initials tile.
-        // The person bios are SAMPLE text derived from role + tags only — no years,
-        // employers, certifications or client names. Each person should review theirs.
+        // Real team members. `bio` is optional; `photo` is optional too (square
+        // image in public/team/) — without it the card shows the initials tile.
+        // Bios and tags are business-approved (Sprint 3C, 2026-09-28) — no years,
+        // employers, certifications or client names. Names, roles and photos must
+        // stay in sync with config/team.js (Person JSON-LD on /about).
         members: [
-          { kind: 'person', initials: 'HK', photo: '/team/hristo-kacarov.jpg', name: 'Hristo Kacarov', role: 'Managing Director / CTO',        bio: 'Leads VOTUM and sets its technical direction — from engineering strategy to the architecture decisions behind client projects.', tags: ['Strategy', 'Architecture', 'Leadership'] },
-          { kind: 'person', initials: 'VK', photo: '/team/velislav-kunev.jpg', name: 'Velislav Kunev', role: 'Systems Architect',              bio: 'Designs the software and infrastructure architecture behind our client platforms, ensuring clean service integration, scalable cloud foundations, security, and reliability.', tags: ['Architecture', 'Integration', 'Cloud'] },
-          { kind: 'person', initials: 'NP', photo: '/team/nikolay-peshev.jpg', name: 'Nikolay Peshev', role: 'Senior DevOps / Cloud Engineer', bio: 'Builds and runs the Kubernetes platforms and CI/CD pipelines that get software into production reliably — and keep it there.', tags: ['Kubernetes', 'CI/CD', 'Cloud'] },
-          { kind: 'person', initials: 'BK', photo: '/team/blagovest-kasabov.jpg', name: 'Blagovest Kasabov', role: 'Senior Full-Stack Engineer',     bio: 'Develops web applications end to end, from backend services and APIs to the interfaces people work with every day.', tags: ['Full Stack', 'Backend', 'Frontend'] },
-          { kind: 'person', initials: 'IP', photo: '/team/ivan-petrov.jpg', name: 'Ivan Petrov', role: 'Senior Test Manager',            bio: 'Shapes test strategy and automation so that quality is built into the release process rather than checked at the end.', tags: ['Test Automation', 'QA Strategy', 'Release Management'] },
-          { kind: 'role',   name: 'Extended team',     role: 'On demand', bio: 'A network of senior engineers available for specific engagements. Every one vetted personally — no recruitment pool, no juniors.', tags: ['Full Stack', 'Mobile', 'Data'] },
+          { kind: 'person', initials: 'HK', photo: '/team/hristo-kacarov.jpg', name: 'Hristo Kacarov', role: 'Managing Director / CTO',        bio: "Leads VOTUM's technical direction and delivery, combining software architecture, enterprise platform experience and engineering management. His background includes complex application-delivery environments and modernization programs.", tags: ['Technology Strategy', 'Architecture', 'Delivery Leadership', 'Enterprise Platforms'] },
+          { kind: 'person', initials: 'VK', photo: '/team/velislav-kunev.jpg', name: 'Velislav Kunev', role: 'Systems Architect',              bio: 'Software and systems architect with a strong development background. Designs application and integration architectures with a focus on maintainability, clear technical boundaries, scalability and reliable system integration.', tags: ['Software Architecture', 'Systems Architecture', 'Development', 'Integration'] },
+          { kind: 'person', initials: 'NP', photo: '/team/nikolay-peshev.jpg', name: 'Nikolay Peshev', role: 'Senior DevOps / Cloud Engineer', bio: 'DevOps engineer with strong coding and automation experience. Builds delivery platforms, CI/CD pipelines and the infrastructure around enterprise software systems.', tags: ['DevOps', 'CI/CD', 'Platform Engineering', 'Automation'] },
+          { kind: 'person', initials: 'BK', photo: '/team/blagovest-kasabov.jpg', name: 'Blagovest Kasabov', role: 'Senior Full-Stack Engineer',     bio: 'Full-stack engineer working across backend and frontend application development, with previous hands-on experience in enterprise application platforms.', tags: ['Full Stack', 'Backend', 'Frontend', 'Enterprise Applications'] },
+          { kind: 'person', initials: 'IP', photo: '/team/ivan-petrov.jpg', name: 'Ivan Petrov', role: 'Senior Test Manager',            bio: 'Test automation specialist with strong coding knowledge and broader performance-testing experience. Focuses on automation architecture, maintainable test frameworks and quality engineering.', tags: ['Test Automation', 'Quality Engineering', 'Automation Architecture', 'Performance Testing'] },
+          { kind: 'role',   name: 'Extended team',     role: 'On demand', bio: 'A network of experienced engineers available for specific engagements — each one vetted personally before they work on a client project.', tags: ['Full Stack', 'Mobile', 'Data'] },
         ],
         cta: {
           textBefore: "We're growing carefully.",
@@ -356,6 +356,23 @@ export const translations = {
           emailButton: 'Write to us →',
           emailSubject: 'Careers at VOTUM',
         },
+      },
+      // Six equal capability items; the sixth (OpenText ADM) is deliberately
+      // NOT visually dominant — people, not products, are the trust focus.
+      // `key` must match EXPERTISE_LINKS in components/About.jsx (one
+      // contextual link per item).
+      expertise: {
+        eyebrow: 'Expertise',
+        title: 'Expertise across the team',
+        intro: 'Our team combines architecture, software engineering, platform operations and quality engineering. That breadth lets us work across the full lifecycle of business-critical software — from technical direction and implementation to delivery, testing and long-term operations.',
+        items: [
+          { key: 'strategy',   title: 'Technology strategy & architecture', body: 'Enterprise architecture, modernization, system design and technical direction.', linkLabel: 'Technology consulting' },
+          { key: 'software',   title: 'Software engineering',               body: 'Backend, frontend and full-stack development for business-critical applications.', linkLabel: 'Custom software development' },
+          { key: 'devops',     title: 'DevOps & platform engineering',      body: 'CI/CD, cloud and on-premise platforms, automation and production delivery.', linkLabel: 'DevOps & cloud engineering' },
+          { key: 'quality',    title: 'Quality engineering',                body: 'Test strategy, test automation, automation architecture and performance testing.', linkLabel: 'Test automation & quality engineering' },
+          { key: 'operations', title: 'Managed operations',                 body: 'Application and platform support, root-cause analysis and L1–L3 engineering support.', linkLabel: 'Managed services & application support' },
+          { key: 'platforms',  title: 'Enterprise delivery platforms',      body: 'Hands-on project experience across OpenText ALM, ALM Octane, UFT, PPM and LoadRunner.', linkLabel: 'OpenText ADM engineering experience' },
+        ],
       },
     },
 
@@ -931,7 +948,7 @@ export const translations = {
     // values into the static HTML of each route; useSeo() updates them at runtime.
     seo: {
       home:     { title: 'VOTUM – Software Engineering, DevOps & Test Automation', description: 'Sofia-based engineering partner for technology consulting, custom software, DevOps & cloud, managed operations and test automation — from discovery to production.' },
-      about:    { title: 'About VOTUM – Software Engineering Company in Sofia', description: 'Meet the VOTUM team: experienced engineers, scope and success criteria agreed before build, and transparent delivery. VOTUM IT EOOD & Co KD, Sofia, Bulgaria.' },
+      about:    { title: 'About VOTUM – Software Engineering Company in Sofia', description: 'Meet the VOTUM team: experienced software engineers in Sofia, Bulgaria, covering architecture, software development, DevOps, quality engineering and managed operations.' },
       blog:     { title: 'Insights — VOTUM', description: 'Engineering insights from the VOTUM team: architecture decisions, delivery patterns and lessons from production engineering.' },
       privacy:  { title: 'Privacy Policy — VOTUM', description: 'How VOTUM collects, uses and protects personal data when you visit this website or contact us.' },
       legal:    { title: 'Legal Notice — VOTUM', description: 'Company details of VOTUM IT EOOD & Co KD: registered address, UIC, VAT number and contact details.' },

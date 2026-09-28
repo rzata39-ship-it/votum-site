@@ -68,7 +68,7 @@ uptime · `14 findings`, `12 objectives`, `8 risks`, `6 stakeholders`.
 
 - **Team (About)**: the placeholder names ("Ivan Mitev", anonymous "Senior Engineer" cards) were replaced on 2026-09-18 with the real team provided by the client: Hristo Kacarov (Managing Director / CTO), Velislav Kunev (Systems Architect), Nikolay Peshev (Senior DevOps/Cloud Engineer), Blagovest Kasabov (Senior FullStack Engineer), Ivan Petrov (Senior Test Manager). Cards show name, role and role-area tags only — **no personal bios were written** (none were provided). The "Extended team / on demand" role card was kept.
   - **Sample bios added 2026-09-18** (one sentence each, EN only). They are derived from the role and tags alone and contain no years of experience, former employers, certifications or client names.
-  - [ ] Each person reviews / rewrites their own bio.
+  - [x] **Bios and tags replaced 2026-09-28 (Sprint 3C)** with business-approved text per person — see §G. The sample-bio caveat no longer applies.
   - **Photos added 2026-09-18** for all five people, supplied by the client: 480×480 JPEG crops in `public/team/`, referenced by the optional `photo` field on each member. The full-size originals are kept outside `public/` in `team-originals/` so they are not shipped.
   - [ ] Written consent from each person for publishing their photo (personal data under GDPR).
   - [ ] Optional: LinkedIn profiles.
@@ -117,8 +117,8 @@ For each: provide the evidence, or approve the prepared replacement.
 - [x] **"reduced operational costs"** — applied: removed from the insurance case (no cost comparison) (§F).
 - [x] **"European" insurance group** — applied: "an insurance group" (§F). Reinstate only if confirmed.
 - [ ] **Response time (24 h)** — CTA banner, contact modal (`responseTimeHours` in `src/config/company.js`). Need: an operational commitment incl. weekends. Replacement ready: "We'll reply within one business day with concrete next steps — not a sales pitch."
-- [ ] **Senior engineers only / no juniors** — About lead ("senior engineering consultancy"), principle 01, comparison table, extended team, careers CTA. Need: literally true incl. the on-demand network. Replacement ready: "Senior-led delivery — every engagement is led by senior engineers, and the people in your standups are the people writing your code."
-- [ ] **"Outcome-based" engagement model** — About comparison table. Need: the actual contract model. Replacement ready: "Success criteria agreed before we start, and progress measured against them."
+- [x] **Senior engineers only / no juniors** — resolved 2026-09-28 (Sprint 3C + cleanup): About lead → "software engineering company"; extended-team card dropped "no recruitment pool, no juniors"; principle 01 → "Senior-led delivery" (led by experienced engineers, no "never juniors" claim); comparison row → "Senior-led delivery. The person in your standup is the person writing your code." No absolute seniority claim remains on the site.
+- [x] **"Outcome-based" engagement model** — resolved 2026-09-28 (Sprint 3C cleanup): comparison row → "Success criteria agreed up front. Scope, priorities and success criteria are agreed before delivery starts, and progress is reviewed against them." No commercial/contracting model is implied.
 - [ ] **Phone number** `+359 895 101 122` — footer, legal pages, `/contact`, JSON-LD `telephone`. Already public and kept for now; still needs explicit business confirmation (`LEGAL_AND_COMPANY_DATA_REQUIRED.md`).
 - [ ] **Trading name** `VOTUM` — JSON-LD `name`, `og:site_name`, legal texts. Still "confirm" in `LEGAL_AND_COMPANY_DATA_REQUIRED.md`.
 - [ ] **Team bios + photo consent** — see section D.
@@ -194,3 +194,56 @@ Not claimed — provide evidence before adding any of these:
 |---|---|---|---|
 | 150,000+ employees | Software delivery transformation & operations | Business-approved for publication (2026-09-25). Not independently verified. | **Missing** — ideally an approved public company source |
 | 1,000+ users | Software delivery transformation & operations | Business-approved for publication (2026-09-25). Not independently verified. | **Missing** — internal platform / user statistics or another documented source |
+
+## G. Sprint 3C — About & team trust enhancement (2026-09-28)
+
+All team facts below are **business-approved (Sprint 3C brief, 2026-09-28)**.
+The About page order is now Hero → Stats → Team → Expertise → Mission →
+Principles → How we're different → Careers CTA; the five people, photos,
+roles and the card design are unchanged.
+
+### Approved per-person facts (bios + tags in `translations.js`, Person JSON-LD from `src/config/team.js`)
+
+| Person | May be attributed publicly | Must NOT be attributed |
+|---|---|---|
+| Hristo Kacarov — Managing Director / CTO | technology strategy, architecture, engineering management, delivery leadership, enterprise platforms; hands-on OpenText ALM + ALM Octane (bio only) | primary positioning as an OpenText consultant; UFT / PPM as primary tags |
+| Velislav Kunev — Systems Architect | software development, systems / software / integration architecture | **any** OpenText / ALM / Octane / UFT / PPM / LoadRunner mention |
+| Nikolay Peshev — Senior DevOps / Cloud Engineer | DevOps, CI/CD, platform engineering, automation, coding; ALM Octane + UFT (bio only) | OpenText dominating the card |
+| Blagovest Kasabov — Senior Full-Stack Engineer | full-stack / backend / frontend / enterprise application development; previous ALM + ALM Octane, exposure to PPM + LoadRunner (bio only) | PPM / LoadRunner as primary tags |
+| Ivan Petrov — Senior Test Manager | test automation, quality engineering, automation architecture, deep UFT, coding, some performance testing | — |
+
+Still not published for any person (no evidence / not provided): years of
+experience, employer histories, certifications, personal qualifications,
+sameAs / LinkedIn profiles (none configured), personal contact data.
+
+**2026-09-28 (post-3C, client request):** all OpenText product references were
+removed from the personal bios ("May be attributed publicly" above still
+records what remains approved, but bios now stay product-neutral —
+"enterprise platform" wording only). OpenText product names on /about appear
+only in the "Enterprise delivery platforms" expertise item.
+
+### "Expertise across the team" section
+
+Six visually equal capability items (OpenText deliberately not dominant);
+one contextual link each (five service pages + `/solutions/opentext-adm`).
+The sixth item's claim ("hands-on project experience across OpenText ALM,
+ALM Octane, UFT, PPM and LoadRunner") rests on the Sprint 3B.1
+business-approved capability statement (§ OpenText ADM above) — the ALM
+Octane / LoadRunner parts still have **no public case evidence**.
+
+### Wording changed in Sprint 3C (defensibility, no evidence needed)
+
+- About hero lead: "senior engineering consultancy" → "software engineering company … from architecture and development to delivery, testing and operations".
+- Team note: "Every person at VOTUM has spent years in production engineering" → "built around experienced engineers covering complementary disciplines … specialists with production engineering backgrounds".
+- Extended-team card: dropped "no recruitment pool, no juniors" → "each one vetted personally before they work on a client project".
+- Mission: "Most agencies" → "Many agencies"; then (post-review cleanup) the competitor generalization was removed entirely — the paragraph now describes only VOTUM's own model ("We optimize for long-term ownership and maintainability, not just feature delivery — and for the moment you no longer need us …").
+- Comparison table: header "Typical agency" → "A common agency model"; lead "The model most clients have experienced before" → "A delivery model many teams have experienced before".
+- About meta description → team + engineering disciplines + Sofia (no legal name, no OpenText).
+- Team photo alt text: empty → "\<name\>, \<role\> at VOTUM" (no qualifications or technologies).
+
+### Post-review trust-copy cleanup (2026-09-28, approved with the Sprint 3C review)
+
+- Principle 01: "Senior engineers only" → **"Senior-led delivery"** — client work is led by experienced engineers, expertise stays close to delivery; no "never juniors" claim (§E item closed).
+- Comparison row "Team composition": "Senior engineers only." → "Senior-led delivery." (same §E item).
+- Comparison row "Engagement model": "Outcome-based. We define success criteria before we start and hold ourselves to them." → **"Success criteria agreed up front."** + factual supporting text; no commercial model implied (§E item closed).
+- Principle 05: "Live demos every sprint" → **"Regular progress reviews and demos throughout delivery"** — no fixed sprint/demo cadence implied.
