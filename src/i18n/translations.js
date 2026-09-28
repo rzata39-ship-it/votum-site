@@ -4,6 +4,7 @@ export const translations = {
   en: {
     nav: {
       services:  'Services',
+      solutions: 'Solutions',
       howWeWork: 'How we work',
       work:      'Our work',
       caseStudies: 'Case Studies',
@@ -1005,6 +1006,55 @@ export const translations = {
       },
     },
 
+    // /solutions hub (SolutionsHub.jsx). Six equal solution areas: two link
+    // to dedicated solution pages, four to the existing service pages (no new
+    // detail routes — card targets live in SOLUTION_AREAS in the component).
+    // Every claim maps to an approved capability or a public case study.
+    solutionsHub: {
+      eyebrow: 'Solutions',
+      h1: 'Engineering Solutions Across the Software Lifecycle',
+      lead: 'From custom software and application modernization to DevOps, quality engineering and managed operations, we help teams design, build, improve and run business-critical software.',
+      heroCta: 'Talk to an engineer',
+      heroSecondary: 'Explore our work',
+      introTitle: 'Engineering capabilities applied to real software problems',
+      intro: [
+        'Our services describe the engineering disciplines we provide. Our solutions bring those disciplines together around a specific technical or operational challenge.',
+        'A modernization project may combine architecture, software development, DevOps, testing and operations. A new software product may need the same capabilities in a different combination.',
+        'The starting point is the problem, not a predefined technology stack.',
+      ],
+      cardsTitle: 'Six problems we take ownership of',
+      cards: [
+        { key: 'modernization', title: 'Application Modernization & Legacy Transformation', body: 'Modernize existing applications, architecture, integrations and platforms without automatically turning transformation into a full rewrite.', link: 'Explore Application Modernization' },
+        { key: 'software',      title: 'Custom Software & Product Engineering',             body: 'Design and build business-critical applications around real business processes, integration requirements and technical constraints — from architecture and backend services to frontend applications and production delivery.', link: 'Explore Software Engineering' },
+        { key: 'devops',        title: 'DevOps & Platform Engineering',                     body: 'Improve how software is built, deployed and operated through CI/CD, platform engineering, infrastructure automation and reliable delivery environments.', link: 'Explore DevOps & Platform Engineering' },
+        { key: 'quality',       title: 'Quality Engineering, Test Management & Automation', body: 'Build quality into delivery through test strategy, test management, automation architecture, functional automation and performance testing.', link: 'Explore Quality Engineering' },
+        { key: 'operations',    title: 'Managed Application & Platform Operations',         body: 'Operate and support business-critical applications and platforms with troubleshooting, root-cause analysis and L1–L3 engineering escalation when deeper technical expertise is needed.', link: 'Explore Managed Operations' },
+        { key: 'opentext',      title: 'OpenText ADM Engineering & Support',                body: 'Specialist engineering, modernization and support for OpenText application-delivery environments, including ALM, ALM Octane, UFT, PPM and LoadRunner.', link: 'Explore OpenText ADM' },
+      ],
+      capabilities: {
+        title: 'Capabilities behind our solutions',
+        intro: 'Most complex software problems do not fit neatly into one discipline. Our solution work combines the engineering capabilities needed for the specific environment:',
+        servicesCta: { before: 'Looking for a specific engineering capability?', link: 'Explore our services' },
+      },
+      lifecycle: {
+        title: 'One team across the lifecycle',
+        stages: ['Architecture', 'Build', 'Deliver', 'Validate', 'Operate'],
+        body: 'The same team can carry a system from architecture decisions through implementation, delivery and testing into operations, so context is not lost in handoffs between disciplines. Which stages an engagement includes is agreed case by case.',
+      },
+      casesTitle: 'Solutions in practice',
+      casesNote: 'Members of the current VOTUM team have delivered these projects before {legalName} was founded in {year}.',
+      // Short contextual proof links (kept out of the card grid on purpose)
+      proofMore: [
+        { slug: 'asset-management-advisory-platform',    before: 'Custom software in practice:',    link: 'a new web platform for an asset management firm' },
+        { slug: 'software-delivery-platform-operations', before: 'Managed operations in practice:', link: 'delivery-platform transformation and operations under agreed SLAs' },
+      ],
+      cta: {
+        title: 'Have a software problem that does not fit neatly into one category?',
+        body: 'Most complex environments combine architecture, software, delivery, testing and operations. Tell us what is getting in the way, and we can help define the right engineering approach.',
+        button: 'Talk to an engineer',
+      },
+    },
+
     // /contact — company facts come from src/config/company.js
     contactPage: {
       eyebrow: 'Contact',
@@ -1042,6 +1092,7 @@ export const translations = {
       serviceTesting:    { name: 'Test Automation & Quality Engineering',         title: 'Test Automation & Quality Engineering | VOTUM',          description: 'Test strategy, UI, API and end-to-end automation, regression and performance testing, and quality gates in CI/CD — test automation services from VOTUM.' },
       contact:           { name: 'Contact',                                       title: 'Contact VOTUM – Sofia, Bulgaria',                        description: 'Contact VOTUM IT EOOD & Co KD in Sofia, Bulgaria: email info@votum.bg or send us a message about your software, DevOps, support or testing project.' },
       services:          { name: 'Services',                                      title: 'Software Engineering Services | VOTUM',                   description: 'Software engineering services from VOTUM in Sofia: technology consulting, custom software, DevOps & cloud, L1–L3 managed services and test automation.' },
+      solutions:         { name: 'Solutions',                                     title: 'Software Engineering Solutions | VOTUM',                  description: 'Explore VOTUM solutions for custom software, application modernization, DevOps, quality engineering, managed operations and enterprise platforms.' },
       caseStudies:          { name: 'Case Studies',                         title: 'Case Studies – Software Engineering Projects | VOTUM',      description: 'Anonymized case studies from the team behind VOTUM: software delivery platform operations, data archival, web platforms, Kubernetes and test automation.' },
       caseDeliveryOps:      { name: 'Software Delivery Platform Operations', title: 'Software Delivery Platform Operations – Case Study | VOTUM', description: 'Case study: a centralized OpenText ALM and UFT delivery and testing platform for a global automotive organization, with L1–L2 support under agreed SLAs.' },
       caseInsuranceArchive: { name: 'Insurance Data Archival & Migration',   title: 'Insurance Data Archival & Migration – Case Study | VOTUM',   description: 'Case study: legacy OpenText ALM and PPM data archived on AWS for an insurance group — Oracle migrated to PostgreSQL on AWS RDS, attachments preserved.' },
@@ -1050,7 +1101,7 @@ export const translations = {
       caseTestAutomation:   { name: 'Automotive Test Automation Framework',  title: 'Automotive Test Automation Framework – Case Study | VOTUM',  description: 'Case study: a test automation framework for an automotive organization, integrated into the development and release lifecycle to reduce manual testing.' },
       solutionOpentextAdm:  { name: 'OpenText ADM',                          title: 'OpenText ADM, ALM, Octane & UFT Engineering | VOTUM',        description: 'OpenText ADM expertise across ALM, ALM Octane, UFT, LoadRunner and PPM: architecture, upgrades, migrations, integrations, test automation and L1–L3 support.' },
       solutionAppModernization: { name: 'Application Modernization',         title: 'Application Modernization & Legacy Transformation | VOTUM',  description: 'Modernize legacy applications, architecture, integrations and delivery platforms with a pragmatic path from existing systems to maintainable modern software.' },
-      breadcrumb: { home: 'Home', services: 'Services', caseStudies: 'Case Studies' },
+      breadcrumb: { home: 'Home', services: 'Services', caseStudies: 'Case Studies', solutions: 'Solutions' },
     },
 
     footer: {
@@ -1067,6 +1118,7 @@ export const translations = {
       },
       servicesTitle: 'Services',
       servicesAll:   'All services',
+      solutionsAll:  'All solutions',
       contactTitle: 'Contact',
       copyright: 'All rights reserved.',
       legalNotice: 'Legal Notice',

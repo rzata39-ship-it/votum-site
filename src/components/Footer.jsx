@@ -3,7 +3,7 @@ import { useLanguage } from '../context/useLanguage'
 import { company, socialLinks } from '../config/company'
 import { features } from '../config/features'
 import { SERVICES, SERVICES_HUB_PATH, servicePath } from '../config/services'
-import { SOLUTIONS, solutionPath } from '../config/solutions'
+import { SOLUTIONS, SOLUTIONS_HUB_PATH, solutionPath } from '../config/solutions'
 import './Footer.css'
 
 const YEAR = new Date().getFullYear()
@@ -85,6 +85,7 @@ export default function Footer() {
                 </li>
               ))}
               <li><Link to={SERVICES_HUB_PATH}>{t.servicesAll}</Link></li>
+              <li><Link to={SOLUTIONS_HUB_PATH}>{t.solutionsAll}</Link></li>
             </ul>
           </nav>
           <nav className="footer__col" aria-label={t.company.title}>

@@ -271,3 +271,28 @@ certifications, partnerships. Per the Sprint 4 review, the page body contains
 specialist solution page and appears only where the linked case studies
 themselves mention it. The footer solution link is site-wide chrome, not page
 content.
+
+## I. Sprint 5 — Solutions hub (2026-09-28)
+
+`/solutions` presents six equal solution areas. Claim basis:
+
+| Card | Basis | Destination |
+|---|---|---|
+| Application Modernization & Legacy Transformation | Sprint 4 solution page (§H) | /solutions/application-modernization |
+| Custom Software & Product Engineering | Approved service capability; **public case evidence: asset management advisory platform** (new web platform, microservices backend, React frontend) | /services/software-development |
+| DevOps & Platform Engineering | Approved service capability; public case: on-premise Kubernetes platform | /services/devops-cloud |
+| Quality Engineering, Test Management & Automation | Approved service capability + Ivan Petrov role; public case: automotive test automation framework | /services/test-automation |
+| Managed Application & Platform Operations | Approved capability (L1–L3; "24/7 monitoring and support available under agreed SLAs" wording not restated on the hub — no SLA figures); public case: software delivery platform operations (L1–L2 scope) | /services/managed-services |
+| OpenText ADM Engineering & Support | Sprint 3B.1 approved capability statement (§ OpenText ADM) | /solutions/opentext-adm |
+
+Proof section: insurance archival (modernization), Kubernetes platform
+(platform engineering), automotive test automation (quality) as cards, plus
+contextual links to the asset-management case (custom software) and the
+delivery-platform case (managed operations). Standard attribution note shown.
+
+**No new evidence gaps**: custom software has public case evidence (asset
+platform case). Not claimed anywhere on the hub: counts, customers,
+certifications, partnerships, response times, uptime, guaranteed outcomes.
+Navigation: "Solutions" added to the main nav; footer gained an
+"All solutions" link; solution-page breadcrumbs became Home > Solutions > X
+now that the hub exists.
