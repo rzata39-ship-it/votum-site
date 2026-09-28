@@ -9,6 +9,7 @@ import { NON_PRODUCTION_ROBOTS } from './environment.js'
 import { SERVICES, SERVICES_HUB_PATH, servicePath } from './services.js'
 import { CASES, CASES_HUB_PATH, casePath } from './cases.js'
 import { SOLUTIONS, solutionPath } from './solutions.js'
+import { TEAM } from './team.js'
 
 export const OG_IMAGE = '/og-image.png'
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 }
@@ -197,9 +198,21 @@ export function structuredData(key, meta, seoStrings) {
     })),
   }
 
+  // Named team members (config/team.js), only on the About page. Confirmed
+  // public data only: name, jobTitle, image, worksFor. No sameAs, alumniOf,
+  // knowsAbout, credentials or personal data — see CONTENT_EVIDENCE_REQUIRED.md.
+  const people = route.pageType === 'AboutPage' ? TEAM.map((m) => ({
+    '@type': 'Person',
+    '@id': `${meta.canonical}#${m.id}`,
+    name: m.name,
+    jobTitle: m.jobTitle,
+    image: absoluteUrl(m.photo),
+    worksFor: { '@id': ORGANIZATION_ID },
+  })) : []
+
   return {
     '@context': 'https://schema.org',
-    '@graph': [organizationNode(), websiteNode(), page, service, breadcrumbList].filter(Boolean),
+    '@graph': [organizationNode(), websiteNode(), page, service, breadcrumbList, ...people].filter(Boolean),
   }
 }
 
