@@ -7,9 +7,9 @@ import { scrollToId } from './utils/scroll'
 import { features } from './config/features'
 import Nav          from './components/Nav'
 import Hero         from './components/Hero'
-import Stats        from './components/Stats'
-import CompanyIntro from './components/CompanyIntro'
-import Services     from './components/Services'
+import SolutionsPreview from './components/SolutionsPreview'
+import TeamTrust from './components/TeamTrust'
+import Capabilities from './components/Capabilities'
 import HowWeWork    from './components/HowWeWork'
 import Cases        from './components/Cases'
 import CtaBanner    from './components/CtaBanner'
@@ -38,11 +38,11 @@ function Home({ onContact }) {
   return (
     <main id="main" tabIndex={-1}>
       <Hero onContact={onContact} />
-      <Stats />
-      <CompanyIntro />
-      <Services />
-      <HowWeWork />
+      <SolutionsPreview />
+      <Capabilities />
       <Cases />
+      <TeamTrust />
+      <HowWeWork />
       <CtaBanner onContact={onContact} />
     </main>
   )

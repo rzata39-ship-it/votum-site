@@ -3,11 +3,13 @@ import { useLanguage } from '../context/useLanguage'
 import { CASES, CASES_HUB_PATH, casePath } from '../config/cases'
 import './Cases.css'
 
-// Homepage rows (indexes into config/cases.js): one wide card, then two rows of two
-const ROWS = [
-  { className: 'cases-row--feature-first', variants: ['feature'],                 from: 0 },
-  { className: 'cases-row--hero-first',    variants: ['hero', 'supporting'],      from: 1 },
-  { className: 'cases-row--equal',         variants: ['supporting', 'supporting'], from: 3 },
+// Homepage shows three representative cases — custom software, platform
+// engineering, quality engineering (Sprint 6.1 curation). The full set of
+// five stays on /case-studies and the detail routes.
+const HOME_CASES = [
+  'asset-management-advisory-platform',
+  'on-premise-kubernetes-platform',
+  'automotive-test-automation-framework',
 ]
 
 // Each card is a real link to its case page (/case-studies/<slug>); the full
@@ -45,14 +47,12 @@ export default function Cases() {
       </div>
 
       <div className="cases-layout">
-        {ROWS.map((row) => (
-          <div key={row.className} className={`cases-row ${row.className}`}>
-            {row.variants.map((variant, i) => {
-              const c = CASES[row.from + i]
-              return c && <CaseCard key={c.slug} slug={c.slug} item={t.items[c.slug]} variant={variant} />
-            })}
-          </div>
-        ))}
+        <div className="cases-row cases-row--triple">
+          {HOME_CASES.map((slug) => (
+            CASES.some((c) => c.slug === slug) &&
+              <CaseCard key={slug} slug={slug} item={t.items[slug]} variant="supporting" />
+          ))}
+        </div>
       </div>
 
       <p className="cases-section__all">

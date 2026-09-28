@@ -1,0 +1,54 @@
+/* Compact homepage capabilities strip (replaces the old five-card section) */
+
+.capabilities {
+  padding: 20px var(--container-pad) 96px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  scroll-margin-top: var(--nav-height);
+}
+.capabilities .section-header { margin-bottom: 36px; }
+
+.capabilities__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.capabilities__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: var(--navy-800);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #d5d5ea;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.capabilities__item:hover,
+.capabilities__item:focus-visible {
+  border-color: rgba(120, 214, 75, 0.5);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+.capabilities__arrow { color: var(--green-400); }
+
+.capabilities__all {
+  margin-top: 24px;
+  text-align: center;
+}
+.capabilities__all a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teal-400);
+}
+.capabilities__all a:hover { color: var(--white); }
+
+@media (max-width: 640px) {
+  .capabilities { padding: 0 var(--container-pad) 64px; }
+  .capabilities__item { width: 100%; justify-content: space-between; }
+  .capabilities__list li { width: 100%; }
+}

@@ -4,7 +4,7 @@ import { company } from '../config/company'
 import { servicePath } from '../config/services'
 import { solutionPath } from '../config/solutions'
 import useSeo from '../hooks/useSeo'
-import { statValue, isTextStat } from './Stats'
+import { statValue, isTextStat } from '../utils/stats'
 import { fmt } from '../utils/format'
 import './About.css'
 
