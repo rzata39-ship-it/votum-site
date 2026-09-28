@@ -126,6 +126,14 @@ export default function Nav({ onContact }) {
               {t.services}
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/solutions"
+              className={({ isActive }) => (isActive ? 'nav__link--active' : '')}
+            >
+              {t.solutions}
+            </NavLink>
+          </li>
           {SECTION_LINKS.map(({ label, hash, id }) => (
             <li key={hash}>
               <a

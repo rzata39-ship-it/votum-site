@@ -8,7 +8,7 @@ import { features } from './features.js'
 import { NON_PRODUCTION_ROBOTS } from './environment.js'
 import { SERVICES, SERVICES_HUB_PATH, servicePath } from './services.js'
 import { CASES, CASES_HUB_PATH, casePath } from './cases.js'
-import { SOLUTIONS, solutionPath } from './solutions.js'
+import { SOLUTIONS, SOLUTIONS_HUB_PATH, solutionPath } from './solutions.js'
 import { TEAM } from './team.js'
 
 export const OG_IMAGE = '/og-image.png'
@@ -44,10 +44,11 @@ export const ROUTES = [
     key: c.key, path: casePath(c.slug), file: `case-studies/${c.slug}/index.html`,
     sitemap: true, prerender: true, breadcrumb: true, parent: 'caseStudies',
   })),
-  // Solution pages: breadcrumb Home > [solution] (no /solutions hub)
+  // Solutions hub + solution pages: breadcrumb Home > Solutions > [solution]
+  { key: 'solutions', path: SOLUTIONS_HUB_PATH, file: 'solutions/index.html', sitemap: true, prerender: true, aboutOrg: true, breadcrumb: true, pageType: 'CollectionPage' },
   ...SOLUTIONS.map((s) => ({
     key: s.key, path: solutionPath(s.slug), file: `solutions/${s.slug}/index.html`,
-    sitemap: true, prerender: true, breadcrumb: true,
+    sitemap: true, prerender: true, breadcrumb: true, parent: 'solutions',
   })),
   { key: 'contact',  path: '/contact',      file: 'contact/index.html', sitemap: true, prerender: true, aboutOrg: true, breadcrumb: true, pageType: 'ContactPage' },
   { key: 'blog',     path: '/blog',         file: 'blog/index.html',  sitemap: true,  prerender: true  },
@@ -64,6 +65,7 @@ export const absoluteUrl = (path) => new URL(path, company.siteUrl).href
 const PARENTS = {
   services:    { label: 'services',    path: SERVICES_HUB_PATH },
   caseStudies: { label: 'caseStudies', path: CASES_HUB_PATH },
+  solutions:   { label: 'solutions',   path: SOLUTIONS_HUB_PATH },
 }
 
 // [{ name, path }] from Home to the page, or null. Shared by the visible

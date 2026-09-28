@@ -2,7 +2,8 @@
 // area or product family, backed by the public case studies and service pages.
 // Single source for the route (seo.js → prerender, sitemap), the footer link
 // and the contextual "Related solution" links on service and case pages.
-// There is deliberately no /solutions hub.
+// The /solutions hub (SolutionsHub.jsx) lists these plus the solution areas
+// that link to service pages (no dedicated route yet).
 //
 // template → which SolutionPage renderer the page uses:
 //   'product' (default) → the product-portfolio layout (OpenText ADM)
@@ -35,6 +36,8 @@ export const SOLUTIONS = [
     },
   },
 ]
+
+export const SOLUTIONS_HUB_PATH = '/solutions'
 
 export const solutionPath = (slug) => `/solutions/${slug}`
 

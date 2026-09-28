@@ -1,0 +1,105 @@
+/* /solutions hub (shell: ContentPage.css; cards mirror the services hub) */
+
+.solutions-hub__hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.solutions-hub__text {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #d5d5ea;
+  margin-bottom: 14px;
+}
+.solutions-hub__text--muted {
+  font-size: 14.5px;
+  color: var(--navy-300);
+}
+
+/* Six equal solution cards: 3 columns → 2 → 1 */
+.solutions-hub__cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.solutions-hub__card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px 24px 20px;
+  background: var(--navy-800);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 2px solid var(--green-400);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.solutions-hub__cards li:nth-child(even) .solutions-hub__card { border-top-color: var(--teal-400); }
+.solutions-hub__card:hover,
+.solutions-hub__card:focus-visible { border-color: rgba(120, 214, 75, 0.4); transform: translateY(-2px); }
+
+.solutions-hub__num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--navy-300);
+  margin-bottom: 12px;
+}
+.solutions-hub__card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.solutions-hub__card p {
+  flex: 1;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--navy-200);
+  margin-bottom: 16px;
+}
+.solutions-hub__more {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-400);
+}
+.solutions-hub__cards li:nth-child(even) .solutions-hub__more { color: var(--teal-400); }
+
+/* Lifecycle flow: Architecture → Build → Deliver → Validate → Operate */
+.solutions-hub__flow {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.solutions-hub__flow li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.solutions-hub__flow-stage {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d5d5ea;
+}
+.solutions-hub__flow-arrow {
+  color: var(--teal-400);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .solutions-hub__cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .solutions-hub__cards { grid-template-columns: 1fr; }
+}
