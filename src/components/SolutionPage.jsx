@@ -13,10 +13,15 @@ import './ServicePage.css'
 import './SolutionPage.css'
 
 // /solutions/:slug — one page per entry in config/solutions.js,
-// copy from translations: solutionPages[slug]
+// copy from translations: solutionPages[slug]. The config's `template`
+// picks the renderer: 'general' (vendor-neutral) or the default
+// product-portfolio layout.
 export default function SolutionPage() {
   const solution = findSolution(useParams().slug)
-  return solution ? <SolutionContent solution={solution} /> : <NotFound />
+  if (!solution) return <NotFound />
+  return solution.template === 'general'
+    ? <GeneralSolutionContent solution={solution} />
+    : <SolutionContent solution={solution} />
 }
 
 function SolutionContent({ solution }) {
@@ -175,9 +180,111 @@ function SolutionContent({ solution }) {
   )
 }
 
-function Section({ title, label, className, children }) {
+// Vendor-neutral solution layout (template: 'general'), e.g.
+// /solutions/application-modernization. Reuses the shared section, list,
+// step and teaser building blocks — no product emphasis, six equal
+// capability cards, standard modernization patterns as a definition list.
+function GeneralSolutionContent({ solution }) {
+  const { locale } = useLanguage()
+  useSeo(solution.key)
+  const t = locale.solutionPages[solution.slug]
+
   return (
-    <section className={`page-section${className ? ` ${className}` : ''}`}>
+    <main id="main" tabIndex={-1} className="solution-page">
+      <header className="page-hero">
+        <div className="page-hero__inner">
+          <Breadcrumbs routeKey={solution.key} />
+          <span className="page-eyebrow">{t.eyebrow}</span>
+          <h1 className="page-hero__title">{t.h1}</h1>
+          <p className="page-hero__lead">{t.lead}</p>
+          <div className="solution-page__hero-ctas">
+            <Link to="/contact" className="btn btn-primary btn-lg">{t.heroCta}</Link>
+            <a href="#cases" className="btn btn-secondary-teal btn-lg">{t.heroSecondary}</a>
+          </div>
+        </div>
+      </header>
+
+      <div className="page-body">
+        <Section title={t.philosophy.title}>
+          {t.philosophy.paragraphs.map((p) => <p key={p} className="solution-page__text">{p}</p>)}
+        </Section>
+
+        {/* Six equal capability cards — no dominant area */}
+        <Section title={t.areas.title}>
+          <ul className="solution-products">
+            {t.areas.items.map((item) => (
+              <li key={item.title} className="solution-product">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section title={t.paths.title}>
+          <p className="solution-page__text">{t.paths.body}</p>
+          <dl className="solution-map">
+            {t.paths.items.map((m) => (
+              <div key={m.name}>
+                <dt>{m.name}</dt>
+                <dd>{m.text}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="solution-page__text solution-page__text--muted">{t.paths.note}</p>
+        </Section>
+
+        <Section title={t.approachTitle}>
+          <Steps items={t.approach} />
+        </Section>
+
+        <Section title={t.casesTitle} id="cases">
+          <p className="solution-page__text solution-page__text--muted">
+            {fmt(t.casesNote, { legalName: company.legalName, year: company.foundingYear })}
+          </p>
+          <div className="teaser-grid">
+            {solution.cases.map((slug) => {
+              const item = locale.cases.items[slug]
+              return (
+                <article key={slug} className="teaser">
+                  <span className="teaser__category">{item.category}</span>
+                  <h3><Link to={casePath(slug)}>{item.title}</Link></h3>
+                  <p>{item.cardBody}</p>
+                  <span className="teaser__more" aria-hidden="true">{locale.cases.readLink}</span>
+                </article>
+              )
+            })}
+          </div>
+        </Section>
+
+        <Section title={t.servicesTitle}>
+          <p className="solution-page__text">{t.servicesIntro}</p>
+          <ul className="page-links">
+            {solution.services.map((slug) => (
+              <li key={slug}>
+                <Link to={servicePath(slug)}>{locale.services.cards[SERVICES.indexOf(findService(slug))].title} →</Link>
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section title={t.whyTitle}>
+          <CheckList items={t.why} />
+        </Section>
+
+        <section className="page-cta">
+          <h2>{t.cta.title}</h2>
+          <p>{t.cta.body}</p>
+          <Link to="/contact" className="btn btn-primary btn-lg">{t.cta.button}</Link>
+        </section>
+      </div>
+    </main>
+  )
+}
+
+function Section({ title, label, className, id, children }) {
+  return (
+    <section id={id} className={`page-section${className ? ` ${className}` : ''}`}>
       {label && <span className="solution-page__label">{label}</span>}
       <h2>{title}</h2>
       {children}

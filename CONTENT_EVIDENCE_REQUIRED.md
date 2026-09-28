@@ -247,3 +247,27 @@ Octane / LoadRunner parts still have **no public case evidence**.
 - Comparison row "Team composition": "Senior engineers only." → "Senior-led delivery." (same §E item).
 - Comparison row "Engagement model": "Outcome-based. We define success criteria before we start and hold ourselves to them." → **"Success criteria agreed up front."** + factual supporting text; no commercial model implied (§E item closed).
 - Principle 05: "Live demos every sprint" → **"Regular progress reviews and demos throughout delivery"** — no fixed sprint/demo cadence implied.
+
+## H. Sprint 4 — Application Modernization solution page (2026-09-28)
+
+`/solutions/application-modernization` (template `general`) is vendor-neutral:
+no products, versions, partner status, counts, timelines, SLA figures or
+downtime/cost/performance promises. Everything on the page is either generic
+engineering method description or backed as follows:
+
+| Statement | Basis |
+|---|---|
+| Legacy decommissioning, data archival/migration, vendor exit, integrity preservation | Public case: insurance data archival & migration |
+| Platform modernization, containerization, deployment/delivery modernization | Public case: on-premise Kubernetes platform |
+| Delivery-platform transformation, consolidation, transition into managed operations | Public case: software delivery platform transformation & operations |
+| Retain / Rehost / Re-platform / Refactor / Replace / Retire | Standard industry modernization patterns, explicitly presented as such (never a proprietary framework) |
+| "Senior-led delivery", success criteria before build, knowledge transfer | Existing approved positioning (§E / §G) |
+| Optional operations after transition | Confirmed managed-services capability; no SLA figures stated |
+
+Deliberately not claimed (no evidence): zero downtime, guaranteed cost or
+performance outcomes, project counts, timeline promises, named customers,
+certifications, partnerships. Per the Sprint 4 review, the page body contains
+**no** OpenText (or other vendor) cross-reference — OpenText has its own
+specialist solution page and appears only where the linked case studies
+themselves mention it. The footer solution link is site-wide chrome, not page
+content.
