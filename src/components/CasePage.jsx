@@ -32,10 +32,14 @@ function CaseContent({ study }) {
           <Breadcrumbs routeKey={study.key} />
           <span className="page-eyebrow">{t.eyebrow} · {item.category}</span>
           <h1 className="page-hero__title">{item.title}</h1>
-          {/* Visible attribution: the project predates the company (config/cases.js) */}
-          <p className="case-page__note">
-            {fmt(t.note, { legalName: company.legalName, year: company.foundingYear })}
-          </p>
+          {/* Visible attribution note — shown unless the case opts out in
+              config/cases.js (client decision 2026-09-28, see
+              CONTENT_EVIDENCE_REQUIRED.md §F) */}
+          {study.attributionNote !== false && (
+            <p className="case-page__note">
+              {fmt(t.note, { legalName: company.legalName, year: company.foundingYear })}
+            </p>
+          )}
         </div>
       </header>
 
