@@ -8,6 +8,16 @@ import './Footer.css'
 
 const YEAR = new Date().getFullYear()
 
+// Footer presentation order only: the broader vendor-neutral solution first,
+// then the specialist page. Routes/data still come from config/solutions.js
+// (whose order is unchanged); slugs not listed here sort after these, in
+// config order.
+const FOOTER_SOLUTIONS_ORDER = ['application-modernization', 'opentext-adm']
+const footerSolutions = [...SOLUTIONS].sort((a, b) => {
+  const rank = (s) => { const i = FOOTER_SOLUTIONS_ORDER.indexOf(s.slug); return i === -1 ? FOOTER_SOLUTIONS_ORDER.length : i }
+  return rank(a) - rank(b)
+})
+
 const SOCIAL_ICONS = {
   linkedin: (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -70,21 +80,27 @@ export default function Footer() {
         </div>
 
         <div className="footer__right">
-          {/* Every service page is linked from every page (config/services.js) */}
+          {/* Services = engineering capabilities (config/services.js) */}
           <nav className="footer__col" aria-label={t.servicesTitle}>
             <div className="footer__col-title">{t.servicesTitle}</div>
             <ul className="footer__links">
-              {SERVICES.map((s, i) => (
+              {SERVICES.map((s) => (
                 <li key={s.slug}>
-                  <Link to={servicePath(s.slug)}>{locale.services.cards[i].title}</Link>
+                  <Link to={servicePath(s.slug)}>{locale.services.cards[s.slug].title}</Link>
                 </li>
               ))}
-              {SOLUTIONS.map((s) => (
+              <li><Link to={SERVICES_HUB_PATH}>{t.servicesAll}</Link></li>
+            </ul>
+          </nav>
+          {/* Solutions = problems solved through those capabilities (config/solutions.js) */}
+          <nav className="footer__col" aria-label={t.solutionsTitle}>
+            <div className="footer__col-title">{t.solutionsTitle}</div>
+            <ul className="footer__links">
+              {footerSolutions.map((s) => (
                 <li key={s.slug}>
                   <Link to={solutionPath(s.slug)}>{locale.seo[s.key].name}</Link>
                 </li>
               ))}
-              <li><Link to={SERVICES_HUB_PATH}>{t.servicesAll}</Link></li>
               <li><Link to={SOLUTIONS_HUB_PATH}>{t.solutionsAll}</Link></li>
             </ul>
           </nav>

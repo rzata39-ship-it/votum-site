@@ -14,7 +14,7 @@ import { TEAM } from './team.js'
 export const OG_IMAGE = '/og-image.png'
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 }
 // The text shown in og-image.png
-export const OG_IMAGE_ALT = 'VOTUM — Engineered for impact. End-to-end engineering — from vision to operations.'
+export const OG_IMAGE_ALT = 'VOTUM — Engineered for impact. Software engineering from strategy to operations.'
 
 // Raster logo (512×512, rendered from logo_icon.svg) for Organization.logo
 export const LOGO = { path: '/logo.png', width: 512, height: 512 }

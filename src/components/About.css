@@ -243,65 +243,49 @@
   line-height: 1.7;
 }
 
-/* ── Diff table ── */
-.about-diff {
+/* ── How we work (VOTUM-only delivery model) ──
+   Small supporting text uses --navy-300 or lighter — never --navy-600
+   (insufficient contrast for text on navy-800/900). */
+.about-how {
   padding: 80px var(--container-pad);
   background: var(--navy-800);
   border-top: 1px solid rgba(255,255,255,0.06);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-.about-diff__inner {
+.about-how__inner {
   max-width: var(--container-max);
   margin: 0 auto;
 }
-.about-diff__header { margin-bottom: 56px; }
-.about-diff__rows {
+.about-how__header { margin-bottom: 48px; }
+.about-how__list {
   display: flex;
   flex-direction: column;
   gap: 1px;
   background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.07);
   border-radius: 16px;
   overflow: hidden;
 }
-.diff-row {
+.about-how__row {
   background: var(--navy-900);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+  padding: 26px 32px;
 }
-.diff-row__col { padding: 28px 32px; }
-.diff-row__col:first-child { border-right: 1px solid rgba(255,255,255,0.06); }
-.diff-row__label {
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
+.about-how__row dt {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  line-height: 1.35;
 }
-.diff-row__col:first-child .diff-row__label { color: var(--navy-600); }
-.diff-row__col:last-child  .diff-row__label { color: var(--green-400); }
-.diff-row__text {
+.about-how__row dd {
   font-size: 15px;
   line-height: 1.65;
+  color: var(--navy-200);
 }
-.diff-row__col:first-child .diff-row__text { color: var(--navy-300); }
-.diff-row__col:last-child  .diff-row__text { color: var(--navy-200); }
-.diff-header {
-  background: var(--navy-800);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.diff-header__col {
-  padding: 14px 32px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.diff-header__col:first-child {
-  color: var(--navy-600);
-  border-right: 1px solid rgba(255,255,255,0.06);
-}
-.diff-header__col:last-child { color: var(--green-400); }
 
 /* ── Team ── */
 .about-team {
@@ -486,16 +470,7 @@
   .about-hero__inner { grid-template-columns: 1fr; gap: 36px; }
   .about-mission__inner { grid-template-columns: 1fr; gap: 24px; }
   .about-principles__grid { grid-template-columns: 1fr; }
-  .diff-row { grid-template-columns: 1fr; }
-  .diff-row__col:first-child {
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .diff-header { grid-template-columns: 1fr; }
-  .diff-header__col:first-child {
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
+  .about-how__row { grid-template-columns: 1fr; gap: 8px; padding: 22px 24px; }
   .team-grid { grid-template-columns: 1fr 1fr; }
   .about-stats__grid { grid-template-columns: 1fr 1fr; }
   .about-expertise__grid { grid-template-columns: 1fr 1fr; }
@@ -510,13 +485,12 @@
   .about-stats      { padding: 40px var(--container-pad); }
   .about-mission,
   .about-principles,
-  .about-diff,
+  .about-how,
   .about-team,
   .about-expertise,
   .about-careers    { padding: 56px var(--container-pad); }
   .about-stat       { padding: 26px 18px; }
   .about-stat__num  { font-size: 36px; }
   .about-stat__num--text { font-size: clamp(20px, 5.4vw, 28px); line-height: 36px; }
-  .diff-row__col    { padding: 22px 20px; }
   .principle-card   { padding: 26px 22px; }
 }

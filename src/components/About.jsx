@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
 import { company } from '../config/company'
+import { TEAM } from '../config/team'
 import { servicePath } from '../config/services'
 import { solutionPath } from '../config/solutions'
 import useSeo from '../hooks/useSeo'
@@ -80,27 +81,46 @@ export default function About() {
             <p className="about-team__note">{t.team.note}</p>
           </div>
           <div className="team-grid">
-            {t.team.members.map((m) => (
-              <div key={m.name + m.role} className={`team-card team-card--${m.kind}`}>
-                <div className="team-card__head">
-                  {m.photo
-                    ? <img className="team-card__avatar team-card__avatar--photo" src={m.photo} alt={`${m.name}, ${m.role} at VOTUM`} width="72" height="72" loading="lazy" />
-                    : m.kind === 'person'
-                    ? <div className="team-card__avatar" aria-hidden="true">{m.initials}</div>
-                    : <div className="team-card__avatar team-card__avatar--role" aria-hidden="true"><RoleIcon /></div>}
-                  <div>
-                    <div className="team-card__name">{m.name}</div>
-                    <div className="team-card__role">{m.role}</div>
+            {/* Identity from config/team.js (single source, also feeds the
+                Person JSON-LD); bios and tags from translations by id. */}
+            {TEAM.map((m) => {
+              const copy = t.team.people[m.id]
+              return (
+                <div key={m.id} className="team-card team-card--person">
+                  <div className="team-card__head">
+                    {m.photo
+                      ? <img className="team-card__avatar team-card__avatar--photo" src={m.photo} alt={`${m.name}, ${m.jobTitle} at VOTUM`} width="72" height="72" loading="lazy" />
+                      : <div className="team-card__avatar" aria-hidden="true">{m.initials}</div>}
+                    <div>
+                      <div className="team-card__name">{m.name}</div>
+                      <div className="team-card__role">{m.jobTitle}</div>
+                    </div>
+                  </div>
+                  {copy?.bio && <p className="team-card__bio">{copy.bio}</p>}
+                  <div className="team-card__tags">
+                    {(copy?.tags ?? []).map((tag) => (
+                      <span key={tag} className="team-tag">{tag}</span>
+                    ))}
                   </div>
                 </div>
-                {m.bio && <p className="team-card__bio">{m.bio}</p>}
-                <div className="team-card__tags">
-                  {m.tags.map((tag) => (
-                    <span key={tag} className="team-tag">{tag}</span>
-                  ))}
+              )
+            })}
+            {/* Role / capability card — not a person, so no photo or initials */}
+            <div className="team-card team-card--role">
+              <div className="team-card__head">
+                <div className="team-card__avatar team-card__avatar--role" aria-hidden="true"><RoleIcon /></div>
+                <div>
+                  <div className="team-card__name">{t.team.extended.name}</div>
+                  <div className="team-card__role">{t.team.extended.role}</div>
                 </div>
               </div>
-            ))}
+              <p className="team-card__bio">{t.team.extended.bio}</p>
+              <div className="team-card__tags">
+                {t.team.extended.tags.map((tag) => (
+                  <span key={tag} className="team-tag">{tag}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -164,33 +184,22 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── How we're different ── */}
-      <section className="about-diff">
-        <div className="about-diff__inner">
-          <div className="about-diff__header">
-            <span className="eyebrow">{t.diff.eyebrow}</span>
-            <h2 className="section-h2">{t.diff.title}</h2>
-            <p className="section-lead">{t.diff.lead}</p>
+      {/* ── How we work (VOTUM-only delivery model, no competitor framing) ── */}
+      <section className="about-how">
+        <div className="about-how__inner">
+          <div className="about-how__header">
+            <span className="eyebrow">{t.how.eyebrow}</span>
+            <h2 className="section-h2">{t.how.title}</h2>
+            <p className="section-lead">{t.how.lead}</p>
           </div>
-          <div className="about-diff__rows">
-            <div className="diff-header">
-              {t.diff.headers.map((h, i) => (
-                <div key={i} className="diff-header__col">{h}</div>
-              ))}
-            </div>
-            {t.diff.rows.map((row, i) => (
-              <div key={i} className="diff-row">
-                <div className="diff-row__col">
-                  <div className="diff-row__label">{row.label}</div>
-                  <div className="diff-row__text">{row.left}</div>
-                </div>
-                <div className="diff-row__col">
-                  <div className="diff-row__label">{row.label}</div>
-                  <div className="diff-row__text">{row.right}</div>
-                </div>
+          <dl className="about-how__list">
+            {t.how.items.map((item) => (
+              <div key={item.title} className="about-how__row">
+                <dt>{item.title}</dt>
+                <dd>{item.body}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 

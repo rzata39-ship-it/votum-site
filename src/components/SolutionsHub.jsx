@@ -2,26 +2,13 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
 import useSeo from '../hooks/useSeo'
 import { company } from '../config/company'
-import { SERVICES, findService, servicePath } from '../config/services'
-import { solutionPath } from '../config/solutions'
+import { SERVICES, servicePath } from '../config/services'
+import { SOLUTION_AREAS } from '../config/solutions'
 import { casePath } from '../config/cases'
 import { fmt } from '../utils/format'
 import Breadcrumbs from './Breadcrumbs'
 import './ContentPage.css'
 import './SolutionsHub.css'
-
-// Card targets for the six solution areas (translations solutionsHub.cards
-// and solutionsPreview.items, matched by `key`). Two areas have dedicated
-// solution pages; the other four deliberately link to the existing service
-// pages — no new detail routes. Also used by the homepage SolutionsPreview.
-export const SOLUTION_AREAS = {
-  modernization: solutionPath('application-modernization'),
-  software:      servicePath('software-development'),
-  devops:        servicePath('devops-cloud'),
-  quality:       servicePath('test-automation'),
-  operations:    servicePath('managed-services'),
-  opentext:      solutionPath('opentext-adm'),
-}
 
 // Cases shown in "Solutions in practice": modernization + platform
 // engineering + quality engineering (breadth beyond any single vendor).
@@ -84,7 +71,7 @@ export default function SolutionsHub() {
           <ul className="page-links">
             {SERVICES.map((s) => (
               <li key={s.slug}>
-                <Link to={servicePath(s.slug)}>{locale.services.cards[SERVICES.indexOf(findService(s.slug))].title} →</Link>
+                <Link to={servicePath(s.slug)}>{locale.services.cards[s.slug].title} →</Link>
               </li>
             ))}
           </ul>

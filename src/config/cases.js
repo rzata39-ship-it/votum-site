@@ -1,5 +1,5 @@
 // The public case studies — single source for the case pages
-// (/case-studies/<slug>), the /case-studies hub, the homepage cards, the
+// (/case-studies/<slug>), the /case-studies hub, the curated homepage teasers, the
 // service-page teasers, related links, the sitemap (via seo.js) and the
 // "Published case studies" count.
 //

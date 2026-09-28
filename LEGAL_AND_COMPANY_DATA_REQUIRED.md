@@ -32,7 +32,7 @@ Still open:
 | `tradingName` | `VOTUM` | confirm | legal texts, JSON-LD, og:site_name |
 | `siteUrl` | `https://www.votum.bg` | ✅ confirmed (primary host on Vercel; apex redirects to www) | canonical URLs, Open Graph, `sitemap.xml`, `robots.txt`, JSON-LD |
 | `email` | `info@votum.bg` | ✅ confirmed | footer, contact error message, legal pages, JSON-LD |
-| `phone` | `+359 895 101 122` | confirm | footer, legal pages, JSON-LD |
+| `phone` | `+359 895 101 122` | confirm — still open 2026-09-28: rendered in the footer (all pages), /contact, /legal.html, the legal-page footers and Organization JSON-LD `telephone`; do not change without business approval | footer, /contact, legal pages, JSON-LD |
 | `address` | ul. Neofit Rilski 41, fl. 2, 1000 Sofia (Sredets), Bulgaria | ✅ confirmed (седалище) | legal contact block, privacy "controller" section, JSON-LD |
 | `registrationNumber` | `207746015` | ✅ confirmed (ЕИК) | legal contact block, privacy "controller" section |
 | `vatNumber` | `BG207746015` | ✅ confirmed (ЗДДС registration 03.04.2024, чл. 100 ал. 1) | legal contact block, JSON-LD |
@@ -116,3 +116,10 @@ footer link) becomes mandatory and the inventory in
 
 - [ ] `VITE_FORMSPREE_ENDPOINT` — exists; confirm it points to the production form and who receives the e-mails.
 - [ ] `VITE_NEWSLETTER_ENDPOINT` — **missing.** Must accept `POST multipart/form-data { email }` → `2xx`. Until it is set the newsletter section is hidden in production (shown disabled with a warning in dev). Also needed: provider choice, double-opt-in decision, and the matching privacy-policy wording.
+
+## Note (2026-09-28, Sprint 6.3)
+
+`responseTimeHours` was removed from `src/config/company.js`: the public
+response-time promise was dropped in Sprint 6 and no active English UI uses
+the value. If the business later confirms an operational response commitment,
+add it back deliberately together with the approved wording.
