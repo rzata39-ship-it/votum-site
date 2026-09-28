@@ -146,6 +146,13 @@
   grid-template-columns: 1fr 1fr;
 }
 
+/* Three equal representative cases (Sprint 6.1) */
+.cases-row--triple {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+.cases-row--triple .case-card { height: 100%; }
+
 /* ── Card ──────────────────────────────────────────────── */
 
 .case-card {
@@ -399,6 +406,10 @@
     grid-template-columns: 1fr;
   }
 
+  /* 768-range: two columns, third card full width */
+  .cases-row--triple { grid-template-columns: 1fr 1fr; }
+  .cases-row--triple .case-card:last-child { grid-column: 1 / -1; }
+
   .case-card__content,
   .case-card--hero .case-card__content,
   .case-card--supporting .case-card__content,
@@ -432,6 +443,9 @@
   .cases-row {
     gap: 22px;
   }
+
+  .cases-row--triple { grid-template-columns: 1fr; }
+  .cases-row--triple .case-card:last-child { grid-column: auto; }
 
   .case-card,
   .cases-cta {

@@ -59,7 +59,7 @@ src/
 ├── styles/                  tokens.css · global.css
 └── components/
     ├── Modal.jsx            the one accessible dialog (contact, service, case study)
-    ├── Nav, Hero, Stats, SolutionsPreview, Services, Cases, TeamTrust, HowWeWork, CtaBanner, Footer
+    ├── Nav, Hero, SolutionsPreview, Capabilities, Cases, TeamTrust, HowWeWork, CtaBanner, Footer
     ├── About, Blog, Article, Newsletter, NotFound, ContactModal, BackToTop
     └── legal/               LegalPage shell + Privacy, Terms, Cookies
 ```

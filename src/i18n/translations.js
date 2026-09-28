@@ -59,18 +59,12 @@ export const translations = {
       link:    'Meet the team →',
     },
 
-    stats: [
-      { num: '2024',       label: 'Founded in Sofia',       color: 'green' },
-      { num: '{serviceCount}', label: 'Service areas',     color: 'teal'  },
-      { num: '{caseCount}', label: 'Published case studies', color: 'green' },
-      { num: 'End-to-end', label: 'Strategy to operations', color: 'teal'  },
-    ],
-
     services: {
       eyebrow:   'Capabilities',
       title:     'Engineering capabilities across the lifecycle',
       lead:      'Architecture, software engineering, DevOps, quality and operations — combined according to the needs of the environment.',
       learnMore: 'Learn more →',
+      allLink:   'Explore all services →',
       cards: [
         {
           title:      'Technology Strategy & Consulting',
