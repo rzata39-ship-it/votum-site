@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
 import useReveal from '../hooks/useReveal'
 import { useLanguage } from '../context/useLanguage'
-import { SOLUTIONS_HUB_PATH } from '../config/solutions'
-import { SOLUTION_AREAS } from './SolutionsHub'
+import { SOLUTIONS_HUB_PATH, SOLUTION_AREAS } from '../config/solutions'
 import './SolutionsPreview.css'
 
 // Homepage preview of the six solution areas — deliberately compact

@@ -4,7 +4,7 @@ import useSeo from '../hooks/useSeo'
 import { company } from '../config/company'
 import { findSolution } from '../config/solutions'
 import { casePath } from '../config/cases'
-import { SERVICES, findService, servicePath } from '../config/services'
+import { servicePath } from '../config/services'
 import { fmt } from '../utils/format'
 import Breadcrumbs from './Breadcrumbs'
 import NotFound from './NotFound'
@@ -160,7 +160,7 @@ function SolutionContent({ solution }) {
           <ul className="page-links">
             {solution.services.map((slug) => (
               <li key={slug}>
-                <Link to={servicePath(slug)}>{locale.services.cards[SERVICES.indexOf(findService(slug))].title} →</Link>
+                <Link to={servicePath(slug)}>{locale.services.cards[slug].title} →</Link>
               </li>
             ))}
           </ul>
@@ -262,7 +262,7 @@ function GeneralSolutionContent({ solution }) {
           <ul className="page-links">
             {solution.services.map((slug) => (
               <li key={slug}>
-                <Link to={servicePath(slug)}>{locale.services.cards[SERVICES.indexOf(findService(slug))].title} →</Link>
+                <Link to={servicePath(slug)}>{locale.services.cards[slug].title} →</Link>
               </li>
             ))}
           </ul>

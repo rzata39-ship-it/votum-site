@@ -1,6 +1,7 @@
 // The five service pages — single source for routes (seo.js → prerender,
 // sitemap), the homepage service cards, the footer and cross-links.
-// Order = order of the homepage cards (translations: services.cards[i]).
+// Rendering order everywhere (hub, footer, homepage capabilities); copy is
+// keyed by slug in translations: services.cards[slug].
 // Page copy lives in translations: servicePages[slug]; SEO strings in seo[key].
 // related → slugs of other services. The case studies that demonstrate a
 // service are listed on the case side (config/cases.js → services).

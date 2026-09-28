@@ -61,9 +61,6 @@ export const company = {
     x:        null,
   },
 
-  // Response-time promise used in the CTA banner and contact modal ({hours})
-  responseTimeHours: 24,
-
   // Open positions: [{ title, location, url }]. Empty → "open roles" CTA is hidden.
   careers: {
     openRoles: [],

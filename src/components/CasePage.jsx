@@ -3,7 +3,7 @@ import { useLanguage } from '../context/useLanguage'
 import useSeo from '../hooks/useSeo'
 import { company } from '../config/company'
 import { findCase, casePath } from '../config/cases'
-import { SERVICES, findService, servicePath } from '../config/services'
+import { servicePath } from '../config/services'
 import { solutionsForCase } from '../config/solutions'
 import { fmt } from '../utils/format'
 import Breadcrumbs from './Breadcrumbs'
@@ -60,7 +60,7 @@ function CaseContent({ study }) {
                 own scope does not include */}
             {study.services.map((slug) => (
               <li key={slug}>
-                <Link to={servicePath(slug)}>{locale.services.cards[SERVICES.indexOf(findService(slug))].title} →</Link>
+                <Link to={servicePath(slug)}>{locale.services.cards[slug].title} →</Link>
               </li>
             ))}
           </ul>

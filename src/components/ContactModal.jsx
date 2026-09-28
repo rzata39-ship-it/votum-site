@@ -13,7 +13,7 @@ const FIELD_ORDER = ['name', 'email', 'brief']
 export default function ContactModal({ open, onClose }) {
   const { locale } = useLanguage()
   const t = locale.contact
-  const vars = { hours: company.responseTimeHours, email: company.email }
+  const vars = { email: company.email }
 
   const [state, setState] = useState('idle') // idle | loading | success | error
   const [errors, setErrors] = useState({})

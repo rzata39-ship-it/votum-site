@@ -1,5 +1,59 @@
 # Content evidence required
 
+## 0. CURRENT STATE — read this first (2026-09-28, after Sprint 6.3)
+
+Sections A–J below are **historical sprint records**; where they conflict
+with this summary, this summary wins.
+
+**Current homepage order** (Stats and CompanyIntro sections no longer exist):
+Hero → Solutions Preview → Capabilities → Selected Project Experience (3
+curated cases) → Team/Trust → How We Work → CTA.
+
+**Current About order:** Hero → Stats (About-only, still present) → Team →
+Expertise → Mission → Principles → How we work (VOTUM-only delivery model;
+the agency-comparison table was removed in Sprint 6.3) → Careers CTA.
+
+### Resolved / removed — must NOT reappear without new business approval
+- "Response within 24 h" / `responseTimeHours` — promise removed (Sprint 6);
+  the config field itself was deleted in Sprint 6.3. Hidden DE/BG copies
+  still contain `{hours}` phrases (see the DE/BG item in §E).
+- "Zero-downtime production deployments" → "Controlled production deployments
+  and rollback planning".
+- "2-week sprint cycles with live demos" → "Regular progress reviews and demos".
+- "High automated test coverage as a standard" → "Test automation where it
+  provides meaningful protection".
+- "Senior engineers only" / "no juniors" → "Senior-led delivery" everywhere.
+- "24/7 Monitoring" as a general tag → "Monitoring & Operations" (24/7 exists
+  only as "available under agreed SLAs" where approved).
+- Agency-comparison framing on /about → VOTUM-only "What working with VOTUM
+  looks like".
+
+### Current active facts (approved)
+- Founded 2024 (registered 11.03.2024); team together since 2018 — team
+  history, never company age. 5 services, 5 public case studies, 2 solution
+  pages + /solutions hub; 22 canonical URLs.
+- L1–L3 support; "24/7 monitoring and support available under agreed SLAs"
+  (exact wording); L3 as a core strength.
+- Team: 5 named people (config/team.js is the identity source; bios/tags in
+  translations by id, Sprint 3C-approved; no product names in bios).
+
+### Open evidence questions (all still open — details in §§C–G)
+- Photo consent (GDPR) and LinkedIn/sameAs profiles.
+- 150,000+ employees / 1,000+ users figures (business-approved, no source).
+- No public case evidence for ALM Octane / LoadRunner capability claims.
+- Phone number `+359 895 101 122` — rendered in footer (all pages),
+  /contact, legal pages and Organization JSON-LD `telephone`; still awaiting
+  business confirmation (LEGAL_AND_COMPANY_DATA_REQUIRED.md). Do not change
+  without approval.
+- Trading name "VOTUM" confirmation; legal-review items; Formspree/privacy
+  questions (see LEGAL_AND_COMPANY_DATA_REQUIRED.md).
+- Hidden DE/BG copies are stale wholesale (old stats, old wording, legacy
+  services.cards array shape, missing Sprint 3–6 sections).
+
+---
+
+## Historical audit (original 2026-09 pass)
+
 Audit of every quantitative or absolute marketing claim on the site.
 The repository contains **no source, period or baseline for any of them**
 (no data files, no references, no client sign-off). Nothing was invented.
@@ -300,7 +354,9 @@ now that the hub exists.
 ## J. Sprint 6 — Homepage commercial refinement (2026-09-28)
 
 Homepage reordered (Hero > Stats > Solutions preview > Services > Cases >
-Team/Trust > How we work > CTA). The former "About VOTUM" intro section was
+Team/Trust > How we work > CTA). **Superseded:** Sprint 6.1 replaced the
+Services cards with the compact Capabilities strip and reduced the homepage
+cases to three; Sprint 6.2 removed the Stats section — see §0. The former "About VOTUM" intro section was
 folded into the Team/Trust strip (facts kept: Sofia, founded {year},
 software engineering and technology consultancy, discipline list; legal name
 no longer rendered on the homepage — it remains on /contact and the legal

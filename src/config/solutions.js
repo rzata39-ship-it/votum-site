@@ -16,6 +16,8 @@
 //
 // Retired slugs are redirected in vercel.json (/solutions/opentext-alm → /solutions/opentext-adm).
 
+import { servicePath } from './services.js'
+
 export const SOLUTIONS = [
   {
     slug: 'opentext-adm', key: 'solutionOpentextAdm',
@@ -40,6 +42,20 @@ export const SOLUTIONS = [
 export const SOLUTIONS_HUB_PATH = '/solutions'
 
 export const solutionPath = (slug) => `/solutions/${slug}`
+
+// Destinations of the six solution areas shown on the /solutions hub and the
+// homepage solutions preview (translations solutionsHub.cards /
+// solutionsPreview.items, matched by key). Two areas have dedicated solution
+// pages; the other four deliberately link to the existing service pages — no
+// dedicated detail routes yet.
+export const SOLUTION_AREAS = {
+  modernization: solutionPath('application-modernization'),
+  software:      servicePath('software-development'),
+  devops:        servicePath('devops-cloud'),
+  quality:       servicePath('test-automation'),
+  operations:    servicePath('managed-services'),
+  opentext:      solutionPath('opentext-adm'),
+}
 
 export const findSolution = (slug) => SOLUTIONS.find((s) => s.slug === slug) || null
 

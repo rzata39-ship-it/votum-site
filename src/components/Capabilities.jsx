@@ -22,10 +22,10 @@ export default function Capabilities() {
       </div>
 
       <ul className="capabilities__list reveal">
-        {SERVICES.map((s, i) => (
+        {SERVICES.map((s) => (
           <li key={s.slug}>
             <Link to={servicePath(s.slug)} className="capabilities__item">
-              {t.cards[i].title}
+              {t.cards[s.slug].title}
               <span className="capabilities__arrow" aria-hidden="true">→</span>
             </Link>
           </li>

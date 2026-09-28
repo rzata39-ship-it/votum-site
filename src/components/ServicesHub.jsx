@@ -28,11 +28,11 @@ export default function ServicesHub() {
         <section className="page-section">
           <h2>{t.cardsTitle}</h2>
           <ul className="services-hub__cards">
-            {SERVICES.map((s, i) => (
+            {SERVICES.map((s) => (
               <li key={s.slug}>
                 <Link to={servicePath(s.slug)} className="services-hub__card">
                   <h3>{locale.seo[s.key].name}</h3>
-                  <p>{locale.services.cards[i].body}</p>
+                  <p>{locale.services.cards[s.slug].body}</p>
                   <span className="services-hub__more" aria-hidden="true">{t.cardLink}</span>
                 </Link>
               </li>
