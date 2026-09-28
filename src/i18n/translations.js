@@ -924,6 +924,85 @@ export const translations = {
           'insurance-data-archival-migration':     { lead: 'More on this kind of work:',                          link: 'OpenText ALM and PPM migration' },
         },
       },
+
+      // Vendor-neutral solution page (template: 'general' in config/solutions.js).
+      // Evidence rules: modernization patterns are standard industry patterns
+      // (never a proprietary framework); case claims only restate the public
+      // case pages; no downtime, cost, timeline or SLA promises.
+      'application-modernization': {
+        eyebrow: 'Solution',
+        h1: 'Application Modernization & Legacy Transformation',
+        lead: 'Modernize the systems your business depends on without turning every transformation into a full rewrite. We help teams improve architecture, migrate legacy platforms, modernize integrations and build a safer path toward maintainable software.',
+        heroCta: 'Talk to an engineer',
+        heroSecondary: 'See modernization work',
+        philosophy: {
+          title: 'Modernization without the big-bang rewrite',
+          paragraphs: [
+            'Legacy systems often contain more than old technology. They hold years of business rules, integrations, operational knowledge and data that still matter.',
+            'A useful modernization strategy starts by understanding those dependencies. Some systems should be replaced. Others should be refactored, re-platformed or gradually separated into smaller components — and some are best retained as they are, or retired entirely.',
+            'We choose the path based on technical and business constraints rather than forcing every system into the same modernization pattern. When a full rewrite genuinely is the best option, we say so — it is a deliberate decision, not the default.',
+          ],
+        },
+        areas: {
+          title: 'What we modernize',
+          items: [
+            { title: 'Legacy applications',        body: 'Refactor, replace or progressively decompose applications that have become difficult to change, operate or integrate.' },
+            { title: 'Architecture',               body: 'Restructure application and system architecture to improve maintainability, scalability and ownership boundaries.' },
+            { title: 'Platforms & infrastructure', body: 'Move applications toward more maintainable cloud, container or on-premise platform environments where it creates real operational value.' },
+            { title: 'Integrations',               body: 'Modernize brittle interfaces, point-to-point dependencies and legacy integration patterns while protecting existing business workflows.' },
+            { title: 'Data & archival',            body: 'Migrate, restructure or archive historical data while preserving integrity, traceability and business access requirements.' },
+            { title: 'Delivery & operations',      body: 'Modernize CI/CD, deployment processes, test automation, observability and operational workflows alongside the application itself.' },
+          ],
+        },
+        paths: {
+          title: 'Choose the right modernization path',
+          body: 'Modernization is not one approach. These are the standard patterns we work with — most engagements combine several, and no system is forced into a pattern that does not fit it.',
+          items: [
+            { name: 'Retain',      text: 'Keep stable components where change would create little additional value.' },
+            { name: 'Rehost',      text: 'Move workloads with minimal application change when infrastructure is the primary constraint.' },
+            { name: 'Re-platform', text: 'Change the runtime or platform while keeping the core application largely intact.' },
+            { name: 'Refactor',    text: 'Restructure parts of the application to improve maintainability, scalability or integration.' },
+            { name: 'Replace',     text: 'Build or adopt a new solution when the current system has become a structural limitation.' },
+            { name: 'Retire',      text: 'Remove systems and dependencies that no longer provide enough business value to justify operating them.' },
+          ],
+          note: 'These are standard industry modernization patterns, not a proprietary framework. The engineering work is deciding which pattern applies to which system — and in what order.',
+        },
+        approachTitle: 'From assessment to production',
+        approach: [
+          { title: 'Understand', body: 'Architecture, dependencies, business-critical workflows, data and operational constraints — before anything is changed.' },
+          { title: 'Decide',     body: 'Modernization priorities, migration strategy, sequencing and the technical risks of each option.' },
+          { title: 'Modernize',  body: 'Implementation: architecture changes, migration, integration work and platform changes, delivered in controlled steps.' },
+          { title: 'Validate',   body: 'Functional testing, test automation, data validation and performance checks where relevant.' },
+          { title: 'Transition', body: 'Deployment, documentation, knowledge transfer and operational readiness.' },
+          { title: 'Operate',    body: 'Optional ongoing application and platform support after the transition, under an agreed scope.' },
+        ],
+        casesTitle: 'Modernization in practice',
+        casesNote: 'Members of the current VOTUM team have delivered enterprise modernization and migration projects before {legalName} was founded in {year}.',
+        servicesTitle: 'Modernization across the software lifecycle',
+        servicesIntro: 'Modernization spans more than application code. One team covers the disciplines a transformation touches — from technical direction to long-term operations:',
+        whyTitle: 'Why VOTUM',
+        why: [
+          'Senior-led delivery — the engineers making technical decisions stay directly involved in the work.',
+          'Architecture and implementation stay connected: the people who design the target state help build it.',
+          'Pragmatic modernization, driven by the constraints of your systems rather than by technology preferences.',
+          'Software, DevOps, quality and operations expertise in one team.',
+          'Knowledge transfer and operational readiness are part of the engagement, not an afterthought.',
+        ],
+        cta: {
+          title: 'Planning a modernization?',
+          body: 'Whether you are replacing a legacy application, migrating data, modernizing architecture or improving the platform around an existing system, we can help define a practical path forward.',
+          button: 'Talk to an engineer',
+        },
+        // Contextual links back to this page (config/solutions.js → linkedFrom)
+        inboundLabel: 'Related solution',
+        inbound: {
+          'technology-consulting':             { lead: 'Weighing modernization options for a legacy system?', link: 'Application modernization & legacy transformation' },
+          'software-development':              { lead: 'Modernizing or replacing a legacy application?',      link: 'Application modernization & legacy transformation' },
+          'devops-cloud':                      { lead: 'Modernizing the platform around your applications?',  link: 'Application modernization & legacy transformation' },
+          'insurance-data-archival-migration': { lead: 'More on this kind of work:',                          link: 'Application modernization & legacy transformation' },
+          'on-premise-kubernetes-platform':    { lead: 'More on this kind of work:',                          link: 'Application modernization & legacy transformation' },
+        },
+      },
     },
 
     // /contact — company facts come from src/config/company.js
@@ -970,6 +1049,7 @@ export const translations = {
       caseKubernetes:       { name: 'On-Premise Kubernetes Platform',        title: 'On-Premise Kubernetes Platform – Case Study | VOTUM',        description: 'Case study: an on-premise Kubernetes platform with separate development and production clusters and Jenkins CI/CD pipelines with built-in security scanning.' },
       caseTestAutomation:   { name: 'Automotive Test Automation Framework',  title: 'Automotive Test Automation Framework – Case Study | VOTUM',  description: 'Case study: a test automation framework for an automotive organization, integrated into the development and release lifecycle to reduce manual testing.' },
       solutionOpentextAdm:  { name: 'OpenText ADM',                          title: 'OpenText ADM, ALM, Octane & UFT Engineering | VOTUM',        description: 'OpenText ADM expertise across ALM, ALM Octane, UFT, LoadRunner and PPM: architecture, upgrades, migrations, integrations, test automation and L1–L3 support.' },
+      solutionAppModernization: { name: 'Application Modernization',         title: 'Application Modernization & Legacy Transformation | VOTUM',  description: 'Modernize legacy applications, architecture, integrations and delivery platforms with a pragmatic path from existing systems to maintainable modern software.' },
       breadcrumb: { home: 'Home', services: 'Services', caseStudies: 'Case Studies' },
     },
 

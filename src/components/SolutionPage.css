@@ -179,6 +179,13 @@
   color: var(--navy-200);
 }
 
+/* Hero with a primary + secondary CTA (general solution template) */
+.solution-page__hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
 /* The CTA label is long: let it wrap instead of overflowing narrow screens */
 .solution-page .page-cta .btn {
   max-width: 100%;
