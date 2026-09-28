@@ -116,13 +116,13 @@ For each: provide the evidence, or approve the prepared replacement.
 - [x] **"Tier 1 OEM"** — applied: the case now says "a global automotive organization"; OEM vs Tier 1 supplier stays undecided and is not stated anywhere (§F).
 - [x] **"reduced operational costs"** — applied: removed from the insurance case (no cost comparison) (§F).
 - [x] **"European" insurance group** — applied: "an insurance group" (§F). Reinstate only if confirmed.
-- [ ] **Response time (24 h)** — CTA banner, contact modal (`responseTimeHours` in `src/config/company.js`). Need: an operational commitment incl. weekends. Replacement ready: "We'll reply within one business day with concrete next steps — not a sales pitch."
+- [x] **Response time (24 h)** — resolved 2026-09-28 (Sprint 6): the promise was **removed** from all English copy — CTA banner ("No obligation." instead of "Response within {hours} h.") and contact modal (sub + success no longer mention hours). `responseTimeHours` stays in `src/config/company.js` but no English string uses it; the hidden DE/BG copies still contain `{hours}` phrases (covered by the DE/BG item below). If the business later confirms an operational commitment, reintroduce it deliberately.
 - [x] **Senior engineers only / no juniors** — resolved 2026-09-28 (Sprint 3C + cleanup): About lead → "software engineering company"; extended-team card dropped "no recruitment pool, no juniors"; principle 01 → "Senior-led delivery" (led by experienced engineers, no "never juniors" claim); comparison row → "Senior-led delivery. The person in your standup is the person writing your code." No absolute seniority claim remains on the site.
 - [x] **"Outcome-based" engagement model** — resolved 2026-09-28 (Sprint 3C cleanup): comparison row → "Success criteria agreed up front. Scope, priorities and success criteria are agreed before delivery starts, and progress is reviewed against them." No commercial/contracting model is implied.
 - [ ] **Phone number** `+359 895 101 122` — footer, legal pages, `/contact`, JSON-LD `telephone`. Already public and kept for now; still needs explicit business confirmation (`LEGAL_AND_COMPANY_DATA_REQUIRED.md`).
 - [ ] **Trading name** `VOTUM` — JSON-LD `name`, `og:site_name`, legal texts. Still "confirm" in `LEGAL_AND_COMPANY_DATA_REQUIRED.md`.
 - [ ] **Team bios + photo consent** — see section D.
-- [ ] **DE / BG copies** — the hidden German and Bulgarian texts still contain the old stats (45+, 18+, 80%, 20+) and the pre-Sprint-2A wording. Bring them in line before either language is enabled.
+- [ ] **DE / BG copies** — the hidden German and Bulgarian texts still contain the old stats (45+, 18+, 80%, 20+), the pre-Sprint-2A wording, the response-time promises removed from EN in Sprint 6, and none of the Sprint 3–6 sections. Bring them fully in line before either language is enabled.
 
 ## F. Sprint 2C — case studies (decided 2026-09-25, applied in Stage B)
 
@@ -296,3 +296,32 @@ certifications, partnerships, response times, uptime, guaranteed outcomes.
 Navigation: "Solutions" added to the main nav; footer gained an
 "All solutions" link; solution-page breadcrumbs became Home > Solutions > X
 now that the hub exists.
+
+## J. Sprint 6 — Homepage commercial refinement (2026-09-28)
+
+Homepage reordered (Hero > Stats > Solutions preview > Services > Cases >
+Team/Trust > How we work > CTA). The former "About VOTUM" intro section was
+folded into the Team/Trust strip (facts kept: Sofia, founded {year},
+software engineering and technology consultancy, discipline list; legal name
+no longer rendered on the homepage — it remains on /contact and the legal
+pages). Team strip uses config/team.js (photos, names, roles only — no bios,
+tags, products or Person schema on the homepage).
+
+Absolute claims removed from EN homepage copy (before → after):
+
+- "Every engagement follows the same structured process" → "Our work is structured around three connected stages … The exact shape depends on the engagement."
+- "2-week sprint cycles with live demos" → "Regular progress reviews and demos"
+- "High automated test coverage as a standard" → "Test automation where it provides meaningful protection"
+- "CI/CD and infrastructure automation by default" → "CI/CD and infrastructure automation where appropriate"
+- "Cloud-native and DevOps best practices" → "Delivery practices matched to the target environment"
+- "Zero-downtime production deployments" → "Controlled production deployments and rollback planning"
+- "Observability and monitoring built in" → "Observability and monitoring appropriate to the environment"
+- "Cloud and DevOps operations at scale" → "Application and platform operations"
+- "Optional SLA and long-term support" → "Optional SLA-based long-term support, scope agreed per engagement"
+- Services card tag "24/7 Monitoring" → "Monitoring & Operations"
+- CTA banner / contact modal: all "{hours}" response-time promises removed (see the resolved §E item)
+
+Homepage evidence scan after the change: zero occurrences of 24/7,
+zero-downtime, 2-week, coverage-as-standard, response-time or "guaranteed"
+phrases outside approved case-study content and the labelled illustrative
+dashboards.

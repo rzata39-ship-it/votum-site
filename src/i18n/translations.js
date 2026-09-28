@@ -25,14 +25,38 @@ export const translations = {
     hero: {
       eyebrow:     'End-to-End Engineering',
       title:       { line1: 'Engineered', line2: 'for', accent: 'impact.' },
-      lead:        'From strategy to operations — we design, build and run the software your business depends on.',
-      ctaPrimary:  'Get in touch →',
-      ctaSecondary:'Case Studies',
+      lead:        'We design, build, modernize and operate business-critical software — combining architecture, software engineering, DevOps, quality and managed operations.',
+      ctaPrimary:  'Talk to an engineer →',
+      ctaSecondary:'Explore solutions',
     },
 
-    intro: {
-      title: 'About VOTUM',
-      body:  'VOTUM is a software engineering and technology consultancy based in Sofia, Bulgaria. Founded in {year} and operated by {legalName}, we help companies plan, build and run business-critical software across five areas: technology strategy and consulting, software engineering, DevOps and cloud, managed services and operations, and quality engineering and test automation.',
+    // Homepage solutions preview — deliberately much shorter than the
+    // /solutions hub cards. Keys must match SOLUTION_AREAS (SolutionsHub.jsx).
+    solutionsPreview: {
+      eyebrow: 'What we solve',
+      title:   'Engineering solutions for complex software environments',
+      lead:    'Different problems require different combinations of architecture, development, delivery, testing and operations. These are some of the areas where we bring those capabilities together.',
+      items: [
+        { key: 'modernization', title: 'Application Modernization',                         body: 'Modernize legacy applications, architecture and platforms without defaulting to a full rewrite.' },
+        { key: 'software',      title: 'Custom Software & Product Engineering',             body: 'Design and build business-critical software around real processes, integrations and technical constraints.' },
+        { key: 'devops',        title: 'DevOps & Platform Engineering',                     body: 'Improve software delivery with CI/CD, platform engineering and infrastructure automation.' },
+        { key: 'quality',       title: 'Quality Engineering, Test Management & Automation', body: 'Build quality into delivery through test strategy, management, automation and performance testing.' },
+        { key: 'operations',    title: 'Managed Application & Platform Operations',         body: 'Operate and support critical applications and platforms with engineering expertise behind the support process.' },
+        { key: 'opentext',      title: 'OpenText ADM Engineering & Support',                body: 'Specialist engineering and support for enterprise OpenText application-delivery environments.' },
+      ],
+      itemLink: 'Learn more →',
+      allLink:  'Explore all solutions →',
+    },
+
+    // Homepage team / trust strip (photos, names, roles from config/team.js —
+    // no bios, tags or product names here; those live on /about). The company
+    // facts absorbed the former "About VOTUM" intro section.
+    teamTrust: {
+      eyebrow: 'The team',
+      title:   'Senior-led engineering, close to delivery',
+      // {year} = company.foundingYear (config/company.js)
+      body:    'VOTUM is a software engineering and technology consultancy based in Sofia, Bulgaria, founded in {year}. One experienced team brings together architecture, software development, DevOps, quality engineering and managed operations.',
+      link:    'Meet the team →',
     },
 
     stats: [
@@ -43,9 +67,9 @@ export const translations = {
     ],
 
     services: {
-      eyebrow:   'What we do',
-      title:     'End-to-end engineering',
-      lead:      "We cover strategy, build, delivery and operations, so you don't have to coordinate separate vendors for each.",
+      eyebrow:   'Capabilities',
+      title:     'Engineering capabilities across the lifecycle',
+      lead:      'Architecture, software engineering, DevOps, quality and operations — combined according to the needs of the environment.',
       learnMore: 'Learn more →',
       cards: [
         {
@@ -82,7 +106,7 @@ export const translations = {
           body:       "We don't just build and hand off. We stay on to monitor, maintain, and continuously improve your systems — so your team focuses on features, not firefighting.",
           tags:       [
             { label: 'Incident Management',   variant: 'teal' },
-            { label: '24/7 Monitoring',       variant: 'teal' },
+            { label: 'Monitoring & Operations', variant: 'teal' },
             { label: 'Optimization',          variant: 'teal' },
             { label: 'Proactive Maintenance', variant: 'teal' },
           ],
@@ -104,14 +128,14 @@ export const translations = {
       eyebrow: 'How we work',
       visualNote: 'Example delivery dashboard · illustrative metrics',
       title:   'A process designed around no surprises.',
-      lead:    'Every engagement follows the same structured process — designed to reduce delivery risk, align technology with business goals, and give your team solutions it can stand behind.',
+      lead:    'Our work is structured around three connected stages — understanding the problem, delivering the solution and preparing it for reliable operation. The exact shape depends on the engagement.',
       phases: [
         {
           eyebrow: 'Phase 01 — Discovery & Strategy',
           title:   'We start by understanding your business, not your backlog.',
-          body:    'Before any solution is designed or built, we define your technology strategy, align stakeholders, and assess your current landscape. The result is a clear architecture and delivery roadmap everyone can commit to.',
+          body:    'Before building, we align stakeholders, assess the current landscape and define the technical direction — sized to the engagement, from a short assessment to a full discovery phase. The result is an architecture and delivery roadmap everyone can commit to.',
           checks:  [
-            'Agreed scope before build',
+            'Scope and success criteria agreed before build',
             'Stakeholder workshops & requirements gathering',
             'Technology strategy & architecture definition',
             'Technical audit of systems and cloud landscape',
@@ -120,28 +144,28 @@ export const translations = {
         },
         {
           eyebrow: 'Phase 02 — Build & Delivery',
-          title:   'Engineering excellence across development, quality, and delivery.',
-          body:    'Every solution is built, tested, and deployed using modern engineering, DevOps, and quality practices—ensuring your team inherits systems that are reliable, scalable, and maintainable.',
+          title:   'Engineering across development, quality, and delivery.',
+          body:    'Solutions are built, tested and deployed with engineering, DevOps and quality practices chosen for the target environment — so your team inherits systems it can maintain and grow.',
           checks:  [
-            '2-week sprint cycles with live demos',
-            'High automated test coverage as a standard',
-            'Built-in quality engineering & test automation',
-            'CI/CD and infrastructure automation by default',
-            'Cloud-native and DevOps best practices',
+            'Regular progress reviews and demos',
+            'Quality engineering integrated into delivery',
+            'Test automation where it provides meaningful protection',
+            'CI/CD and infrastructure automation where appropriate',
+            'Delivery practices matched to the target environment',
           ],
         },
         {
           eyebrow: 'Phase 03 — Launch & Operations',
           title:   "We don't disappear after go-live.",
-          body:    'We ensure your systems run reliably at scale through observability, proactive operations, and continuous optimization—acting as your long-term technology partner.',
+          body:    'After go-live, systems need owners. We support reliable operation through observability, proactive maintenance and continuous improvement — as a long-term partner where that is wanted.',
           checks:  [
-            'Zero-downtime production deployments',
-            'Observability and monitoring built in',
-            'Cloud and DevOps operations at scale',
+            'Controlled production deployments and rollback planning',
+            'Observability and monitoring appropriate to the environment',
+            'Application and platform operations',
             'Managed services with L1–L3 support',
-            'Optional SLA and long-term support',
+            'Optional SLA-based long-term support, scope agreed per engagement',
           ],
-          cta: { label: 'Get in touch →', href: '#contact', variant: 'btn-primary' },
+          cta: { label: 'Talk to an engineer →', href: '#contact', variant: 'btn-primary' },
         },
       ],
     },
@@ -236,18 +260,18 @@ export const translations = {
       cta:            { title: 'Working on something similar?', body: 'Describe your project, and we will tell you where we can help.' },
     },
     cta: {
-      eyebrow: 'Ready to transform your engineering?',
-      title:   "Let's build your competitive advantage.",
-      sub:     "Tell us about your vision — we'll come back within {hours} hours with a clear strategy, not a sales pitch.",
-      button:  'Get in touch →',
-      small:   'No commitment. Response within {hours} h.',
+      eyebrow: 'Ready to discuss your engineering challenge?',
+      title:   "Let's talk about what you're building.",
+      sub:     "Tell us what you're working on. We'll review the context and come back with a practical next step.",
+      button:  'Talk to an engineer →',
+      small:   'No obligation.',
     },
 
     contact: {
       eyebrow:  "You're one message away",
       title:    'What are you working on?',
-      sub:      'Share a rough outline — a paragraph is enough. One of our senior engineers will read it personally and come back with a clear next step within {hours} hours.',
-      note:     'No commitment required.',
+      sub:      "Share a rough overview — one paragraph is enough. We'll review it and come back with a clear next step.",
+      note:     'No obligation.',
       sending:  'Sending…',
       privacy:  { before: 'We use the details you send only to respond to your enquiry. See our ', link: 'Privacy Policy', after: '.' },
       send:     'Send message →',
@@ -270,9 +294,9 @@ export const translations = {
         submit: 'Something went wrong sending your message. Please try again or email {email} directly.',
       },
       success: {
-        title:  "We'll be in touch.",
-        body:   "Thanks for reaching out. We'll respond within {hours} hours with a clear strategy — not a sales pitch.",
-        detail: 'Response within {hours} h · No commitment',
+        title:  'Thanks for getting in touch.',
+        body:   "We'll review your message and get back to you.",
+        detail: 'No obligation.',
       },
     },
 

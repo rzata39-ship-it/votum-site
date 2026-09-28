@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
-import { CASES_HUB_PATH } from '../config/cases'
+import { SOLUTIONS_HUB_PATH } from '../config/solutions'
 import './Hero.css'
 
 export default function Hero({ onContact }) {
@@ -36,7 +36,7 @@ export default function Hero({ onContact }) {
           <button type="button" className="btn btn-primary btn-lg" onClick={onContact}>
             {t.ctaPrimary}
           </button>
-          <Link to={CASES_HUB_PATH} className="btn btn-secondary-teal btn-lg">
+          <Link to={SOLUTIONS_HUB_PATH} className="btn btn-secondary-teal btn-lg">
             {t.ctaSecondary}
           </Link>
         </div>

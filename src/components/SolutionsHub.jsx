@@ -10,10 +10,11 @@ import Breadcrumbs from './Breadcrumbs'
 import './ContentPage.css'
 import './SolutionsHub.css'
 
-// Card targets for the six solution areas (translations solutionsHub.cards,
-// matched by `key`). Two areas have dedicated solution pages; the other four
-// deliberately link to the existing service pages — no new detail routes.
-const SOLUTION_AREAS = {
+// Card targets for the six solution areas (translations solutionsHub.cards
+// and solutionsPreview.items, matched by `key`). Two areas have dedicated
+// solution pages; the other four deliberately link to the existing service
+// pages — no new detail routes. Also used by the homepage SolutionsPreview.
+export const SOLUTION_AREAS = {
   modernization: solutionPath('application-modernization'),
   software:      servicePath('software-development'),
   devops:        servicePath('devops-cloud'),
