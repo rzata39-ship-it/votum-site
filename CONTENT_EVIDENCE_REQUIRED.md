@@ -216,6 +216,12 @@ Still not published for any person (no evidence / not provided): years of
 experience, employer histories, certifications, personal qualifications,
 sameAs / LinkedIn profiles (none configured), personal contact data.
 
+**2026-09-28 (post-3C, client request):** all OpenText product references were
+removed from the personal bios ("May be attributed publicly" above still
+records what remains approved, but bios now stay product-neutral —
+"enterprise platform" wording only). OpenText product names on /about appear
+only in the "Enterprise delivery platforms" expertise item.
+
 ### "Expertise across the team" section
 
 Six visually equal capability items (OpenText deliberately not dominant);
