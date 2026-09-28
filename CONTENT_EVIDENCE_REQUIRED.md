@@ -186,7 +186,7 @@ The five case studies have their own pages under `/case-studies/<slug>`
 
 ### Confirmed by the business (2026-09-25)
 
-- [x] **All five projects were delivered by members of the current VOTUM team, before VOTUM was founded.** Every case page shows: *"This project was delivered by members of the current VOTUM team before VOTUM IT EOOD & Co KD was founded in 2024."* Case copy uses "the team" / "we", never "VOTUM delivered…".
+- [x] **All five projects were delivered by members of the current VOTUM team, before VOTUM was founded.** Case copy uses "the team" / "we", never "VOTUM delivered…". The visible note (*"This project was delivered by members of the current VOTUM team before VOTUM IT EOOD & Co KD was founded in 2024."*) originally appeared on every case page; **on 2026-09-28 the client instructed removing it from the three non-OpenText cases** (asset management platform, on-premise Kubernetes platform, automotive test automation) — `attributionNote: false` in `config/cases.js`. It remains on the software delivery platform and insurance archival cases. The section-level attribution notes on /solutions, /solutions/application-modernization and the /case-studies hub portfolio text are unchanged.
 - [x] **The team has worked together on enterprise software projects since 2018** (`company.teamSince`). Used on the About page and the `/case-studies` hub — always as the team's history, never as the company's age.
 - [x] **VOTUM IT EOOD & Co KD was founded in 2024** (`company.foundingYear`, JSON-LD `foundingDate` 2024-03-11) — unchanged.
 

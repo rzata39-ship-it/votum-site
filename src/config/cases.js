@@ -11,9 +11,11 @@
 // related → other case slugs worth reading next (optional; may be empty).
 //
 // All five projects were delivered by members of the current VOTUM team
-// before VOTUM IT EOOD & Co KD was founded in 2024 (attribution note on every
-// case page, CONTENT_EVIDENCE_REQUIRED.md §F). The slugs are canonical public
-// URLs — do not change them.
+// before VOTUM IT EOOD & Co KD was founded in 2024. The visible attribution
+// note on the case page can be switched off per case with
+// `attributionNote: false` (client decision 2026-09-28 — the three
+// non-OpenText cases; CONTENT_EVIDENCE_REQUIRED.md §F). The slugs are
+// canonical public URLs — do not change them.
 // Node-safe (imported by the build plugin): no `import.meta`.
 
 export const CASES = [
@@ -35,12 +37,14 @@ export const CASES = [
     technologies: ['React', 'Java / Spring Boot', 'Keycloak', 'Docker', 'Kubernetes'],
     services: ['software-development'],
     related: ['insurance-data-archival-migration'],
+    attributionNote: false,
   },
   {
     slug: 'on-premise-kubernetes-platform', key: 'caseKubernetes',
     technologies: ['Kubernetes', 'Jenkins', 'CI/CD'],
     services: ['devops-cloud'],
     related: ['asset-management-advisory-platform'],
+    attributionNote: false,
   },
   {
     slug: 'automotive-test-automation-framework', key: 'caseTestAutomation',
@@ -48,6 +52,7 @@ export const CASES = [
     services: ['test-automation'],
     // no related case: the other automotive case must not read as the same client
     related: [],
+    attributionNote: false,
   },
 ]
 
