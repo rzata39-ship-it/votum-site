@@ -947,8 +947,8 @@ export const translations = {
     // Page metadata. The build plugin (vite.config.js) writes the English
     // values into the static HTML of each route; useSeo() updates them at runtime.
     seo: {
-      home:     { title: 'VOTUM – Software Engineering, DevOps & Test Automation', description: 'Sofia-based engineering partner for technology consulting, custom software, DevOps & cloud, managed operations and test automation — from discovery to production.' },
-      about:    { title: 'About VOTUM – Software Engineering Company in Sofia', description: 'Meet the VOTUM team: experienced software engineers in Sofia, Bulgaria, covering architecture, software development, DevOps, quality engineering and managed operations.' },
+      home:     { title: 'VOTUM – Software Engineering, DevOps & Test Automation', description: 'Sofia-based engineering partner: technology consulting, custom software, DevOps & cloud, managed operations and test automation — discovery to production.' },
+      about:    { title: 'About VOTUM – Software Engineering Company in Sofia', description: 'Meet the VOTUM team in Sofia: experienced engineers across architecture, software development, DevOps, quality engineering and operations.' },
       blog:     { title: 'Insights — VOTUM', description: 'Engineering insights from the VOTUM team: architecture decisions, delivery patterns and lessons from production engineering.' },
       privacy:  { title: 'Privacy Policy — VOTUM', description: 'How VOTUM collects, uses and protects personal data when you visit this website or contact us.' },
       legal:    { title: 'Legal Notice — VOTUM', description: 'Company details of VOTUM IT EOOD & Co KD: registered address, UIC, VAT number and contact details.' },
