@@ -160,21 +160,33 @@ Not recorded and not published: any legal or company relationship to an earlier 
 - [ ] **Test automation measurements** — manual effort, release cadence, coverage (before / after). Until then only qualitative wording.
 - [ ] **Automotive client classification** — OEM or Tier 1 supplier; until confirmed, "a global automotive organization".
 
-### OpenText ALM solution page (Sprint 3B)
+### OpenText ADM solution page (Sprint 3B, repositioned in 3B.1)
 
-`/solutions/opentext-alm` uses only what the public case studies and service
-pages support: OpenText ALM / UFT (software delivery platform case),
-OpenText ALM / PPM migration and archival (insurance case), and the confirmed
-company capabilities (L1–L3, L3 as a core strength, 24/7 under agreed SLAs).
-The page states that the products belong to OpenText and that VOTUM is an
-independent engineering company.
+`/solutions/opentext-adm` (was `/solutions/opentext-alm`, now a 308 redirect)
+positions the team across the OpenText Application Delivery Management
+portfolio, with ALM / Quality Center, ALM Octane and UFT as the core expertise
+and LoadRunner and PPM as wider ADM experience. The page states that the
+products belong to OpenText and that VOTUM is an independent engineering
+company.
+
+| Statement | Basis |
+|---|---|
+| ALM and UFT platform transformation, migration, operations | Public case: software delivery platform (OpenText ALM and UFT) |
+| ALM / PPM data migration and archival | Public case: insurance data archival (OpenText ALM and PPM, Oracle → PostgreSQL on AWS RDS) |
+| L1–L3, L3 as a core strength, 24/7 under agreed SLAs | Confirmed company capability (not attributed to a case; the operations case stays L1–L2) |
+| Expertise across ALM, ALM Octane, UFT, LoadRunner and PPM; ALM, Octane and UFT as the deepest experience; the capability lists in each product section | Business-approved capability statement (2026-09-26). **No public case evidence** for ALM Octane or LoadRunner |
+
+The automotive test automation case keeps its tool unnamed; the page does not
+link it or attribute UFT to it.
 
 Not claimed — provide evidence before adding any of these:
 
 - [ ] OpenText partner, reseller or certification status
-- [ ] Supported product versions or modules beyond ALM, UFT and PPM
-- [ ] Years of OpenText experience, number of ALM projects or users supported
-- [ ] OpenText-specific CI/CD integrations, response times or SLA figures
+- [ ] Supported product versions or modules
+- [ ] Years of OpenText experience, number of ADM projects or users supported
+- [ ] Proprietary migration tooling
+- [ ] Response times, SLA figures or performance-test results
+- [ ] A public case study for ALM Octane or LoadRunner work (would back the capability statements above)
 
 ### Client-scale figures — evidence notes
 

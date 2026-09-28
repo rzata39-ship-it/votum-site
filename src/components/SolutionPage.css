@@ -50,3 +50,153 @@
   text-underline-offset: 3px;
 }
 .solution-page__evidence a:hover { color: var(--white); }
+
+.solution-page__intro {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--navy-200);
+  margin-bottom: 14px;
+}
+.solution-page__intro:last-of-type { margin-bottom: 30px; }
+
+/* "Core expertise" / "Wider ADM experience" above a section heading or card */
+.solution-page__label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-400);
+}
+.solution-core .solution-page__label { color: var(--green-400); }
+
+.solution-page__subhead {
+  margin: 26px 0 14px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.solution-page__columns {
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 28px;
+  margin-bottom: 18px;
+}
+.solution-page .page-list:not(.solution-page__columns) { margin-bottom: 18px; }
+.solution-page__tags { margin-bottom: 18px; }
+
+/* Product overview: core products span two columns, the others one */
+.solution-products {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+.solution-product {
+  grid-column: span 3;
+  padding: 20px 22px;
+  background: var(--navy-800);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+}
+.solution-product--core {
+  grid-column: span 2;
+  border-top: 2px solid var(--green-400);
+  background: linear-gradient(180deg, rgba(120, 214, 75, 0.07), transparent 70%), var(--navy-800);
+}
+.solution-product .solution-page__label { margin-bottom: 10px; }
+.solution-product--core .solution-page__label { color: var(--green-400); }
+.solution-product h3 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.solution-product--core h3 { font-size: 17px; }
+.solution-product p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--navy-200);
+}
+
+/* Core product sections: accent rule on the left */
+.solution-core {
+  margin-top: 56px;
+  padding: 0 0 0 22px;
+  border-left: 2px solid rgba(120, 214, 75, 0.45);
+}
+
+.solution-sub {
+  margin: 8px 0 18px;
+  padding: 20px 22px;
+  background: var(--navy-800);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+}
+.solution-sub h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.solution-sub .solution-page__text:last-child { margin-bottom: 0; }
+
+/* LoadRunner / PPM side by side */
+.solution-broader {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 32px;
+}
+.solution-broader .page-section h2 { font-size: clamp(21px, 2.4vw, 24px); }
+
+/* Ecosystem map: product → role */
+.solution-map {
+  display: grid;
+  gap: 1px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+}
+.solution-map > div {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 16px;
+  padding: 14px 20px;
+  background: var(--navy-800);
+}
+.solution-map dt {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+}
+.solution-map dd {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--navy-200);
+}
+
+/* The CTA label is long: let it wrap instead of overflowing narrow screens */
+.solution-page .page-cta .btn {
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.35;
+  text-align: center;
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  .solution-products { grid-template-columns: 1fr; }
+  .solution-product,
+  .solution-product--core { grid-column: auto; }
+  .solution-page__columns,
+  .solution-broader { grid-template-columns: 1fr; }
+  .solution-map > div { grid-template-columns: 1fr; gap: 4px; }
+}
+
+@media (max-width: 640px) {
+  .solution-core { padding-left: 16px; margin-top: 44px; }
+}

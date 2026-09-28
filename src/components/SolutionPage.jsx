@@ -24,6 +24,11 @@ function SolutionContent({ solution }) {
   useSeo(solution.key)
   const t = locale.solutionPages[solution.slug]
   const caseTitle = (slug) => locale.cases.items[slug].title
+  const evidence = (slug) => slug && (
+    <p className="solution-page__evidence">
+      {t.evidenceLabel} <Link to={casePath(slug)}>{caseTitle(slug)} →</Link>
+    </p>
+  )
 
   return (
     <main id="main" tabIndex={-1} className="solution-page">
@@ -32,62 +37,98 @@ function SolutionContent({ solution }) {
           <Breadcrumbs routeKey={solution.key} />
           <span className="page-eyebrow">{t.eyebrow}</span>
           <h1 className="page-hero__title">{t.h1}</h1>
-          <p className="page-hero__lead">{t.intro}</p>
+          <p className="page-hero__lead">{t.lead}</p>
+          {t.intro.map((p) => <p key={p} className="solution-page__intro">{p}</p>)}
           <Link to="/contact" className="btn btn-primary btn-lg">{locale.servicePage.cta}</Link>
-          {/* Entity clarity: OpenText makes the products; VOTUM is a separate company */}
-          <p className="solution-page__note">{t.productNote}</p>
         </div>
       </header>
 
       <div className="page-body">
-        <Section title={t.challengesTitle}>
-          <ul className="page-list">
-            {t.challenges.map((item) => <li key={item}>{item}</li>)}
-          </ul>
-        </Section>
-
-        <Section title={t.capabilitiesTitle}>
-          <div className="service-grid">
-            {t.capabilities.map((c) => (
-              <div key={c.title} className="service-item">
-                <h3>{c.title}</h3>
-                <p>{c.body}</p>
-              </div>
+        {/* Product overview: core products first and emphasized */}
+        <Section title={t.productsTitle}>
+          <ul className="solution-products">
+            {t.products.map((p) => (
+              <li key={p.name} className={`solution-product${p.core ? ' solution-product--core' : ''}`}>
+                <span className="solution-page__label">{p.core ? t.coreLabel : t.broaderLabel}</span>
+                <h3>{p.name}</h3>
+                <p>{p.role}</p>
+              </li>
             ))}
-          </div>
+          </ul>
+          {/* Entity clarity: OpenText makes the products; VOTUM is a separate company */}
+          <p className="solution-page__note">{t.productNote}</p>
         </Section>
 
-        {t.sections.map((section) => (
-          <Section key={section.title} title={section.title}>
-            <p className="solution-page__text">{section.body}</p>
-            {section.points && (
-              <ul className="page-list page-list--check">
-                {section.points.map((p) => <li key={p}>{p}</li>)}
-              </ul>
+        {t.core.map((s) => (
+          <Section key={s.title} title={s.title} label={t.coreLabel} className="solution-core">
+            <p className="solution-page__text">{s.body}</p>
+            <CheckList items={s.points} columns />
+            {s.sub && (
+              <div className="solution-sub">
+                <h3>{s.sub.title}</h3>
+                <p className="solution-page__text">{s.sub.body}</p>
+                {s.sub.points && <DotList items={s.sub.points} />}
+                {s.sub.after && <p className="solution-page__text">{s.sub.after}</p>}
+              </div>
             )}
-            {section.tiers && (
-              <dl className="solution-page__tiers">
-                {section.tiers.map((tier) => (
-                  <div key={tier.level}>
-                    <dt>{tier.level}</dt>
-                    <dd>{tier.text}</dd>
-                  </div>
-                ))}
-              </dl>
-            )}
-            {section.note && <p className="solution-page__text solution-page__text--muted">{section.note}</p>}
-            {section.evidence && (
-              <p className="solution-page__evidence">
-                {t.evidenceLabel} <Link to={casePath(section.evidence)}>{caseTitle(section.evidence)} →</Link>
-              </p>
-            )}
+            {evidence(s.evidence)}
           </Section>
         ))}
 
-        <Section title={t.technologiesTitle}>
-          <ul className="tag-list">
-            {solution.technologies.map((tech) => <li key={tech} className="tag tag--teal">{tech}</li>)}
-          </ul>
+        <Section title={t.modernization.title}>
+          <p className="solution-page__text">{t.modernization.body}</p>
+          <DotList items={t.modernization.contents} columns />
+          <p className="solution-page__text">{t.modernization.after}</p>
+          <h3 className="solution-page__subhead">{t.modernization.pathsTitle}</h3>
+          <CheckList items={t.modernization.paths} columns />
+          <p className="solution-page__text solution-page__text--muted">{t.modernization.note}</p>
+        </Section>
+
+        <Section title={t.migration.title}>
+          <p className="solution-page__text">{t.migration.body}</p>
+          <Steps items={t.migration.steps} />
+        </Section>
+
+        {/* LoadRunner and PPM: shorter, side by side */}
+        <div className="solution-broader">
+          {t.broader.map((s) => (
+            <Section key={s.title} title={s.title} label={t.broaderLabel}>
+              <p className="solution-page__text">{s.body}</p>
+              <CheckList items={s.points} />
+              {evidence(s.evidence)}
+            </Section>
+          ))}
+        </div>
+
+        <Section title={t.ecosystem.title}>
+          <p className="solution-page__text">{t.ecosystem.body}</p>
+          <dl className="solution-map">
+            {t.ecosystem.map.map((m) => (
+              <div key={m.name}>
+                <dt>{m.name}</dt>
+                <dd>{m.role}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="solution-page__text">{t.ecosystem.surroundingText}</p>
+          <Tags items={t.ecosystem.surrounding} />
+          <p className="solution-page__text">{t.ecosystem.after}</p>
+        </Section>
+
+        <Section title={t.operations.title}>
+          <p className="solution-page__text">{t.operations.body}</p>
+          <dl className="solution-page__tiers">
+            {t.operations.tiers.map((tier) => (
+              <div key={tier.level}>
+                <dt>{tier.level}</dt>
+                <dd>{tier.text}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="solution-page__text">{t.operations.layersText}</p>
+          <Tags items={t.operations.layers} />
+          <p className="solution-page__text solution-page__text--muted">{t.operations.note}</p>
+          {evidence(t.operations.evidence)}
         </Section>
 
         <Section title={t.casesTitle}>
@@ -97,11 +138,12 @@ function SolutionContent({ solution }) {
           <div className="teaser-grid">
             {solution.cases.map((slug) => {
               const item = locale.cases.items[slug]
+              const teaser = t.caseTeasers?.[slug] ?? { title: item.title, body: item.cardBody }
               return (
                 <article key={slug} className="teaser">
                   <span className="teaser__category">{item.category}</span>
-                  <h3><Link to={casePath(slug)}>{item.title}</Link></h3>
-                  <p>{item.cardBody}</p>
+                  <h3><Link to={casePath(slug)}>{teaser.title}</Link></h3>
+                  <p>{teaser.body}</p>
                   <span className="teaser__more" aria-hidden="true">{locale.cases.readLink}</span>
                 </article>
               )
@@ -120,34 +162,65 @@ function SolutionContent({ solution }) {
         </Section>
 
         <Section title={t.approachTitle}>
-          <ol className="service-steps">
-            {t.approach.map((step, i) => (
-              <li key={step.title}>
-                <span className="service-steps__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <Steps items={t.approach} />
         </Section>
 
         <section className="page-cta">
           <h2>{t.cta.title}</h2>
           <p>{t.cta.body}</p>
-          <Link to="/contact" className="btn btn-primary btn-lg">{locale.servicePage.cta}</Link>
+          <Link to="/contact" className="btn btn-primary btn-lg">{t.cta.button}</Link>
         </section>
       </div>
     </main>
   )
 }
 
-function Section({ title, children }) {
+function Section({ title, label, className, children }) {
   return (
-    <section className="page-section">
+    <section className={`page-section${className ? ` ${className}` : ''}`}>
+      {label && <span className="solution-page__label">{label}</span>}
       <h2>{title}</h2>
       {children}
     </section>
+  )
+}
+
+function CheckList({ items, columns }) {
+  return (
+    <ul className={`page-list page-list--check${columns ? ' solution-page__columns' : ''}`}>
+      {items.map((item) => <li key={item}>{item}</li>)}
+    </ul>
+  )
+}
+
+function DotList({ items, columns }) {
+  return (
+    <ul className={`page-list${columns ? ' solution-page__columns' : ''}`}>
+      {items.map((item) => <li key={item}>{item}</li>)}
+    </ul>
+  )
+}
+
+function Tags({ items }) {
+  return (
+    <ul className="tag-list solution-page__tags">
+      {items.map((item) => <li key={item} className="tag tag--teal">{item}</li>)}
+    </ul>
+  )
+}
+
+function Steps({ items }) {
+  return (
+    <ol className="service-steps">
+      {items.map((step, i) => (
+        <li key={step.title}>
+          <span className="service-steps__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
   )
 }
